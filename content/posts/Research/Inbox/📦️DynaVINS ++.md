@@ -37,8 +37,11 @@ state에 보면 $\omega$가 보이는데, 이건 feature가 static인지 dynamic
 ##### DynaVINS의 문제점
 1. surrogate cost로 optimization을 새롭게 바꿨지만, outlier의 gradient가 0이 안 돼서 영향이 남아있게 됨.
 2. outlier correspondence들의 depth와 weights를 불필요하게 update해서 연산량이 많아짐.
-##### ATLS
 
+##### ATLS
+![[Pasted image 20240921183245.png]]
+- static feature의 maximum residual을 이용해 surrogate cost를 만들었고, 이에 따라 residual 값이 일정 이상 벌어지면 gradient가 0이 되게 함.
+- truncation range(버릴 영역)를 feature들의 maximum residual을 이용해 조정함.
 
 
 ### Bias Consistency Check
