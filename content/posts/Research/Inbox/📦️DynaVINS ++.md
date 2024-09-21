@@ -43,6 +43,8 @@ state에 보면 $\omega$가 보이는데, 이건 feature가 static인지 dynamic
 - static feature의 maximum residual을 이용해 surrogate cost를 만들었고, 이에 따라 residual 값이 일정 이상 벌어지면 gradient가 0이 되게 함.
 - truncation range(버릴 영역)를 feature들의 maximum residual을 이용해 조정함.
 
+###### 1. Weight update (Static / Dynamic)
+###### 2. State Optimization
 
 ### Bias Consistency Check
 abruptly dynamic object가 발생하면 ATLS가 이 feature에 weight를 1을 줌으로써 outlier를 막지 못할 때가 온다. 
@@ -53,7 +55,7 @@ pose와 다르게 bias는 objective function 식이 $k-1$과 $k$ 윈도우 간�
 와 같은 식으로 갑자기 발생한 동적물체가 있는지 확인해본다.
 
 #### Stable State Recovery
-만약 pose와 bias 간의 inconsistency가 발생한다면, state를  optimization 전의 값으로 돌린 후, $r_{trunc}$를 반으로 나눔으로써 optimization 영역을 더 작게 만든다.(?)
+만약 pose와 bias 간의 inconsistency가 발생한다면, state를  optimization 전의 값으로 돌린 후, $r_{trunc}$를 반으로 나눔으로써 outlier를 더 tight하게 잡고, gradient=0을 만드는 애들을 더 늘림. 
 이후 weight를 update하고 optimization proceess가 진행된다.
 ### Experiments
 - VIODE Dataset(simulation), Customised Dataset(물체들이 종/횡방향으로 지나가는 거)
