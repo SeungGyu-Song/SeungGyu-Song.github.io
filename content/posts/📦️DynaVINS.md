@@ -13,9 +13,7 @@ source :
 
 ---
 ### Critique
-- 얻어갈 것
-- 이 방법의 장점 / 부족한 점
-- 어떻게 써먹을 수 있을지
+- 동적물체로 인한 Loop closure의 false positive를 잘 해결하자.
 
 ### Introduction
 
