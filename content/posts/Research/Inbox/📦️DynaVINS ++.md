@@ -56,8 +56,11 @@ pose와 다르게 bias는 objective function 식이 $k-1$과 $k$ 윈도우 간�
 만약 pose와 bias 간의 inconsistency가 발생한다면, state를  optimization 전의 값으로 돌린 후, $r_{trunc}$를 반으로 나눔으로써 optimization 영역을 더 작게 만든다.(?)
 이후 weight를 update하고 optimization proceess가 진행된다.
 ### Experiments
-- 어떤 데이터
-- 어떤 정보를 분석했는지 (ate, rpe, NEES)
+- VIODE Dataset(simulation), Customised Dataset(물체들이 종/횡방향으로 지나가는 거)
+- SLAM을 타겟으로 한 건지 ATE를 기준으로 비교함. 
+- Feature 개수에 따른 Optimization 연산시간, ATE 비교 
+- 실제 동적물체들이 지나가는 위치에서 다른 비교군의 odometry와 DynaVINS++의 위치 추정 결과 비교
+	- 추가적으로 실제 사진을 첨부해서 SSR이 추가되었을 때도 같이 비교해서 static / dynamic feature의 분포를 보여줌.
 
 
 ### ❓️Questions
