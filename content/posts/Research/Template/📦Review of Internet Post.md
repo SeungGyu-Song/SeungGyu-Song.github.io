@@ -3,7 +3,8 @@ aliases:
 date: 
 title: 
 URL: 
-tags:
+tags: 
+draft: true
 ---
 ### Objective
 - 이 지식을 왜 공부해야 했는지

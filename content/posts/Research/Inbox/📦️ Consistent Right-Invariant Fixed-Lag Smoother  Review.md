@@ -6,8 +6,9 @@ title: Consistent Right-Invariant Fixed-Lag Smoother Review
 author: 
 tags:
   - Review
+draft: true
 ---
-o
+
 zotero : 
 source : [[@Huai_Consistent Right-Invariant Fixed-Lag Smoother with Application to Visual Inertial SLAM_2021]]
 

@@ -23,7 +23,6 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10669187
 	- 그리고 부정확한 IMU bias term은 
 - 기존의 연구 [[DynaVINS]]에서는 Black-Rangarajan duality (B-R duality)를 이용해 moving objects로부터의 false correspondence를 줄일 수 있었음.
 	- 하지만 추가적인 optimization 단계로 인해 연산 속도가 느렸음.
-- 
 
 ### Methodology
 - Adaptive truncated least squares (ATLS)
@@ -35,6 +34,11 @@ state에 보면 $\omega$가 보이는데, 이건 feature가 static인지 dynamic
 동적인 물체가 있다보면 keyframe을 선정할 때 parallax로 접근할 경우, 충분히 viewpoint가 다른데도 keyframe으로 안 뽑힐 수 있고 반대로 viewpoint 차이가 작은데도 parallax가 커서 keyframe으로 될 수 있다. 따라서 *weighted average parallax*로 keyframe을 판단한다.
 
 #### Adaptive Truncated Least Squares (ATLS)
+##### DynaVINS의 문제점
+1. surrogate cost로 optimization을 새롭게 바꿨지만, outlier의 gradient가 0이 안 돼서 영향이 남아있게 됨.
+2. outlier correspondence들의 depth와 weights를 불필요하게 update해서 연산량이 많아짐.
+##### ATLS
+
 
 
 ### Bias Consistency Check
