@@ -12,9 +12,8 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10669187
 
 ---
 ### Critique
-- 얻어갈 것
-- 이 방법의 장점 / 부족한 점
-- 어떻게 써먹을 수 있을지
+- Outlier의 gradient를 0으로 만들어서 영향력 없애는 방법
+- 
 
 
 ![[Pasted image 20240920204811.png]]
@@ -44,6 +43,8 @@ state에 보면 $\omega$가 보이는데, 이건 feature가 static인지 dynamic
 - truncation range(버릴 영역)를 feature들의 maximum residual을 이용해 조정함.
 
 ###### 1. Weight update (Static / Dynamic)
+동적 / 정적 객체에 대한 weight를 세우는 방법은 좀 복잡해서 아직 이해는 못 했다. #점검 
+근데 static이면서 optimized feature들의 max residual인 놈을 하나 고르고, 얘를 지지고 볶아서 outlier들을 truncated 시킨다. (버림)
 ###### 2. State Optimization
 
 ### Bias Consistency Check
@@ -66,6 +67,9 @@ pose와 다르게 bias는 objective function 식이 $k-1$과 $k$ 윈도우 간�
 
 
 ### ❓️Questions
+#B-R_duality
+#Black-Rangarajan_duality
+#Truncated_Least_Squares
 
 ### Future Articles to Read
-
+[[📦️DynaVINS]]
