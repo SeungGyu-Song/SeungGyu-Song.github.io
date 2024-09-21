@@ -36,6 +36,7 @@ state에 보면 $\omega$가 보이는데, 이건 feature가 static인지 dynamic
 
 #### Adaptive Truncated Least Squares (ATLS)
 
+
 ### Bias Consistency Check
 abruptly dynamic object가 발생하면 ATLS가 이 feature에 weight를 1을 줌으로써 outlier를 막지 못할 때가 온다. 
 
