@@ -48,7 +48,7 @@ event stream을 image로 변환 →  Conventional SLAM 방식 사용.
 *pixel 위치가 고정이라는 가정이 있음*
 
 #### Time Surface
-
+2D representation인데, 각 pixel은 최근에 나타났던 time 정보를 가지고 있음.
 
 
 ### Experiments
