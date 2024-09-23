@@ -38,9 +38,17 @@ source :
 	1. spatio-temporal relationship을 바탕으로 reference frame에 motion model을 구함.
 4. Deep Learning
 
+### Event Representation
+#### Individual Event 
+축적하지 않고 그냥 들어오면 바로 쓰는 거 → filter 방식이랑 같이 쓰임.
+#### Event Packet
+#### Event Frame
+같은 pixel의 event를 축적해서 만든 2D의 표현방식.
+event stream을 image로 변환 →  Conventional SLAM 방식 사용.
+*pixel 위치가 고정이라는 가정이 있음*
 
+#### Time Surface
 
-### Methodology
 
 
 ### Experiments
