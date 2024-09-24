@@ -20,6 +20,7 @@ $\begin{bmatrix} \cdots \end{bmatrix}$
 # 글씨체
 bold체 : `\textbf{bold text}` → $\textbf{bold text}$
 
+
 ## 수식 안에서
 - bold체 : `\mathbf{Mat}` →$\mathbf{Mat}$
 - 
@@ -39,6 +40,10 @@ bold체 : `\textbf{bold text}` → $\textbf{bold text}$
 2. `\;` : 두 칸
 3. `\quad` : 네 칸(=tab)
 4. `\qquad` : 여덟 칸 (tab * 2).
+
+# 분수
+1. `\frac{\pi}{3}` : $\frac{\pi}{3}$
+
 
 # 기호
 | LaTeX                         |                                           |                                                              |
