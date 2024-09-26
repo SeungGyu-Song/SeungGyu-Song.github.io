@@ -136,7 +136,7 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 ### get_historical_viz_image
 <span style="color:red"> return cv::Mat </span>
-
+state에서 `_feature_SLAM`에 담긴 feature를 visualize
 [[#TrackBase#display_history|TrackBase::display_history]]
 ### do_feature_propagate_update
 <span style="color:green">const ov_core::CameraData <span style="color:purple">&message</span></span>
@@ -305,6 +305,7 @@ Eigen::Matrix<double, 3, 1> am;
 ## TrackBase 
 
 ### display_history
+
 
 ## TrackKLT ← TrackBase
 ### feed_new_camera
