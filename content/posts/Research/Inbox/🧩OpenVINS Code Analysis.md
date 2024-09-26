@@ -134,6 +134,9 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 5. [[#try_to_initialize]] 
 6. [[#do_feature_propagate_update]] 
 
+### get_historical_viz_image
+
+
 ### do_feature_propagate_update
 <span style="color:green">const ov_core::CameraData <span style="color:purple">&message</span></span>
 1. state의 timestamp ≠ imu message의 timestamp → [[#propagate_and_clone|Propagator::propagate_and_clone]] ?state의 timestamp가 언제 갱신되더라? #점검 
