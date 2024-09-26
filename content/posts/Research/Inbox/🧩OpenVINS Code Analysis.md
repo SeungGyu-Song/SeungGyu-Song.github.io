@@ -134,6 +134,9 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 5. [[#try_to_initialize]] 
 6. [[#do_feature_propagate_update]] 
 
+### get_features_SLAM
+이거도 state의 _features_SLAM을 가져다가 쓰는 거
+
 ### get_historical_viz_image
 <span style="color:red"> return cv::Mat </span>
 state에서 `_feature_SLAM`에 담긴 feature를 visualize
