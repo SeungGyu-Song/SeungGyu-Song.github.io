@@ -8,8 +8,15 @@ tags:
 draft: true
 ---
 
+### Hydra
+- loop detection efficiency
+- Layers are not
 
 
+### S-graphs+
+scene graph가 SLAM과 tightly coupled가 아니었다.
+
+![[Pasted image 20240926192554.png]]
 ### Objective
 - 이 지식을 왜 공부해야 했는지
 
