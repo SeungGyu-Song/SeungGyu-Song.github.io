@@ -135,6 +135,7 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 6. [[#do_feature_propagate_update]] 
 
 ### get_historical_viz_image
+<span style="color:red"> return cv::Mat </span>
 
 
 ### do_feature_propagate_update
