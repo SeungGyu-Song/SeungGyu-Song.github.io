@@ -17,6 +17,8 @@ draft: true
 scene graph가 SLAM과 tightly coupled가 아니었다.
 
 ![[Pasted image 20240926192554.png]]
+
+Hydra처럼 loop detection이 tightly coupled되지 않았음.
 ### Objective
 - 이 지식을 왜 공부해야 했는지
 
