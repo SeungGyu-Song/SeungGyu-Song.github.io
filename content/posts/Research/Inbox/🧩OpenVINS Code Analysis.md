@@ -371,6 +371,7 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 - RANSAC을 할 때 undistorted point를 가지고 하는데 projection이 nonlinear해서 nonlinear 특성을 없앤 점을 가지고 진행.  비선형성은 더 복잡해서 RANSAC 오차가 더 클 수 있음.
 
 - 💡focal length가 낮아지면 scale이 낮고(image가 커지고), focal length가 크면 scale이 높다(image가 작다.) 이러면 실제로 움직임을 크게 해도 scale이 큰 이미지에서 작게 움직인 것처럼 반영이 되기 때문에 초점 거리를 기준으로 threshold를 설정하게 되면 scale 변화에 더 일관된 결과를 얻을 수 있다고 함.
+	- undistorted point로 고려했으니까 intrinsic을 한 거라서 focal length로 thresholding을 해야함. (2픽셀)
 
 ## TrackDescriptor ← TrackBase
 ### feed_new_camera
