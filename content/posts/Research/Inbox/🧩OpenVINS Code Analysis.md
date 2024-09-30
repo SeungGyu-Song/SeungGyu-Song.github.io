@@ -105,6 +105,9 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 ### augment_clone
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, Eigen::Matrix(double, 3, 1) <span style="color:purple">last_w</span></span>
 
+### marginalize_old_clone
+<span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span></span>
+
 
 ---
 
