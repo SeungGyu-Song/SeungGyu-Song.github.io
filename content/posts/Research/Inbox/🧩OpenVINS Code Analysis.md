@@ -1,5 +1,4 @@
 ## 처음 시작 
-The rest of your content lives here. You can use **Markdown** here :)
 (run_subscribe_msckf.cpp 기준)
 1. VIOManager가 global 변수로 선언이 되어있다. : `std::shared_ptr<VioManager> sys;`
 2. parser를 통해 yaml파일에 들어있는 option들을 가져오는데, 이 때 내부에서 순서로는 launch 파일의 parameter → yaml 파일로 돼있어서 결국에는  yaml파일의 정보로 값을 불러온다.
@@ -181,7 +180,7 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 	1. [[#initialize|ov_init::InertialInitializer::initialize]]
 	2. initialize 성공했을 때
 		1. [[#set_initial_covariance|ov_msckf::StateHelper::set_initial_covariance]]
-		2. state의 timestamp를 맞춰주고f
+		2. state의 timestamp를 맞춰주고
 		3. [[#cleanup_measurements|trackFEATS→get_feature_database()→cleanup_measurements]]로 initialize 된 시간보다 오래된 feature 제거.
 		4. [[#set_num_features|trackFEATS::set_num_features]] : yaml파일에 있는 num_pts / num_cameras
 		5. 로봇이 움직인다면 ZUPT(zero velocity update) 안 하기.
