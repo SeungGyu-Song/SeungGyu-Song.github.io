@@ -107,7 +107,8 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 ### marginalize_old_clone
 <span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span></span>
-
+state의 IMU clone 개수 > 미리 설정한 max_clone_size 옵션
+	
 
 ---
 
