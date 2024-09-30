@@ -176,6 +176,7 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 ### try_to_initialize
 <span style="color:green">const ov_core::CameraData</span> <span style="color:purple">&message</span>
 1. `thread_init_running → camera_queue_init.push_back(message.timestamp)`
+		initialization 과정에서 image 들어오면 camera_queue_init에 쌓아놓기.
 2. thread를 하나 생성함으로써 main thread에 방해되지 않게 함.
 	1. [[#initialize|ov_init::InertialInitializer::initialize]]
 	2. initialize 성공했을 때
