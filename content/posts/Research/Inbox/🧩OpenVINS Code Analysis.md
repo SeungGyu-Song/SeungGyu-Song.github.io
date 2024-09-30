@@ -108,7 +108,13 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 ### marginalize_old_clone
 <span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span></span>
 state의 IMU clone 개수 > 미리 설정한 max_clone_size 옵션
-	
+	`double marginal_time = state->margtimestep(); // state에서 제일 오래된 시간.`
+	[[#StateHelper#marginalize|StateHelper::marginalize]](state, state→_clones_IMU.at(marginal_time))
+	 state의 `_clones_IMU`에서 marginal_time에 해당하는 값 삭제.
+
+### marginalize
+<span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, std::shared_ptr(Type) marg<span style="color:purple"> marg</span></span>
+
 
 ---
 
