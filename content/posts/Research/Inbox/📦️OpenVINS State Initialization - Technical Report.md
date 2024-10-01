@@ -48,7 +48,9 @@ Lagrange multiplier 방법으로 velocity, feature positions, gravity 벡터를 
 [[Gram-Schmidt]] 방식을 통해서 나머지 x,y 축에 대해서도 구함.
 
 ## Maximum Likelihood Estimation
-
+[[📦️VINS-Mono Derivation, Pre-integration|vins_derivation_preintegration]]과 마찬가지로 식을 구성함. 
+$\alpha, \beta$는 bias에 dependent해서 bias가 변할 때 $\alpha, \beta$가 변하는 식을 세움. 
+이 때, quaternion은 vins랑 그냥 역행렬의 관계로 기술되어있다. 왜인지는 모르겠음. (실제 vins-fusion 코드에서는 derivation과 역행렬 관계로 쓰여져있던 것 같음.)
 
 
 ### ❓️Questions
