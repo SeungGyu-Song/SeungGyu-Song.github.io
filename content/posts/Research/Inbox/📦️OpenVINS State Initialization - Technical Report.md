@@ -10,9 +10,10 @@ draft: true
 - OpenVINS Dynamic initialization 파트 이해를 위함. 
 - 
 ### Future Work
-- 내가 이해 못한 부분을 어떻게 보완할 수 있을까?
+- 
 
-### Part 1
+## 3. Least-squares Problem
+
 
 ### Part 2
 
