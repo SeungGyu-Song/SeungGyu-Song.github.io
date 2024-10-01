@@ -41,8 +41,14 @@ Reprojection error를 이용해서 다음과 같이 linear model을 설계
 
 이 때, feature는 image plane에서 x,y 좌표 두 개가 있으니까, 2N ≥9 , 즉 N=5일 때 위 식의 해를 구할 수 있음. 하지만 gravity의 크기를 알고있으니까 2N≥8이 되어서 N=4 여도 구할 수 있음.
 ### Quadratic Constrained Least-squares
+Lagrange multiplier 방법으로 velocity, feature positions, gravity 벡터를 구함. 
+- gravity norm = 9.81이라는 constraint
 
-### Part 2
+### Recovering Inertial States
+[[Gram-Schmidt]] 방식을 통해서 나머지 x,y 축에 대해서도 구함.
+
+## Maximum Likelihood Estimation
+
 
 
 ### ❓️Questions
