@@ -9,7 +9,8 @@ OpenVINS Study 3주차에는 Initialization(Static / Dynamic)에 관해 다룰 �
 
 ---
 ### Reference
-- [Technical Report](https://pgeneva.com/downloads/reports/tr_init.pdf)
+- [Technical Report](https://pgeneva.com/downloads/reports/tr_init.pdf) 
+	- [[📦️OpenVINS State Initialization - Technical Report]]
 - [Estimator initialization in vision-aided inertial navigation with unknown camera-IMU calibration](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6386235)
 - [Closed-form Solutions for Vision-aided Inertial Navigation](https://tdongsi.github.io/download/pubs/2011_VIO_Init_TR.pdf)
 
