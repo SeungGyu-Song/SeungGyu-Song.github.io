@@ -40,18 +40,30 @@ Reprojection error를 이용해서 다음과 같이 linear model을 설계
 ![[Pasted image 20241001221139.png]]
 
 이 때, feature는 image plane에서 x,y 좌표 두 개가 있으니까, 2N ≥9 , 즉 N=5일 때 위 식의 해를 구할 수 있음. 하지만 gravity의 크기를 알고있으니까 2N≥8이 되어서 N=4 여도 구할 수 있음.
-### Quadratic Constrained Least-squares
+### <span style="color:red">Quadratic Constrained Least-squares </span>
+<span style="color:red"> 여기 잘 이해해야함. </span>
+
 Lagrange multiplier 방법으로 velocity, feature positions, gravity 벡터를 구함. 
 - gravity norm = 9.81이라는 constraint
 
 ### Recovering Inertial States
 [[Gram-Schmidt]] 방식을 통해서 나머지 x,y 축에 대해서도 구함.
 
-## Maximum Likelihood Estimation
+## 4.Maximum Likelihood Estimation
+### 4.1 inertial measurement model
 [[📦️VINS-Mono Derivation, Pre-integration|vins_derivation_preintegration]]과 마찬가지로 식을 구성함. 
 $\alpha, \beta$는 bias에 dependent해서 bias가 변할 때 $\alpha, \beta$가 변하는 식을 세움. 
 이 때, quaternion은 vins랑 그냥 역행렬의 관계로 기술되어있다. 왜인지는 모르겠음. (실제 vins-fusion 코드에서는 derivation과 역행렬 관계로 쓰여져있던 것 같음.)
 
+### 4.2 camera measurement model
+reprojection error 사용
 
+### 4.3 Prior Cost
+VINS는 global yaw와 global position에 대해 unobservable함. 
+추가적으로, window가 매우 작을 시, rotation이 매우 작고, 이에 따라 gyroscope와 특히 accelerometer bias는 거의 unobservable하게 된다.
+
+- linearization point와 현재 state의 estimate간의 차이를 loss function으로 세움
+- 근데 이 때 이 prior term의  information matrix를 통해 (inverse해서) covariance를 구하게 된대. 
+	- 코드로 확인해보기 #점검 
 ### ❓️Questions
 
