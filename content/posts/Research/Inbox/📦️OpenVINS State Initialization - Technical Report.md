@@ -12,7 +12,7 @@ draft: true
 ### Future Work
 
 # Concept 
-
+우선 linear system을 만들어서 velocity, feature position, gravity를 구한 후 → full optimization을 이용해서 covariance recovery 진행.
 ## Extra Takeaways
 - Orientation은 비선형이다. 
 	- geometrical : rotation은 한 축에 대해 회전하는 것이고, 이는 Euclidian 좌표계와는 다르다. 즉, 조금 움직임을 기술하기 위해서는 euclidian이 아닌 구면 위를 표현하는 좌표계로 표현해야한다.
@@ -35,7 +35,13 @@ draft: true
 gravity와 상관 없이 초기의 좌표계 $I_0$를 설정하면, non-linear한 $^{I_0}_G R$을 구해줘야하는데, 아예 gravity를 $I_0$로 아예 표현해버리면 $^{I_0}g$에 대한 linear problem을 가지게 된다?? #점검 
 
 ### 3.4 Linear Ax = b Problem
-Reprojection error를 이용해서 
+Reprojection error를 이용해서 다음과 같이 linear model을 설계
+![[Pasted image 20241001221124.png]]
+![[Pasted image 20241001221139.png]]
+
+이 때, feature는 image plane에서 x,y 좌표 두 개가 있으니까, 2N ≥9 , 즉 N=5일 때 위 식의 해를 구할 수 있음. 하지만 gravity의 크기를 알고있으니까 2N≥8이 되어서 N=4 여도 구할 수 있음.
+### Quadratic Constrained Least-squares
+
 ### Part 2
 
 
