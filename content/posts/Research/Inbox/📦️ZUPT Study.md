@@ -17,9 +17,13 @@ Monocular system에서 temporal SLAM feature가 없을 때 중요하게 작동�
 로봇이 가만히 있으면 triangulation도 안 되고, 이에 따라 Update를 할 수가 없게 됨. 
 → Stereo cam 사용 or temporal SLAM feature를 확보하기
 
-추가적으로 Stereo나 temporal SLAM이 있더라도 dynamic한 object들에 대해서는 대처방안이 없다. 하지만, ZUPT를 통해서 이에 대응할 수 있따. 
+추가적으로 Stereo나 temporal SLAM이 있더라도 dynamic한 object들에 대해서는 대처방안이 없다. 하지만, ZUPT를 통해서 feature tracking을 안 하면 이에 대해 대응할 수가 있게 된다.
 
-### Part 2
+### Zero Velocity Detection
+- imu measurement model를 기반으로 한 threshold를 통해 판단( $\chi^2$ )
+	- 이를 통해서 등속도 운동할 때를 검출하고싶어함.
+
+
 
 
 ### ❓️Questions
