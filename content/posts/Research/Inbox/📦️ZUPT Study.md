@@ -20,11 +20,16 @@ Monocular system에서 temporal SLAM feature가 없을 때 중요하게 작동�
 추가적으로 Stereo나 temporal SLAM이 있더라도 dynamic한 object들에 대해서는 대처방안이 없다. 하지만, ZUPT를 통해서 feature tracking을 안 하면 이에 대해 대응할 수가 있게 된다.
 
 ### Zero Velocity Detection
+#### Inertial-based Detection
 - imu measurement model를 기반으로 한 threshold를 통해 판단( $\chi^2$ )
 	- 이를 통해서 등속도 운동할 때를 검출하고싶어함.
+- ![[Pasted image 20241002173155.png]]
 
+#### Disparity-based Detection
 
+tracking된 feature의 parallax의 차가 일정 범위보다 작으면 멈춰있다고 생각함. 근데 상황 자체가 dynamic object가 많은 환경이면 이게 적용되지는 않음.
 
+![[Pasted image 20241002173257.png]]
 
 ### ❓️Questions
 
