@@ -114,7 +114,8 @@ state의 IMU clone 개수 > 미리 설정한 max_clone_size 옵션
 
 ### marginalize
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, std::shared_ptr(Type) marg<span style="color:purple"> marg</span></span>
-
+state의 기존의 covariance에서 marginalization할 부분만 오려서 새로 만들기.
+그리고 state→_variables에도 local id를 수정해주기 (marginalize한 변수만 없애서)
 
 ---
 
