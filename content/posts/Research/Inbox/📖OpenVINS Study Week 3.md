@@ -15,17 +15,21 @@ OpenVINS Study 3주차에는 Initialization(Static / Dynamic)에 관해 다룰 �
 - [Closed-form Solutions for Vision-aided Inertial Navigation](https://tdongsi.github.io/download/pubs/2011_VIO_Init_TR.pdf)
 
 
+## Class
+- StaticInitializer
+- DynamicInitializer
+- CpiV1
 ---
 # Code 
 [[🧩OpenVINS Code Analysis#try_to_initialize|VioManager::try_to_initialize]]
 
-	[[🧩OpenVINS Code Analysis#InertialInitializer#initialize]]
+	[[🧩OpenVINS Code Analysis#InertialInitializer#initialize|InertialInitializer::initialize]]
 	
 		[[🧩OpenVINS Code Analysis#FeatureHelper#compute_disparity|FeatureHelper::compute_disparity]]
 		
 		[[🧩OpenVINS Code Analysis#StaticInitializer#initialize|StaticInitializer::initialize]]  or [[🧩OpenVINS Code Analysis#DynamicInitializer#initialize|DynamicInitializer::initialize]]
-		
-	
+	~~[[#propagate_and_clone|Propagator::propagate_and_clone]]~~
+	[[#marginalize_old_clone|StateHelper::marginalize_old_clone]]
 
 
 # Concept
