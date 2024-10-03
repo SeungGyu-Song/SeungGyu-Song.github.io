@@ -465,13 +465,18 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 
 `const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음.`
 
-oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#select_imu_readings]]
+oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#select_imu_readings|InitializerHelper::select_imu_readings]]
+
+init_dyn_min_deg만큼 회전이 이루어져야 initialization이 진행됨. 왜 gyro값을 기준으로 할까? #점검 
+
+이 아래서부터는 reprojection error 기반[[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]으로 푸는 게 나옴.
 
 ## InitializerHelper
 ### select_imu_readings
 <span style="color:green">std::vector(ov_core::ImuData) <span style="color:purple">&imu_data_tmp</span>, double <span style="color:purple">time0</span>, double <span style="color:purple">time1</span></span>
 <span style="color:red"> return std::vector(ov_core::ImuData) </span>
-
+해당 시간의 imu 값들을 return. 
+이 때 
 ### interpolate_data
 해당 시간에 linear interpolate해주는 함수.
 
