@@ -459,6 +459,11 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 가지고 있는 feature를 `feat_new`로 복사해준 후 새로운 local변수 `Features`에 저장. 
 	initialization은 따로 thread를 둬서 돌아가니까 feature tracking과 저촉하지 않게끔 함. 
 
+한 feature loop를 돌면서 
+	미리 설정한 initialize window 주기 (`int_window_time / init_dyn_num_pose`)에 맞춰서 `times, camids`에 값을 넣어줌. 
+	이 때, times는 cam time을 저장해주고, camids는 왼/오에 대해 true/false를 저장.
+
+`const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음.`
 
 
 # ROS1Visualizer
