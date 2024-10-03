@@ -465,6 +465,11 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 
 `const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음.`
 
+oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#select_imu_readings]]
+
+## InitializerHelper
+### select_imu_readings
+<span style="color:green">std::vector(ov_core::ImuData) <span style="color:purple">&imu_data_tmp</span>, double <span style="color:green">double </span>
 
 # ROS1Visualizer
 ## callback_stereo
