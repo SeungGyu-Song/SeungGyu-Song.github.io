@@ -452,7 +452,13 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 [[📦️OpenVINS State Initialization - Technical Report]]
 
 ### initialize
-얘는 코드에서도 static 쓰라고 하기도 했고, 많이 기니까 다음에 살펴보자! #점검
+[[#InertialInitializer#initialize|InertialInitializer::initialize]]에서 했던 것처럼
+	 보유하고있는 feature들 중 최근 시간을 건져내고, oldest_time도 구한 후 
+	 오래된 imu 값들 버리기.
+
+가지고 있는 feature를 `feat_new`로 복사해줌. 
+	initialization은 따로 thread를 둬서 돌아가니까 feature tracking과 저촉하지 않게끔 함. 
+
 
 
 # ROS1Visualizer
