@@ -456,7 +456,7 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 	 보유하고있는 feature들 중 최근 시간을 건져내고, oldest_time도 구한 후 
 	 오래된 imu 값들 버리기.
 
-가지고 있는 feature를 `feat_new`로 복사해줌. 
+가지고 있는 feature를 `feat_new`로 복사해준 후 새로운 local변수 `Features`에 저장. 
 	initialization은 따로 thread를 둬서 돌아가니까 feature tracking과 저촉하지 않게끔 함. 
 
 
