@@ -449,6 +449,8 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 7. `order.push_back(t_imu)`
 8. covariance 값을 넣어주는데 그냥 magic number로 가중치 곱해서 넣어주는 거 같다.
 ## DynamicInitializer
+[[📦️OpenVINS State Initialization - Technical Report]]
+
 ### initialize
 얘는 코드에서도 static 쓰라고 하기도 했고, 많이 기니까 다음에 살펴보자! #점검
 
