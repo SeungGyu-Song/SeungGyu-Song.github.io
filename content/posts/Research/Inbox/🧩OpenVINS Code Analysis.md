@@ -469,7 +469,12 @@ oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#sel
 
 ## InitializerHelper
 ### select_imu_readings
-<span style="color:green">std::vector(ov_core::ImuData) <span style="color:purple">&imu_data_tmp</span>, double <span style="color:green">double </span>
+<span style="color:green">std::vector(ov_core::ImuData) <span style="color:purple">&imu_data_tmp</span>, double <span style="color:purple">time0</span>, double <span style="color:purple">time1</span></span>
+<span style="color:red"> return std::vector(ov_core::ImuData) </span>
+
+### interpolate_data
+해당 시간에 linear interpolate해주는 함수.
+
 
 # ROS1Visualizer
 ## callback_stereo
