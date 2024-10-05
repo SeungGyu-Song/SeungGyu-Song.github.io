@@ -33,4 +33,11 @@ source :
 ### Future Articles to Read
 
 ### Ax=b와 condition number
-condition number는 matrix A의  $\prac{max_singular value}{min}
+condition number는 matrix A의  max singular value / min singular value인데 
+b의 민감성에 대한 solution 변화를 생각하면 된다.
+
+condition numbe가 
+- 작다 → well-conditioned : b에 perturbation이 있어도 값이 잘 안 변함
+- 유한 ; A가 invertible → well-posed
+- 매우 크다 → ill-conditioned 
+- 무한 → ill-posed; 변수보다 식이 적어서 해가 무한 or 없을 때.
