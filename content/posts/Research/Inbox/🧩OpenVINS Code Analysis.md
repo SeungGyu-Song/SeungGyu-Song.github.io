@@ -321,6 +321,7 @@ Eigen::Matrix<double, 3, 1> am;
 ### display_history
 `highlightened` 변수가 `_features_SLAM`이라고 생각하면 됨.
 아 초록색 box가 `_features_SLAM`
+
 ![[Pasted image 20241007172336.png]]
 
 ## TrackKLT ← TrackBase
