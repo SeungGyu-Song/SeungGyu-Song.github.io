@@ -550,4 +550,5 @@ Optimization  성공 시,
 
 ### publish_image
 ![[Pasted image 20241007172336.png|300]]
-위 사진의 표시된 feature들 의미 파악하기
+위 사진의 표시된 feature들 의미 파악하기.
+
