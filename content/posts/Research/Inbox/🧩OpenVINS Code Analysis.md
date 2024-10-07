@@ -525,7 +525,8 @@ Optimization  성공 시,
 <span style="color:green">std::vector(ov_core::ImuData) <span style="color:purple">&imu_data_tmp</span>, double <span style="color:purple">time0</span>, double <span style="color:purple">time1</span></span>
 <span style="color:red"> return std::vector(ov_core::ImuData) </span>
 해당 시간의 imu 값들을 return. 
-이 때 
+이 때 양 끝의 시간은 linear interpolate함. [[#interpolate_data]]
+
 ### interpolate_data
 해당 시간에 linear interpolate해주는 함수.
 
@@ -547,4 +548,6 @@ Optimization  성공 시,
 	- [ ] covariance 처리하는 거 잘 이해가 안 됨. 0으로 거의 다 박혀야하는 거 아닌가? #점검 	-![[Screenshot_20240828_225547_Samsung Notes 1.jpg|300]]
 4. pub_odomimu.publish(odomIinM)
 
-
+### publish_image
+![[Pasted image 20241007172336.png|300]]
+위 사진의 표시된 feature들 의미 파악하기
