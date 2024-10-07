@@ -321,7 +321,8 @@ Eigen::Matrix<double, 3, 1> am;
 ### display_history
 `highlightened` 변수가 `_features_SLAM`이라고 생각하면 됨.
 아 초록색 box가 `_features_SLAM`
-
+나머지는 [[#FeatureDatabase]]에서 `_Features_SLAM`와 같은 feature들을 찾은 다음에, 표시를 하는 건데, 
+색이 흰 색일 수록 최근 것임.
 ![[Pasted image 20241007172336.png]]
 
 ## TrackKLT ← TrackBase
