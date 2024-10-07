@@ -467,7 +467,7 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 
 oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#select_imu_readings|InitializerHelper::select_imu_readings]]
 
-init_dyn_min_deg만큼 회전이 이루어져야 initialization이 진행됨. 왜 gyro값을 기준으로 할까? #점검 
+init_dyn_min_deg만큼 회전이 이루어져야 initialization이 진행됨. 왜 gyro값을 기준으로 할까? → 그냥 충분한 baseline을 확보하려고 하는 것 같음.
 
 이 아래서부터는 reprojection error 기반[[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]으로 푸는 게 나옴.
 
