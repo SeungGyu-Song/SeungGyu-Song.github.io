@@ -484,8 +484,19 @@ map_camera_times의 시점들을 loop로 돌면서
 - CpiV1  객체를 하나 생성한 후
 - 객체 내 linearization point 값에 argument값을 넣어줌
 - oldest_time과 current_time 사이에 있는 imu값을 가져옴 . [[#InitializerHelper#select_imu_readings|initializerHelper::select_imu_readings]]
-	- 한편, `I0toIi1`: oldest_camera_tim
-
+	- 한편, `I0toIi1`: oldest_camera_time ~ current_time
+	- `IitoIi1`: last_camera_time ~ current_time 임을 기억하자.
+- `I0toIi1`과 `IitoIi1`에 대해서 각각 
+	- bg, ba에 대해 linearization point로 설정해준 후, 
+	- 해당 범위의 imu값들을 불러와서
+	- CpiV1내의 객체에서 preintegration을 진행함. [[🧩OpenVINS Code Analysis#CpiV1#feed_IMU|CpiV1::feed_IMU]]
+- `map_camera_cpi_I0toIi, map_camera_cpi_IitoIi1`에 각각 해당하는 값을 따로따로 넣어줌. → 코드에서는 해당하는 시간의 pose를 가지고 있다고 판단.
+##### Linear Ax=b
+300 번째 줄 부터 
+`A_index_features`에 feature 값을 넣어줌. 
+`feature`를 돌면서 feature 좌표의  uv값과 preintegration term을 가져옴.
+나머지는 [[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]여기에 기술되어있는 식을 그냥 옮겨놓은 거라 따라가면 된다.
+선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align 
 
 
 ## InitializerHelper
