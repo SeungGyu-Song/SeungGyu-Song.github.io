@@ -540,7 +540,7 @@ Optimization  성공 시,
 1. ros msg를 [[#ImuData|ov_core::ImuData]]에 저장함.(w_m, a_m)
 2. [[#feed_measurement_imu|VioManager::feed_measurement_imu]]에서 각 클래스로 feed_imu(propagator, initializer, updaterZUPT)
 3. [[#visualize_odometry|visualize_odometry]]에서 pre_integration을 진행함.
-
+4. <span style="color:red">Thread : </span>[[🧩OpenVINS Code Analysis#feed_measurement_camera|VioManager::feed_measurement_camera]] && [[🧩OpenVINS Code Analysis#visualize|visualize]]
 ### visualize_odometry
 1. initialized가 됐는지 확인. ❌ → return false.
 2. [[#fast_state_propagate|ov_msckf::Propagator::fast_state_propagate]]로 imu propagation.
@@ -548,7 +548,15 @@ Optimization  성공 시,
 	- [ ] covariance 처리하는 거 잘 이해가 안 됨. 0으로 거의 다 박혀야하는 거 아닌가? #점검 	-![[Screenshot_20240828_225547_Samsung Notes 1.jpg|300]]
 4. pub_odomimu.publish(odomIinM)
 
-### publish_image
-![[Pasted image 20241007172336.png|300]]
-위 사진의 표시된 feature들 의미 파악하기.
 
+### visualize
+- [[#publish_images]]
+- [[#publish_state]]
+- [[#publish_features]]
+- [[#publish_groundtruth]]
+- [[#publish_loopclosure_information]]
+#### publish_images
+아래 사진의 표시된 feature들 의미 파악하기.
+![[Pasted image 20241007172336.png|300]]
+
+`cv::Mat img_history = _app->get_historical_viz_image` [[#VioManager#get_historical_viz_image|VioManager::get_historical_viz_image]]
