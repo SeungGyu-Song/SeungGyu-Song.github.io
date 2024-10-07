@@ -457,11 +457,13 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 	 오래된 imu 값들 버리기.
 
 가지고 있는 feature를 `feat_new`로 복사해준 후 새로운 local변수 `Features`에 저장. 
-	initialization은 따로 thread를 둬서 돌아가니까 feature tracking과 저촉하지 않게끔 함. 
+	*initialization은 따로 thread를 둬서 돌아가니까 feature tracking과 저촉하지 않게끔 함.* 
 
 한 feature loop를 돌면서 
 	미리 설정한 initialize window 주기 (`int_window_time / init_dyn_num_pose`)에 맞춰서 `times, camids`에 값을 넣어줌. 
 	이 때, times는 cam time을 저장해주고, camids는 왼/오에 대해 true/false를 저장.
+	 
+<span style="color:blue"> 중요한 것은 내가 설정한 주기의 카메라를 저장하는 거임. 마치 어떻게 보면 naive한 keyframe. </span>
 
 `const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음.`
 
@@ -469,7 +471,12 @@ oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#sel
 
 init_dyn_min_deg만큼 회전이 이루어져야 initialization이 진행됨. 왜 gyro값을 기준으로 할까? → 그냥 충분한 baseline을 확보하려고 하는 것 같음.
 
-이 아래서부터는 reprojection error 기반[[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]으로 푸는 게 나옴.
+#### 이 아래서부터는 reprojection error 기반[[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]으로 푸는 게 나옴.
+<span style="color:green">std::map(size_t, int) <span style="color:orange"> map_features_num_meas</span></span>
+<span style="color:green">std::map(double, bool) <span style="color:orange">map_camera_times</span></span>
+<span style="color:green">std::map(size_t, bool)<span style="color:g"></span>
+`ov_core::CpiV1`에 
+
 
 ## InitializerHelper
 ### select_imu_readings
