@@ -512,7 +512,7 @@ Optimization  성공 시,
 	`state_imu <- map_states[timestamp]`
 	`_imu<-state_imu의 값`
 	`_clones_IMU <-map_states의 값 모두 (map_camera_times에 들어있던 시점들)`
-	`_features_SLAM <-map_features`
+	`_features_SLAM <-map_features, ceres 결과 feature position.`
 	Ceres를 통해서 covariance recovery를 진행 (1005 ~ 1074번 째 줄)
 	config file의 inflation 값으로 각 covariance 파트에 뻥튀기를 해줌.
 	`covariance = 0.5*(covariance + covariance.transpose())` 
