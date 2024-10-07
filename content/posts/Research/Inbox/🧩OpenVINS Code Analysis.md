@@ -496,7 +496,23 @@ map_camera_times의 시점들을 loop로 돌면서
 `A_index_features`에 feature 값을 넣어줌. 
 `feature`를 돌면서 feature 좌표의  uv값과 preintegration term을 가져옴.
 나머지는 [[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]여기에 기술되어있는 식을 그냥 옮겨놓은 거라 따라가면 된다.
-선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align 
+선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align coordinate를 설정함.
+
+#### MLE (Ceres Solver)
+679번 째 코드를 보면 제일 처음 pose를 fix로 두는 게 아니면 window가 매우 작아서 full rank가 되지 않는다고 한다. #점검 
+
+Prior term : [[#Factor_GenericPrior]]
+IMU term : [[#Factor IMU]]
+Camera term : [[#Factor_ImageReprojCalib]]
+
+---
+Optimization  성공 시, 
+	`timestamp = newest_cam_time`으로 넣어주며, 함수가 끝난 이후 state에 이 시간보다 오래된 것들은 다 버릴 예정.
+	`state_imu <- map_states[timestamp]`
+	`_imu<-state_imu의 값`
+	`_clones_IMU <-map_states의 값 모두 (map_camera_times에 들어있던 시점들)`
+	`_features_SLAM`
+	
 
 
 ## InitializerHelper
