@@ -24,3 +24,14 @@ bag file : 1115_north go1
 | Dynamic(기존)    | 2.0         | 50               | 10           | 0          | 우주 발산                         |     |
 | Dynamic(기존)    | 5.0         | 150              | 10           | 0          | 수렴, 제일 괜찮음.                   |     |
 |                |             |                  |              |            |                               |     |
+## 은골산 데이터셋 비교
+
+| RPE_RMSE     | OpenVINS | VINS-Fusion | BASALT       |     |
+| ------------ | -------- | ----------- | ------------ | --- |
+| GT : FASTLIO | 0.056751 | 0.059772    | **0.017033** |     |
+
+### 결과 사진
+
+![[VINS_trio_topview.png]]
+
+![[VINS_trio_xyz_view.png]]
