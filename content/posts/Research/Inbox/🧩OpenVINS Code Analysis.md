@@ -499,7 +499,7 @@ map_camera_times의 시점들을 loop로 돌면서
 - 선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align coordinate를 설정함.
 - 추가적으로 맨 처음 시점에 대한  나머지 window의 Rotation, position, velocity를 recovery
 
-#### MLE (Ceres Solver)
+#### MLE, Full optimization (Ceres Solver)
 679번 째 코드를 보면 제일 처음 pose를 fix로 두는 게 아니면 window가 매우 작아서 full rank가 되지 않는다고 한다. #점검 
 
 Prior term : [[#Factor_GenericPrior]]
