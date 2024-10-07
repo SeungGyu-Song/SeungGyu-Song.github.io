@@ -493,10 +493,11 @@ map_camera_times의 시점들을 loop로 돌면서
 - `map_camera_cpi_I0toIi, map_camera_cpi_IitoIi1`에 각각 해당하는 값을 따로따로 넣어줌. → 코드에서는 해당하는 시간의 pose를 가지고 있다고 판단.
 ##### Linear Ax=b
 300 번째 줄 부터 
-`A_index_features`에 feature 값을 넣어줌. 
-`feature`를 돌면서 feature 좌표의  uv값과 preintegration term을 가져옴.
-나머지는 [[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]여기에 기술되어있는 식을 그냥 옮겨놓은 거라 따라가면 된다.
-선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align coordinate를 설정함.
+- `A_index_features`에 feature 값을 넣어줌. 
+- `feature`를 돌면서 feature 좌표의  uv값과 preintegration term을 가져옴.
+- 나머지는 [[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]여기에 기술되어있는 식을 그냥 옮겨놓은 거라 따라가면 된다.
+- 선형 방정식을 풀고 난 후, gravity, feature position, velocity를 얻을 수 있는데, gravity의 경우, [[#StaticInitializer#initialize|StaticInitializer::initialize]]에서 했던 [[Gram-Schmidt]] 방식으로 진행해서 gravity-align coordinate를 설정함.
+- 추가적으로 맨 처음 시점에 대한  나머지 window의 Rotation, position, velocity를 recovery
 
 #### MLE (Ceres Solver)
 679번 째 코드를 보면 제일 처음 pose를 fix로 두는 게 아니면 window가 매우 작아서 full rank가 되지 않는다고 한다. #점검 
@@ -511,8 +512,12 @@ Optimization  성공 시,
 	`state_imu <- map_states[timestamp]`
 	`_imu<-state_imu의 값`
 	`_clones_IMU <-map_states의 값 모두 (map_camera_times에 들어있던 시점들)`
-	`_features_SLAM`
-	
+	`_features_SLAM <-map_features`
+	Ceres를 통해서 covariance recovery를 진행 (1005 ~ 1074번 째 줄)
+	config file의 inflation 값으로 각 covariance 파트에 뻥튀기를 해줌.
+	`covariance = 0.5*(covariance + covariance.transpose())` 
+		<span style="color:red">이거는 covariance의 대칭성이 깨지는 경우도 있는 것 같아서 이렇게 해주는 것 같다.</span>
+		
 
 
 ## InitializerHelper
