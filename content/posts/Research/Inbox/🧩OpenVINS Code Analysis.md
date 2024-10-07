@@ -461,21 +461,31 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 
 한 feature loop를 돌면서 
 	미리 설정한 initialize window 주기 (`int_window_time / init_dyn_num_pose`)에 맞춰서 `times, camids`에 값을 넣어줌. 
-	이 때, times는 cam time을 저장해주고, camids는 왼/오에 대해 true/false를 저장.
+	이 때, `times` 원하는 주기에 맞춰진 시간 vector(cam time)
+	 `camids`는 왼/오에 대해 true/false를 저장.
 	 
 <span style="color:blue"> 중요한 것은 내가 설정한 주기의 카메라를 저장하는 거임. 마치 어떻게 보면 naive한 keyframe. </span>
 
-`const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음.`
+#고칠부분
+`const int min_num_meas_to_optimize = (int)params.init_window_time; : 고칠 여지가 있음. : 그냥 적어도 1초에 하나 씩은 있어야한다 이런 의미인 거 같아.`
 
 oldest_time과 newest_time에 있는 imu를 가져옴 : [[#InitializerHelper#select_imu_readings|InitializerHelper::select_imu_readings]]
 
 init_dyn_min_deg만큼 회전이 이루어져야 initialization이 진행됨. 왜 gyro값을 기준으로 할까? → 그냥 충분한 baseline을 확보하려고 하는 것 같음.
 
 #### 이 아래서부터는 reprojection error 기반[[📦️OpenVINS State Initialization - Technical Report#3.4 Linear Ax = b Problem|Linear Ax=b problem]]으로 푸는 게 나옴.
-<span style="color:green">std::map(size_t, int) <span style="color:orange"> map_features_num_meas</span></span>
-<span style="color:green">std::map(double, bool) <span style="color:orange">map_camera_times</span></span>
-<span style="color:green">std::map(size_t, bool)<span style="color:g"></span>
-`ov_core::CpiV1`에 
+<span style="color:green">std::map(size_t, int) <span style="color:orange"> map_features_num_meas</span></span> : 한 feature에 몇 개의 observation이 있는지
+<span style="color:green">std::map(double, bool) <span style="color:orange">map_camera_times</span></span> : feature의 시점을 모두 저장해놓은 자료구조
+<span style="color:green">std::map(size_t, bool)<span style="color:orange"> map_camera_ids</span></span> : 저장된 feature들의 카메라 번호 존재 여부
+<span style="color:green">double<span style="color:orange"> pose_dt_avg</span></span> : 미리 설정한 원하는 initialization window 주기
+
+`std::map<double, std::shared_ptr<ov_core::CpiV1>> map_camera_cpi_I0toIi` 선언.
+map_camera_times의 시점들을 loop로 돌면서
+- CpiV1  객체를 하나 생성한 후
+- 객체 내 linearization point 값에 argument값을 넣어줌
+- oldest_time과 current_time 사이에 있는 imu값을 가져옴 . [[#InitializerHelper#select_imu_readings|initializerHelper::select_imu_readings]]
+	- 한편, `I0toIi1`: oldest_camera_tim
+
 
 
 ## InitializerHelper
