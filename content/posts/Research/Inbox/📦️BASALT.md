@@ -63,9 +63,16 @@ NFR은 원래 SLAM optimization을 bounded하기 위해 도입된 건데,
 
 NFR을 이용해서 원래 dense한 Markov blanket distribution을 sparse하게 만들고 싶은가봐.
 (KL divergence를 이용해서)
+
+i번째 non-linear factor를 얻기 위해서는 residual function을 정의해야한다. 
+$r_i(s,z_i) = \epsilon,  \epsilon ~ N(0, H_i^{-1})$ 
+
+그냥 NFR에서 만든 full-rank and invertible jacobian $J_r$로 만든 information matrix $H_i$로 global map optimization의 가중치로 쓰임. 
 #### 3. Non-Linear Factors for Distribution Approximation
 keyframe을 marginalization할 때는 current linearization point를 저장하고, keyframe pose를 제외한 나머지를 다 marginalization.
 → 이는 optimization window에 있는 keyframe pose들과 desne하게 연결된 factor가 되게끔한다.
+
+여기서 신기한 거는 [[🧩VINS-Fusion Map.canvas|VINS-Fusion]]과 다르게 global position과 yaw가 unobservable하니까, (start pose의 initial prior로부터만 정보를 알 수 있따.) 이 정보는 필요가 없다고 판단해서 relative pose와 roll-pitch만을 가지고 map optimization을 진행함.
 
 ### Experiments
 - 어떤 데이터
