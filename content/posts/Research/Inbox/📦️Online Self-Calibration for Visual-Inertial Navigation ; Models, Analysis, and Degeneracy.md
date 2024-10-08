@@ -23,7 +23,7 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10145468
 
 # Introduction
 - mechanical 진동에 의해 IMU-cam sensor calibration이 달라질 수 있따. (extrinsics)
-- IMU bias와 intrinsics는 온도, 습도에 따 
+- IMU bias와 intrinsics는 온도, 습도에 영향을 받는다. 
 
 
 - 어떤 문제를 풀 것인지
