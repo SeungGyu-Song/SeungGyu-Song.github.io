@@ -6,4 +6,4 @@ Bag은 용량을 위해 compressed Image로 저장한다.
 넣어주면 별도로 source code에서 고칠 필요 없이 바로 사용할 수 있다.
 
 
-<node name="republish_node0" type="republish" pkg="image_transport" output="screen" args="compressed in:=/camera1/color/image_raw out:=/cam0/image_raw"/>
+`<node name="republish_node0" type="republish" pkg="image_transport" output="screen" args="compressed in:=/camera1/color/image_raw out:=/cam0/image_raw"/>`
