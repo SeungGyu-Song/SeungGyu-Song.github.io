@@ -30,7 +30,10 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10145468
 
 ### Methodology
 ### Sensing Models
+![[Pasted image 20241008173206.png]]
 
+![[Pasted image 20241008173223.png]]
+$D_w = T_w^{-1}, D_a = T_a^{-1}$
 
 ### Experiments
 - 어떤 데이터
