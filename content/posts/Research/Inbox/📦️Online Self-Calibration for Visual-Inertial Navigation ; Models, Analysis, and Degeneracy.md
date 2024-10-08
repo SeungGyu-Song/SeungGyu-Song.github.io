@@ -19,7 +19,7 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10145468
 - global xyz, yaw를 제외하고 모든 sensor calibration parameter는 observable하다, fully excited motion에서.
 - imu camera intrinsic calibration에 있어 degenerate motion을 알려줌. 
 ### Critique
-- 
+- IMU intrinsics를 왜 고려해야하지?
 
 # Introduction
 - mechanical 진동에 의해 IMU-cam sensor calibration이 달라질 수 있따. (extrinsics)
