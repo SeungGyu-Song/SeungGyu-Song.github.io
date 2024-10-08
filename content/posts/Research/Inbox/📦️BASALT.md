@@ -62,7 +62,7 @@ NFR은 원래 SLAM optimization을 bounded하기 위해 도입된 건데,
 논문에서는 VIO 정보를 globally consistent한 Visual-inertial map optimization으로 transfer하는 데 사용함.
 
 NFR을 이용해서 원래 dense한 Markov blanket distribution을 sparse하게 만들고 싶은가봐.
-
+(KL divergence를 이용해서)
 #### 3. Non-Linear Factors for Distribution Approximation
 keyframe을 marginalization할 때는 current linearization point를 저장하고, keyframe pose를 제외한 나머지를 다 marginalization.
 → 이는 optimization window에 있는 keyframe pose들과 desne하게 연결된 factor가 되게끔한다.
