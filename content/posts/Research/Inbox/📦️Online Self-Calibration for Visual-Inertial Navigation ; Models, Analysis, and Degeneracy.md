@@ -11,16 +11,19 @@ draft: true
 
 
 zotero : 
-source : 
+source : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10145468
 
 ---
+# Contribution
+- Rolling shutter 카메라를 비롯한 IMU/camera intrinsics, extrinsics 포함 VINS observability analysis
+- global xyz, yaw를 제외하고 모든 sensor calibration parameter는 observable하다, fully excited motion에서.
+- imu camera intrinsic calibration에 있어 degenerate motion을 알려줌. 
 ### Critique
-- 얻어갈 것
-- 이 방법의 장점 / 부족한 점
-- 어떻게 써먹을 수 있을지
+- 
 
-### Introduction
-
+# Introduction
+- mechanical 진동에 의해 IMU-cam sensor calibration이 달라질 수 있따. (extrinsics)
+- IMU bias와 intrinsics는 온도, 습도에 따 
 
 
 - 어떤 문제를 풀 것인지
