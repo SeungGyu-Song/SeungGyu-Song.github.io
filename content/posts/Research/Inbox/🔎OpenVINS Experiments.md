@@ -37,3 +37,11 @@ bag file : 1115_north go1
 ![[VINS_trio_topview.png]]
 
 ![[VINS_trio_xyz_view.png]]
+
+## KAIST-VIO 데이터셋
+### Circle
+| RPE_RMSE   | OpenVINS |     | BASALT       |     |
+| ---------- | -------- | --- | ------------ | --- |
+| GT : Mocap | 0.012796 |     | **0.006040** |     |
+#### 결과 사진
+![[basalt_openvins_topview.png]]![[basalt_openvins_xyz_view.png]]
