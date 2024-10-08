@@ -43,6 +43,7 @@ FEJ에 대한 내 설명 추가
 
 → 그래서 FEJ로 linearized marginalization factor의 nullspace를 유지하자.
 
+[[#3. Non-Linear Factors for Distribution Approximation]] 여기서는 근데 keyframe을 marginalization할 때 keyframe pose만 제외하고 나머지 다 한다고 하는데 왜 앞 뒤가 상충하는 걸까.
 ### Mapping
 Two layered approach
 - lower layer : VIO
@@ -61,6 +62,11 @@ NFR은 원래 SLAM optimization을 bounded하기 위해 도입된 건데,
 논문에서는 VIO 정보를 globally consistent한 Visual-inertial map optimization으로 transfer하는 데 사용함.
 
 NFR을 이용해서 원래 dense한 Markov blanket distribution을 sparse하게 만들고 싶은가봐.
+
+#### 3. Non-Linear Factors for Distribution Approximation
+keyframe을 marginalization할 때는 current linearization point를 저장하고, keyframe pose를 제외한 나머지를 다 marginalization.
+→ 이는 optimization window에 있는 keyframe pose들과 desne하게 연결된 factor가 되게끔한다.
+
 ### Experiments
 - 어떤 데이터
 - 어떤 정보를 분석했는지 (ate, rpe, NEES)
