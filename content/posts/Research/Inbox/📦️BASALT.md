@@ -33,7 +33,7 @@ source :
 	- oldest non-keyframe marginalization
 - new frame == keyframe
 	- 새로운 frame에 대한 velocity와 bias를 marginalization
-	- 그리고 landmark를 포함한 one old keyframe marginalization
+	- one old keyframe marginalization하는데,  host landmark는 marginalization하고 그 외의 landmark는 *drop*, 
 
 [[📦️ Optimization-based VINS- Consistency, Marginalization, and FEJ Review]]
 FEJ에 대한 내 설명 추가 
@@ -59,6 +59,8 @@ VIO에서 keyframe이 marginalization out되면, Markov blanket에 해당하는 
 #### 2. Non-Linear Factor Recovery
 NFR은 원래 SLAM optimization을 bounded하기 위해 도입된 건데, 
 논문에서는 VIO 정보를 globally consistent한 Visual-inertial map optimization으로 transfer하는 데 사용함.
+
+NFR을 이용해서 원래 dense한 Markov blanket distribution을 sparse하게 만들고 싶은가봐.
 ### Experiments
 - 어떤 데이터
 - 어떤 정보를 분석했는지 (ate, rpe, NEES)
