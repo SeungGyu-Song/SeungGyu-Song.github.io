@@ -69,4 +69,4 @@ NFR을 이용해서 원래 dense한 Markov blanket distribution을 sparse하게 
 ### ❓️Questions
 
 ### Future Articles to Read
-
+[Information Sparsification in Visual-Inertial Odometry](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8594007) : Sparsity에 대해 알아보기.
