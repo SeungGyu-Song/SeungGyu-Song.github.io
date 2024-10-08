@@ -85,4 +85,5 @@ keyframe을 marginalization할 때는 current linearization point를 저장하�
 [Information Sparsification in Visual-Inertial Odometry](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8594007) : Sparsity에 대해 알아보기.
 
 #### citation 된 추후 논문들 
-1[A Two-step Nonlinear Factor Sparsification for Scalable Long-term SLAM Backend](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10610889) : ICRA 2024 논문, Shaojie Shen
+1. [A Two-step Nonlinear Factor Sparsification for Scalable Long-term SLAM Backend](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10610889) : ICRA 2024 논문, Shaojie Shen
+2. [SchurVINS: Schur Complement-Based Lightweight Visual Inertial Navigation System](https://openaccess.thecvf.com/content/CVPR2024/papers/Fan_SchurVINS_Schur_Complement-Based_Lightweight_Visual_Inertial_Navigation_System_CVPR_2024_paper.pdf): CVPR 2024논문. [[🧩OpenVins.canvas|OpenVins]]와 비슷한 msckf 기반 filter방식.
