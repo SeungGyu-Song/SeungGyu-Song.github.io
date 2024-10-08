@@ -24,9 +24,10 @@ source :
 - 어떤 문제를 풀 것인지
 
 ## Methodology
-### 1. KLT Tracking
-### 2. Landmark representation
-### 3. Marginalization scheme
+### VIO
+#### 1. KLT Tracking
+#### 2. Landmark representation
+#### 3. Marginalization scheme
 - new frame == non-keyframe
 	- *drop* the landmark factors. → to maintain *sparsity* of the problem.
 	- oldest non-keyframe marginalization
@@ -42,11 +43,22 @@ FEJ에 대한 내 설명 추가
 
 → 그래서 FEJ로 linearized marginalization factor의 nullspace를 유지하자.
 
-### 4. Mapping
+### Mapping
 Two layered approach
 - lower layer : VIO
-- upper layer : BA on the visual-inertial mapping layer, 근데 keyframe pose를 
+- upper layer : BA on the visual-inertial mapping layer, 근데 keyframe pose를 단순화해서 가지고 있는 non-linear factor를 이용함. 
+	- → keyframe pose, keypoint position 최적화.
 
+#### 1. Global Map Optimization
+*To get statistically independent observations* ORB features를 사용한다. (이게 무슨 의미일까? #점검)
+
+VIO에서 keyframe이 marginalization out되면, Markov blanket에 해당하는 linearization을 저장하고, keyframe pose를 제외한 모든 변수를 marginalize한다. 
+
+이 marginalization prior로부터, non-linear factor를 recover한다.
+
+#### 2. Non-Linear Factor Recovery
+NFR은 원래 SLAM optimization을 bounded하기 위해 도입된 건데, 
+논문에서는 VIO 정보를 globally consistent한 Visual-inertial map optimization으로 transfer하는 데 사용함.
 ### Experiments
 - 어떤 데이터
 - 어떤 정보를 분석했는지 (ate, rpe, NEES)
