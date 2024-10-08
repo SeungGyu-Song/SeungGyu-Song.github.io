@@ -83,3 +83,6 @@ keyframe을 marginalization할 때는 current linearization point를 저장하�
 
 ### Future Articles to Read
 [Information Sparsification in Visual-Inertial Odometry](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8594007) : Sparsity에 대해 알아보기.
+
+#### citation 된 추후 논문들 
+1[A Two-step Nonlinear Factor Sparsification for Scalable Long-term SLAM Backend](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10610889) : ICRA 2024 논문, Shaojie Shen
