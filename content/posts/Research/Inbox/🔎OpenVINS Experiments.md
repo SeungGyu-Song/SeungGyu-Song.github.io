@@ -1,3 +1,4 @@
+[[🔎직접 취득한 bagfile 정리]]에서 백파일 정보 확인하기.
 # Initialization Test
 OpenVINS를 돌릴 때, imu noise 값들을 작게 주면 쉽게 발산하는 것을 관찰하였따. 
 (EuRoC dataset에 맞추어진 값으로 넣었을 때)
@@ -59,4 +60,10 @@ bag file : 1115_north go1
 환경은 동적물체가 전혀 없는 환경이었고, feature_SLAM이 계속해서 25개 이상, 주로 30과 40 잡힌 환경이다.
 
 # 2023Ice
-돌아가다가 우주 발산해벌임.
+돌아가다가 우주 발산해벌임. 와 리얼 바살황 ㄷㄷ..
+
+| RPE_RMSE     | OpenVINS |     | BASALT       |     |
+| ------------ | -------- | --- | ------------ | --- |
+| GT : FASTLIO | Nan      |     | **0.028614** |     |
+![[Pasted image 20241009205610.png|450]]
+![[Pasted image 20241009205706.png]]
