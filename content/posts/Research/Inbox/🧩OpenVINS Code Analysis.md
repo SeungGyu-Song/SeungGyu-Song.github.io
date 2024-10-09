@@ -191,15 +191,14 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 	1. `feats_lost = trackFEATS->get_feature_database()->features_not_containing_newer(state->_timestamp, false, true);` 
 	  state의  timestamp보다 최신인 게 없는 feature들 모음.
 	  [[#features_not_containing_newer|FeatureDatabase::features_not_containing_newer]]
-	2. *_clones_IMU*가 5개 이상이면 
+	2. *_clones_IMU*가 5개 이상이거나 state의 *_clones_IMU*가 max_clone_size보다 많을 때
 		1. `feats_marg = trackFEATS->get_feature_database()->features_containing(state->margtimestep(), false, true)`
 	     [[#features_containing|FeatureDatabase::features_containing]] 로 margtimestep에 있는 애들을 검출.
 	     2. `feats_slam = trackARUCO->get_feature_database()->features_containing(state->margtimestep(), false, true);`
 	3. `feats_lost`에 있는 feature가 message.camera sensor_id에서 발견이 안 되면 `feats_lost`에서 삭제하고, 발견이 됐으면 그대로 진행.
 			*E.g: if we are cam1 and cam0 has not processed yet, we don't want to try to use those in the update yet
 			E.g: thus we wait until cam0 processes its newest image to remove features which were seen from that camera* 
-			가 이유라는데 잘 와닿지느 않는다. #점검 
-	4. `feats_marg`에서 `feats_lost`에 있는 애들 삭제하기.
+	4. `feats_marg`에서 `feats_lost`에 있는 애들 삭제하기. (*현재 안 발견된 애들 삭제*) (line 401)
 	5. `feats_marg`에 있는 feature들 중에 왼 / 오 둘 중 하나 `max_clone_size`보다 많이 발견되면
 		1. `feats_marg`에서 삭제, `feats_maxtracks`에 추가.
 			- `feats_maxtracks`은 state와 같은 시점, max_track보다 많이 발견된 feature들의 모임
