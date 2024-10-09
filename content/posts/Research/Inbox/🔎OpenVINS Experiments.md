@@ -29,7 +29,8 @@ bag file : 1115_north go1
 |                |             |                  |              |            |                               |     |
 # Go1 dataset
 - Go1이 아무래도 카메라 / body가 흔들리다보니까 feature tracking이 잘 안 되는 거 같기도 하다.
-- 그래서 terminal에 Num Landmarks가 매우 적게 나타나고, imu 역시 계속 크게 찍혀서 그ㄹ
+- 그래서 terminal에 Num Landmarks가 매우 적게 나타나고, 
+- imu도 좀 계속 spike있는 게 문제인지는 확인해봐야겠다.
 
 
 
