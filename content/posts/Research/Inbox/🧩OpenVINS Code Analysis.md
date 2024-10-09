@@ -226,7 +226,8 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 	10. `featsup_MSCKF`에 `feats_lost, feats_marg, feats_maxtracks`순으로 넣기.
 	11. sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]]) → tracking 더 많이 된 순서로 정렬.
 	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. (tracking 더 많이 된 feature들 삭제)
-	13. 
+	13. [[#UpdaterMSCKF#update|UpdaterMSCKF::update]](state, featsup_MSCKF)
+	14. [[#Propagator#invalidate_cache|Propagator::invalidate_cache]]로 `cache_imu_valid = false`
 #### compare_feat
 feature a, b 중에서 timestamp를 돌면서 
 왼+오 더 많이 검출된 애가 누군지 가리는 거
@@ -259,6 +260,7 @@ feature a, b 중에서 timestamp를 돌면서
 2. oldest_time 보다 더 이전의 값들은 버리기
 ### fast_state_propagate
 <span style="color:green" >(StatePtr , double timestamp, Eigen::Matrix(double, 13,1) &state_plus, Eigen::Matrix(double, 12, 12) &covariance)</span> 
+0. `cache_imu_valid==false`면 state의 저장되어있던 값들을 가져옴. [[#do_feature_propagate_update]] 에서 feats_MSCKF update 후 이거를 false하는데 둘 간의 어떤 상호작용이 있을지 생각해보자.
 1. state에서 imu 부분에 해당하는 timestamp, value, covariance, dt를 가져옴. (이전의 값)
 	1. 이 때 [[#get_marginal_covariance|StateHelper::get_marginal_covariance]]함수로 imu에 해당하는 Covariance만 복사해옴.
 	2. [[#select_imu_readings|Propagator::select_imu_readings]]로 state와 현재 imu msg까지 imu값들 가져오기.
@@ -310,6 +312,18 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 
 1. state의 timestamp + `last_prop_time_offset`, 현재 imu_message timestamp + 현재 td 간의 [[#select_imu_readings]] 하고 이 데이터들을 `prop_data`에 저장.
 2. `prop_data`에 있는 imu 데이터 하나 당 [[#predict_and_compute]]
+
+## UpdaterMSCKF
+
+* This class is responsible for computing the entire linear system for all features that are going to be used in an update.
+
+* This follows the original MSCKF, where we first triangulate features, we then nullspace project the feature Jacobian.
+
+* After this we compress all the measurements to have an efficient update and update the state.
+
+### constructor
+[[chi_squared_distribution]]
+
 # ov_core
 
 ##### CameraData
