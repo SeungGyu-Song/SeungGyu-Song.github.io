@@ -201,11 +201,12 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 	4. `feats_marg`에서 `feats_lost`에 있는 애들 삭제하기. (*현재 안 발견된 애들 삭제*) (line 401)
 	5. `feats_marg`에 있는 feature들 중에 왼 / 오 둘 중 하나 `max_clone_size`보다 많이 발견되면
 		1. `feats_marg`에서 삭제, `feats_maxtracks`에 추가.
-			- `feats_maxtracks`은 state와 같은 시점, max_track보다 많이 발견된 feature들의 모임
+			- `feats_maxtracks`은 state와 같은 시점, max_track보다 많이 발견된 feature들의 모임 , feature_SLAM으로 사용될 가능성이 있나보다.
 	6. initialization으로부터 1초 이상 지나고, `state->_features_SLAM < option.max_slam_features + curr_aruco_tags`이면 
-		1. `amount_to_add = option.max_slam_features + curr_aruco_tags - state->_features_SLAM.size()`
-		2. `valid_amount = amount_to_add와 feats_maxtracks 중 더 작은 거`
-		3. `feats_slam`에는 `valid_amount`만큼 `feats_maxtracks` 뒤에서 넣고, `feats_maxtracks`에서는 삭제. 
+		1. `amount_to_add = option.max_slam_features + curr_aruco_tags - state->_features_SLAM.size()` :  feature_SLAM 늘릴 개수
+		2. `valid_amount = amount_to_add와 feats_maxtracks` 중 더 적은 거
+			1. state에 들어갈 feature를 보수적으로 잡는 것 같아.
+		3. `feats_slam`에는 `valid_amount`만큼 `feats_maxtracks`의 뒤에서 넣고, `feats_maxtracks`에서는 삭제. 
 	7. `state→_features_SLAM` loop
 			1. `trackFEATS`(Feature로 뽑힌 애들)에서 state의 landmark와 겹치는 애들은 `feats_slam`에 넣어주고
 			2. 겹치지 않고, `current_unique_cam == true` → `landmark.second→should_marg = true
