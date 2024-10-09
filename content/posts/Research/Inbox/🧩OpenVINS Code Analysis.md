@@ -184,6 +184,9 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 [[#TrackBase#display_history|TrackBase::display_history]]
 ### do_feature_propagate_update
 <span style="color:green">const ov_core::CameraData <span style="color:purple">&message</span></span>
+
+feats_SLAM은 현재도 발견되고, max_clones 개수보다 많이 발견된 feature들의 모임.
+
 1. state의 timestamp ≠ imu message의 timestamp → [[#propagate_and_clone|Propagator::propagate_and_clone]] ?state의 timestamp가 언제 갱신되더라? #점검 
 2. `state->_clones_IMU.size() < std::min(state->_options.max_clone_size, 5)` → 그냥 return하고 종료
 	1. 이유는 그냥 넉넉히 5개가 있어야 triangulation을 할 수 있으니까 그런 것 같다. *왜 5개지? *    #점검 
@@ -206,7 +209,7 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 		1. `amount_to_add = option.max_slam_features + curr_aruco_tags - state->_features_SLAM.size()` :  feature_SLAM 늘릴 개수
 		2. `valid_amount = amount_to_add와 feats_maxtracks` 중 더 적은 거
 			1. state에 들어갈 feature를 보수적으로 잡는 것 같아.
-		3. `feats_slam`에는 `valid_amount`만큼 `feats_maxtracks`의 뒤에서 넣고, `feats_maxtracks`에서는 삭제. 
+		3. `feats_slam`에는 `valid_amount`만큼 `feats_maxtracks`의 뒤에서부터 넣고, `feats_maxtracks`에서는 삭제. 
 	7. `state→_features_SLAM` loop
 			1. `trackFEATS`(Feature로 뽑힌 애들)에서 state의 landmark와 겹치는 애들은 `feats_slam`에 넣어주고
 			2. 겹치지 않고, `current_unique_cam == true` → `landmark.second→should_marg = true
