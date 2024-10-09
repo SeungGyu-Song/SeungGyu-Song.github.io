@@ -225,7 +225,8 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 		2. 원래 없었다면 `feats_slam_DELAYED`에 추가.
 	10. `featsup_MSCKF`에 `feats_lost, feats_marg, feats_maxtracks`순으로 넣기.
 	11. sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]]) → tracking 더 많이 된 순서로 정렬.
-	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. ()
+	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. (tracking 더 많이 된 feature들 삭제)
+	13. 
 #### compare_feat
 feature a, b 중에서 timestamp를 돌면서 
 왼+오 더 많이 검출된 애가 누군지 가리는 거
@@ -277,6 +278,9 @@ feature a, b 중에서 timestamp를 돌면서
 		- 여기서도 VINS-Fusion과 마찬가지로 quaternion으로 함. 
 		1. cache_state_est에 값 업데이트. 
 
+### invalidate_cache
+fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의미일까? #점검
+`cache_imu_valid = false`
 
 ### select_imu_readings
 <span style="color:green">const std::vector(ov_core::ImuData) <span style="color:purple"> &imu_data</span>, double <span style="color:purple">time0</span>, double <span style="color:purple">time1</span>, bool <span style="color:purple">warn</span></span>

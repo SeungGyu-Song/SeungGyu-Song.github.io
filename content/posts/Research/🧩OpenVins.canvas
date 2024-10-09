@@ -2,8 +2,8 @@
 	"nodes":[
 		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2640,"color":"6","label":"Propagation & Update"},
 		{"id":"4d379e012818bbd7","type":"group","x":494,"y":180,"width":3866,"height":860,"color":"5","label":"Initialization"},
+		{"id":"91b36805fe2d4b09","x":1220,"y":1880,"width":2360,"height":860,"color":"4","type":"group","label":"Propagation"},
 		{"id":"316ea87fd9c96679","type":"group","x":2760,"y":-920,"width":2288,"height":858,"color":"3","label":"Visual Feature Frontend(Descriptor)"},
-		{"id":"91b36805fe2d4b09","x":1220,"y":1920,"width":2360,"height":820,"color":"4","type":"group","label":"Propagation"},
 		{"id":"35cd4c30b1c5f05e","type":"group","x":494,"y":-920,"width":1849,"height":858,"color":"3","label":"Visual Feature Frontend (KLT Tracking)"},
 		{"id":"87dd15a3517bbd78","type":"group","x":-1140,"y":-2209,"width":979,"height":649,"label":"Week 1"},
 		{"id":"93055925b6ca036e","type":"group","x":-580,"y":-1380,"width":940,"height":547,"color":"4","label":"IMU Propagation"},
@@ -16,7 +16,7 @@
 		{"id":"f7b106a833e762d1","type":"text","text":"#### [[🧩OpenVINS Code Analysis#fast_state_propagate|ov_msckf::Propagator::fast_state_propagate]]\n1. state에서 imu 부분 가져오기.\n2. state와 현재 msg까지 imu값들 가져오기.\n3. state의 imu bias, intrinsic 값들 복사생성\n4. imu 값 intrinsic 보정 (midPoint 방식).\n5. <span style=\"color:red\">Discrete-time Error-state propagation.</span>","x":-220,"y":-1200,"width":540,"height":320},
 		{"id":"5f7320fe30e14c75","type":"text","text":"## [[🧩OpenVINS Code Analysis#feed_measurement_Imu|VioManager::feed_measurement_imu]]\n\noldest time보다 오래된 imu_clones 제거하고 feed_imu","x":-518,"y":-2189,"width":348,"height":209},
 		{"id":"cec5e101ca05182d","type":"text","text":"## 전후 관계는 위아래로 기술 (계층적으로)\n## 같은 함수 내의 세부 내용은 옆으로 기술","x":-875,"y":-2530,"width":560,"height":140},
-		{"id":"99bed7cdb7bf11b4","type":"text","text":"## Thread 사용\n### 1. [[🧩OpenVINS Code Analysis#feed_measurement_camera|VioManager::feed_measurement_camera]] && [[🧩OpenVINS Code Analysis#visualize|visualize]]\n### 2. [[🧩OpenVINS Code Analysis#try_to_initialize|VioManager::try_to_initialize]]\n### 3. [[🧩OpenVINS Code Analysis#publish_images|ROS1Visualizer::publish_images]]\n\tuse_multi_threading_pubs가 true일 때\n\n","x":-1588,"y":-3081,"width":548,"height":381},
+		{"id":"99bed7cdb7bf11b4","type":"text","text":"## Thread 사용\n### 1. [[🧩OpenVINS Code Analysis#feed_measurement_camera|VioManager::feed_measurement_camera]] && [[🧩OpenVINS Code Analysis#visualize|visualize]]\n### 2. [[🧩OpenVINS Code Analysis#try_to_initialize|VioManager::try_to_initialize]]\n### 3. [[🧩OpenVINS Code Analysis#publish_images|ROS1Visualizer::publish_images]]\n\tuse_multi_threading_pubs가 true일 때, 그럼 이 때 visualize에서는 image 안 보냄.\n\n","x":-1588,"y":-3081,"width":568,"height":461},
 		{"id":"88e7f866e9022b71","type":"text","text":"#### [[🧩OpenVINS Code Analysis#track_image_update|VioManager::track_image_update]]\n\n","x":-220,"y":-211,"width":540,"height":98},
 		{"id":"a0db2a1005d0ca70","type":"file","file":"Research/Inbox/🍯Class 구조에서 다른 클래스 불러올 때..md","x":39,"y":-2790,"width":400,"height":400},
 		{"id":"d23b1680e8626d62","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackKLT ← TrackBase#feed_new_camera|ov_core::trackKLT::feed_new_camera]]\nhistogram처리, feature detection / tracking \n*본문에서는 KLT tracking만 다룸.*\n*Descriptor로도 가능*\n","x":514,"y":-243,"width":358,"height":161},
@@ -50,7 +50,9 @@
 		{"id":"ac07a63a9c4939c4","type":"text","text":"#### [[🧩OpenVINS Code Analysis#propagate_and_clone|Propagator::propagate_and_clone]]\nfilter 방식에서는 image가 들어올 때마다 하는 거구나. \noptimization은 imu 주기마다 preintegration해줬는데","x":1240,"y":2320,"width":420,"height":160},
 		{"id":"dde18225784ba703","type":"text","text":"#### [[🧩OpenVINS Code Analysis#augment_clone|StateHelper::augment_clone]](state, last_w)","x":1920,"y":2607,"width":495,"height":113},
 		{"id":"901563b571c1d80a","type":"text","text":"1. `feats_lost` : 현재 발견 안 된 feature들\n2. `feats_marg` : state의 제일 오래된 시간에 발견된 feature들 (중에서 `feats_lost` 와 겹치는 애들 삭제, 즉 현재 발견된 feature들)\n3. `feats_maxtracks` : `feats_marg`인 애들 중에서 max_clone_size보다 많이 발견된 feature들 - 이 중에서 `feats_slam`에 들어간 뒤에 애들\n4. `feats_slam` :  state→_features_SLAM에서 겹치는 애들. \n5. `feats_slam_UPDATE` : `feats_slam`과 `_features_SLAM`과 겹치는 feature \n6. `feats_slam_DELAYED` : `feats_slam`과 `_features_SLAM`과 안 겹치는 feature\n7. `featsup_MSCKF` : `feats_lost`, `feats_marg`, `feats_maxtracks` 순으로 저장한 것.","x":1093,"y":2960,"width":715,"height":300},
-		{"id":"b7165fff87131d79","x":1157,"y":3500,"width":588,"height":60,"type":"text","text":"#### sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]])"}
+		{"id":"b7165fff87131d79","x":1157,"y":3400,"width":588,"height":60,"type":"text","text":"#### sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]])"},
+		{"id":"d7acb69a62047962","x":1175,"y":3560,"width":551,"height":72,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#UpdaterMASCKF::update|UpdaterMSCKF::update]](state, featsup_MSCKF)"},
+		{"id":"1c49b5760ec34659","x":1237,"y":3720,"width":427,"height":50,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]"}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},
@@ -83,6 +85,8 @@
 		{"id":"96c472154d6ecc69","fromNode":"d10f6f7231137ea7","fromSide":"bottom","toNode":"249ecc721850fa4c","toSide":"top"},
 		{"id":"36867a4a1334d7e5","fromNode":"d10f6f7231137ea7","fromSide":"right","toNode":"7e0a35c1f253c8f6","toSide":"left"},
 		{"id":"7ba18d22b4ed0104","fromNode":"ac07a63a9c4939c4","fromSide":"bottom","toNode":"901563b571c1d80a","toSide":"top"},
-		{"id":"0fa958191f68aab9","fromNode":"901563b571c1d80a","fromSide":"bottom","toNode":"b7165fff87131d79","toSide":"top"}
+		{"id":"0fa958191f68aab9","fromNode":"901563b571c1d80a","fromSide":"bottom","toNode":"b7165fff87131d79","toSide":"top"},
+		{"id":"2586e29df5f61239","fromNode":"b7165fff87131d79","fromSide":"bottom","toNode":"d7acb69a62047962","toSide":"top"},
+		{"id":"f04476cec7a94507","fromNode":"d7acb69a62047962","fromSide":"bottom","toNode":"1c49b5760ec34659","toSide":"top"}
 	]
 }
