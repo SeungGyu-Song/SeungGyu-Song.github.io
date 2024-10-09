@@ -8,7 +8,7 @@ draft: true
 | ----------------------------------------- | ---------------------------- | ------ | ---- | --------------------------- | -------------------------------------------------- | ----------------------------- |
 | 1115_ADD_Go1_north/1_manual_north         | realsense/imu/ouster/dvs     | X      | O    | go1 north                   | X                                                  | Long term                     |
 | Eungol/eungol_mt_fastlio_included         | realsense/imu/ouster/dvs     | O      | X    | go1 north                   | X                                                  | Very dynamic and wild         |
-| 1221_snow/1221_go1_snow_including_results | realsense/imu/ouster/dvs/    | X      | O    | go1 north                   | X                                                  | snow, campus                  |
+| 1221_snow/1221_go1_snow_including_results | realsense/imu/ouster/dvs     | X      | O    | go1 north                   | X                                                  | snow, campus                  |
 | 1219_ice/1219_go1_ice_including_results   | realsense/imu/ouster/dvs     | O      | 🔺   | go1 north                   | X                                                  | Middle, Super dynamic, campus |
 | 1222/1_failed_on_stairs                   | realsense/imu/ouster/dvs     | X      | X    | go1 north                   | X                                                  | Long term dynamic and wild    |
 | 1016_pumptrack/1.bag                      | realsense/imu/ouster/dvs/gps | O      | X    | go1 north                   | X                                                  | dynamic, Long term            |
