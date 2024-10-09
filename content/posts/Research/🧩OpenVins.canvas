@@ -50,7 +50,7 @@
 		{"id":"ac07a63a9c4939c4","type":"text","text":"#### [[🧩OpenVINS Code Analysis#propagate_and_clone|Propagator::propagate_and_clone]]\nfilter 방식에서는 image가 들어올 때마다 하는 거구나. \noptimization은 imu 주기마다 preintegration해줬는데","x":1240,"y":2320,"width":420,"height":160},
 		{"id":"dde18225784ba703","type":"text","text":"#### [[🧩OpenVINS Code Analysis#augment_clone|StateHelper::augment_clone]](state, last_w)","x":1920,"y":2607,"width":495,"height":113},
 		{"id":"901563b571c1d80a","type":"text","text":"1. `feats_lost` : 현재 발견 안 된 feature들\n2. `feats_marg` : state의 제일 오래된 시간에 발견된 feature들 (중에서 `feats_lost` 와 겹치는 애들 삭제, 즉 현재 발견된 feature들)\n3. `feats_maxtracks` : `feats_marg`인 애들 중에서 max_clone_size보다 많이 발견된 feature들 - 이 중에서 `feats_slam`에 들어간 뒤에 애들\n4. `feats_slam` :  state→_features_SLAM에서 겹치는 애들. \n5. `feats_slam_UPDATE` : `feats_slam`과 `_features_SLAM`과 겹치는 feature \n6. `feats_slam_DELAYED` : `feats_slam`과 `_features_SLAM`과 안 겹치는 feature\n7. `featsup_MSCKF` : `feats_lost`, `feats_marg`, `feats_maxtracks` 순으로 저장한 것.","x":1093,"y":2960,"width":715,"height":300},
-		{"id":"b7165fff87131d79","x":1318,"y":3489,"width":250,"height":60,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#compare_feat]]"}
+		{"id":"b7165fff87131d79","x":1157,"y":3500,"width":588,"height":60,"type":"text","text":"#### sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]])"}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},

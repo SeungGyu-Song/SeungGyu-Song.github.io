@@ -224,7 +224,13 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 		1. `feats_slam`에 있는 feature가 원래 *_features_SLAM*에 있었다면 `feats_slam_UPDATE`에 추가
 		2. 원래 없었다면 `feats_slam_DELAYED`에 추가.
 	10. `featsup_MSCKF`에 `feats_lost, feats_marg, feats_maxtracks`순으로 넣기.
-	11. 
+	11. sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]]) → tracking 더 많이 된 순서로 정렬.
+	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. ()
+#### compare_feat
+feature a, b 중에서 timestamp를 돌면서 
+왼+오 더 많이 검출된 애가 누군지 가리는 거
+`a<b` → true, `a>b` →false
+
 
 
 ### try_to_initialize
