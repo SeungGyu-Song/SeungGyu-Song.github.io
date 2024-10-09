@@ -104,8 +104,16 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 ### augment_clone
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, Eigen::Matrix(double, 3, 1) <span style="color:purple">last_w</span></span>
+
 [[#StateHelper#clone|StateHelper::clone]]함수로 state의 covariance 마지막에 <span style="color:purple">state</span>를 clone해줌.
 
+
+
+### clone
+`Resize both our covariance to the new size
+`state->_Cov.conservativeResizeLike(Eigen::MatrixXd::Zero(old_size + total_size, old_size + total_size));`
+
+새로 키운 만큼의 원소는 0으로 할당
 
 
 ### marginalize_old_clone
