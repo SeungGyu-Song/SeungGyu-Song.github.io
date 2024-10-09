@@ -112,9 +112,11 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 ### augment_clone
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, Eigen::Matrix(double, 3, 1) <span style="color:purple">last_w</span></span>
 
-[[#StateHelper#clone|StateHelper::clone]](state, state→_imu→pose())  함수로 state의 covariance 마지막에 <span style="color:purple">state</span>, 즉 state→_imu→pose()의 해당 covariance를  clone해줌.
+[[#StateHelper#clone|StateHelper::clone]](state, state→_imu→pose())  함수로 state의 covariance 마지막에 <span style="color:purple">state</span>, 즉 state→_imu→pose()의 해당 covariance를  clone해주고, 이에 해당하는 새로운 block을 return.
 
+`state->_clones_IMU[state->_timestamp] = pose;`
 
+camera_timeoffset을 calibration 할거면 어떻게 해야하는지 제시가 되어있음.
 
 ### clone
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, std::shared_ptr(Type)<span style="color:purple">variable_to_clone</span></span>
@@ -126,10 +128,12 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 새로 키운 만큼의 원소는 0으로 할당
 
-
 [[#Type#check_if_subvariable (virtual)|Type::check_if_subvariable]]로 Type variable에서도 그 안에 어떤 변수에 해당하는지 체크. 
 
+state→_Cov 마지막 부분에 parameter <span style="color:purple">variable_to_clone</span>에 해당하는 부분을 추가해주고, 
+`new_clone = type_check->clone(); new_clone->set_local_id(new_loc)`.으로 새로운 변수 new clone을 return. 
 
+즉, 또 state→_variables 에 해당하는 block을 하나 만들어서 return해준다고 생각하자.
 
 ### marginalize_old_clone
 <span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span></span>
