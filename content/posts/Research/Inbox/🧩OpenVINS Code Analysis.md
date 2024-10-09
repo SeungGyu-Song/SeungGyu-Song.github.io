@@ -112,7 +112,7 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 ### augment_clone
 <span style="color:green">std::shared_ptr(State) <span style="color:purple">state</span>, Eigen::Matrix(double, 3, 1) <span style="color:purple">last_w</span></span>
 
-[[#StateHelper#clone|StateHelper::clone]](state, state→_imu→pose())  함수로 state의 covariance 마지막에 <span style="color:purple">state</span>, 를 clone해줌.
+[[#StateHelper#clone|StateHelper::clone]](state, state→_imu→pose())  함수로 state의 covariance 마지막에 <span style="color:purple">state</span>, 즉 state→_imu→pose()의 해당 covariance를  clone해줌.
 
 
 
@@ -126,6 +126,8 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 새로 키운 만큼의 원소는 0으로 할당
 
+
+[[#Type#check_if_subvariable (virtual)|Type::check_if_subvariable]]로 Type variable에서도 그 안에 어떤 변수에 해당하는지 체크. 
 
 
 
