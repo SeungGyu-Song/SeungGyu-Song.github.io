@@ -57,3 +57,6 @@ bag file : 1115_north go1
 ![[Pasted image 20241009154237.png]]
 ![[Pasted image 20241009154303.png]]z축으로의 drift를 비롯해서 조금의 drift가 쌓인 것 같다. 
 환경은 동적물체가 전혀 없는 환경이었고, feature_SLAM이 계속해서 25개 이상, 주로 30과 40 잡힌 환경이다.
+
+# 2023Ice
+돌아가다가 우주 발산해벌임.
