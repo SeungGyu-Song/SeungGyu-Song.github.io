@@ -322,7 +322,7 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 * After this we compress all the measurements to have an efficient update and update the state.
 
 ### constructor
-[[chi_squared_distribution]]
+[[Chi_squared_distribution]]
 
 # ov_core
 
