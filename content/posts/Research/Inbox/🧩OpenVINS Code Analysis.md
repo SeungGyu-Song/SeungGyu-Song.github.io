@@ -5,6 +5,13 @@
 3. *viz→setup_subscribers(parser)*
 4. AsyncSpinner를 불러옴
 # ov_msckf
+## Type
+### check_if_subvariable (virtual)
+<span style="color:green">const std::shared_ptr(Type) <span style="color:purple">check</span></span> 
+<span style="color:red">return std::shared_ptr(Type)</span>
+
+class [[#imu]]에 대해 argument check와 pose, v, bg, ba가 **같은 객체를 가리키고 있으면** 그 애를 return.
+class [[#PoseJPL]]에 대해서는 `_q, _p`  중에서 맞는 게 있으면 걔를 return.
 ## State
 [[#ov_type::Type]] 객체를 기본으로 해서 state를 member 변수로 가지고 있는 class
 ### variables
