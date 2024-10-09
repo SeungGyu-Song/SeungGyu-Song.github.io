@@ -187,6 +187,7 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 
 features_SLAM은 현재도 발견되고, max_clones 개수보다 많이 발견된 feature들의 모임
 feats_slam과 구별해야함.
+MSCKF feature : slam update에 사용하지 않는 feature.
 
 1. state의 timestamp ≠ imu message의 timestamp → [[#propagate_and_clone|Propagator::propagate_and_clone]] ?state의 timestamp가 언제 갱신되더라? #점검 
 2. `state->_clones_IMU.size() < std::min(state->_options.max_clone_size, 5)` → 그냥 return하고 종료
@@ -219,6 +220,8 @@ feats_slam과 구별해야함.
 		- old SLAM feature들을 marginalize하는데, 이 때
 		- old SLAM feature들은 현재 시점에 tracking이 잘 안 된 애들
 	9. `feats_slam_DELAYED, feats_slam_UPDATE`
+		1. `feats_slam`에 있는 feature가 원래 *_features_SLAM*에 있었다면 `feats_slam_UPDATE`에 추가
+		2. 원래 없었다면 `feats_slam_DELAYED`에 추가.
 
 
 ### try_to_initialize
