@@ -1,8 +1,9 @@
 {
 	"nodes":[
-		{"id":"b4835539955f2dde","type":"group","x":494,"y":1520,"width":3086,"height":1560,"color":"1","label":"Propagation & Update"},
+		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2640,"color":"6","label":"Propagation & Update"},
 		{"id":"4d379e012818bbd7","type":"group","x":494,"y":180,"width":3866,"height":860,"color":"5","label":"Initialization"},
 		{"id":"316ea87fd9c96679","type":"group","x":2760,"y":-920,"width":2288,"height":858,"color":"3","label":"Visual Feature Frontend(Descriptor)"},
+		{"id":"91b36805fe2d4b09","x":1220,"y":1920,"width":2360,"height":820,"color":"4","type":"group","label":"Propagation"},
 		{"id":"35cd4c30b1c5f05e","type":"group","x":494,"y":-920,"width":1849,"height":858,"color":"3","label":"Visual Feature Frontend (KLT Tracking)"},
 		{"id":"87dd15a3517bbd78","type":"group","x":-1140,"y":-2209,"width":979,"height":649,"label":"Week 1"},
 		{"id":"93055925b6ca036e","type":"group","x":-580,"y":-1380,"width":940,"height":547,"color":"4","label":"IMU Propagation"},
@@ -28,27 +29,28 @@
 		{"id":"6ff332de58fdac88","type":"file","file":"Research/Attached File/perform_detection_stereo.jpg","x":1820,"y":-1720,"width":473,"height":608},
 		{"id":"2abcb92989197ca2","type":"text","text":"#### [[🧩OpenVINS Code Analysis#perform_griding|Grider_GRID::perform_griding]]\n","x":2023,"y":-880,"width":300,"height":98},
 		{"id":"3a6822d76e869263","type":"text","text":"#### [[🧩OpenVINS Code Analysis#compute_disparity|FeatureHelper::compute_disparity]]\n","x":1997,"y":200,"width":406,"height":75},
-		{"id":"399c161812e65114","type":"text","text":" to its corrected frame using the IMU intrinsics\n  Eigen::Vector3d w_uncorrected = w_hat_avg;state의 시간 + td_last ~ 현재 imu 시간 + td간 IMU에 대해서 \n#### [[🧩OpenVINS Code Analysis#predict_and_compute|Propagator::predict_and_compute]]로 imu state propagation\n#### next State Jacobian과 noise Jacobian 구함.\n","x":1920,"y":1640,"width":495,"height":200},
-		{"id":"ac07a63a9c4939c4","type":"text","text":"#### [[🧩OpenVINS Code Analysis#propagate_and_clone|Propagator::propagate_and_clone]]\nfilter 방식에서는 image가 들어올 때마다 하는 거구나. \noptimization은 imu 주기마다 preintegration해줬는데","x":1240,"y":1920,"width":420,"height":160},
-		{"id":"d63e5948e922df2e","type":"text","text":"#### [[🧩OpenVINS Code Analysis#do_feature_propagate_update|VioManager::do_feature_propagate_update]]","x":514,"y":2080,"width":358,"height":87},
-		{"id":"e75606b9f2efb9c2","type":"text","text":"#### [[🧩OpenVINS Code Analysis#EKFPropagation|StateHelper::EKFPropagation]]","x":1920,"y":2026,"width":495,"height":54},
-		{"id":"dde18225784ba703","type":"text","text":"#### [[🧩OpenVINS Code Analysis#augment_clone|StateHelper::augment_clone]](state, last_w)","x":1920,"y":2207,"width":495,"height":113},
 		{"id":"aac8b113e02dce2c","type":"text","text":"가만히 →가만히 &&  ZUPT : StaticInitializer\n가만히 →움직임 && no ZUPT :StaticInitializer\n\n init_dyn_use && !가만히→가만히 : DynamicInitializer","x":2424,"y":279,"width":516,"height":125},
 		{"id":"647965144ceb61b1","type":"text","text":"#### [[🧩OpenVINS Code Analysis#DynamicInitializer#initialize|DynamicInitializer::initialize]]\n1. [[🧩OpenVINS Code Analysis#CpiV1#feed_IMU|CpiV1::feed_IMU]]로 preintegration\n2. Ax=b 풀어서 feature position, velocity, gravity를 얻음\n\t1. gravity를 Gram-schmidt로 나머지 축을 recovery\n3. Ceres로 window 내의 pose와 feature들에 대해full optimization을 품\n4. pose covariance를 ceres로 recovery.","x":2278,"y":520,"width":602,"height":240},
 		{"id":"e8526fbcf43e617f","type":"text","text":"왜 poseimu hz가 image 절반 나지?? #점검\n","x":2491,"y":-1685,"width":429,"height":85},
-		{"id":"958a6034d9047325","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_analytic|predict_mean_analytic]]\n","x":2600,"y":1780,"width":300,"height":50},
 		{"id":"fe0d86f1678b13d9","type":"text","text":"### ZUPT (Zero Velocity Update)\n","x":1040,"y":-2480,"width":548,"height":354},
 		{"id":"f7846e4144da7609","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#feed_new_camera|ov_core::trackDescriptor::feed_new_camera]]\n\n*stereo, monocular version에 따라 부르는 게 달라지고, binocular tracking이면 mono를 parallize해야함.*","x":2780,"y":-341,"width":424,"height":182},
-		{"id":"e2e775183c186b99","type":"text","text":"#### [[🧩OpenVINS Code Analysis#compute_Xi_sum|Propagator::compute_Xi_sum]]\n","x":2840,"y":1540,"width":447,"height":71},
-		{"id":"eaf7dbcf85330c49","type":"text","text":"#### [[🧩OpenVINS Code Analysis#compute_F_and_G_analytic|compute_F_and_G_analytic]] \n####                       or\n#### [[🧩OpenVINS Code Analysis#compute_F_and_G_discrete|compute_F_and_G_discrete]]\n","x":2840,"y":2000,"width":447,"height":160},
-		{"id":"6983aeedcd89e42f","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_rk4|predict_mean_rk4]]","x":2940,"y":1775,"width":247,"height":55},
 		{"id":"af55553a627c6414","type":"text","text":"#### <span style=\"color:green\">std::map(size_t, int) <span style=\"color:orange\"> map_features_num_meas</span></span> : 한 feature에 몇 개의 observation이 있는지\n#### <span style=\"color:green\">std::map(double, bool) <span style=\"color:orange\">map_camera_times</span></span> : feature의 시점을 모두 저장해놓은 자료구조\n#### <span style=\"color:green\">std::map(size_t, bool)<span style=\"color:orange\"> map_camera_ids</span></span> : 저장된 feature들의 카메라 번호 존재 여부\n#### <span style=\"color:green\">double<span style=\"color:orange\"> pose_dt_avg</span></span> : 미리 설정한 원하는 initialization window 주기\n","x":3204,"y":222,"width":962,"height":239},
-		{"id":"673ae5323a057f68","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_discrete|predict_mean_discrete]]\n","x":3243,"y":1773,"width":317,"height":57},
 		{"id":"1da2c75a79510d2c","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#feed_stereo|TrackDescriptor::feed_stereo]]","x":3420,"y":-604,"width":357,"height":60},
 		{"id":"d10f6f7231137ea7","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#perform_detection_stereo|TrackDescriptor::perform_detection_stereo]]","x":3967,"y":-900,"width":533,"height":139},
 		{"id":"249ecc721850fa4c","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#robust_match|TrackDescriptor::robust_match]]","x":4041,"y":-401,"width":386,"height":151},
 		{"id":"7e0a35c1f253c8f6","type":"text","text":"#### [[🧩OpenVINS Code Analysis#perform_griding|Grider_GRID::perform_griding]]","x":4660,"y":-882,"width":368,"height":103},
-		{"id":"d862cdb385da2bb8","x":1150,"y":2453,"width":600,"height":187,"type":"text","text":"1. `feats_lost` : 현재 발견 안 된 feature들\n2. `feats_marg` : state의 제일 오래된 시간에 발견된 feature들 (중에서 `feats_lost` 와 겹치는 애들 삭제)\n3. `feats_maxtracks` : `feats_marg`인 애들 중에서 max_clone_size보다 많이 발견된 feature들 - 이 중에서 `feats_slam`에 들어간 뒤에 애들\n4. `feats_slam` :  "}
+		{"id":"e2e775183c186b99","type":"text","text":"#### [[🧩OpenVINS Code Analysis#compute_Xi_sum|Propagator::compute_Xi_sum]]\n","x":2840,"y":1940,"width":447,"height":71},
+		{"id":"eaf7dbcf85330c49","type":"text","text":"#### [[🧩OpenVINS Code Analysis#compute_F_and_G_analytic|compute_F_and_G_analytic]] \n####                       or\n#### [[🧩OpenVINS Code Analysis#compute_F_and_G_discrete|compute_F_and_G_discrete]]\n","x":2840,"y":2400,"width":447,"height":160},
+		{"id":"6983aeedcd89e42f","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_rk4|predict_mean_rk4]]","x":2940,"y":2175,"width":247,"height":55},
+		{"id":"673ae5323a057f68","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_discrete|predict_mean_discrete]]\n","x":3243,"y":2173,"width":317,"height":57},
+		{"id":"958a6034d9047325","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_analytic|predict_mean_analytic]]\n","x":2600,"y":2180,"width":300,"height":50},
+		{"id":"d63e5948e922df2e","type":"text","text":"#### [[🧩OpenVINS Code Analysis#do_feature_propagate_update|VioManager::do_feature_propagate_update]]","x":514,"y":2480,"width":358,"height":87},
+		{"id":"399c161812e65114","type":"text","text":" to its corrected frame using the IMU intrinsics\n  Eigen::Vector3d w_uncorrected = w_hat_avg;state의 시간 + td_last ~ 현재 imu 시간 + td간 IMU에 대해서 \n#### [[🧩OpenVINS Code Analysis#predict_and_compute|Propagator::predict_and_compute]]로 imu state propagation\n#### next State Jacobian과 noise Jacobian 구함.\n","x":1920,"y":2040,"width":495,"height":200},
+		{"id":"e75606b9f2efb9c2","type":"text","text":"#### [[🧩OpenVINS Code Analysis#EKFPropagation|StateHelper::EKFPropagation]]","x":1920,"y":2426,"width":495,"height":54},
+		{"id":"ac07a63a9c4939c4","type":"text","text":"#### [[🧩OpenVINS Code Analysis#propagate_and_clone|Propagator::propagate_and_clone]]\nfilter 방식에서는 image가 들어올 때마다 하는 거구나. \noptimization은 imu 주기마다 preintegration해줬는데","x":1240,"y":2320,"width":420,"height":160},
+		{"id":"dde18225784ba703","type":"text","text":"#### [[🧩OpenVINS Code Analysis#augment_clone|StateHelper::augment_clone]](state, last_w)","x":1920,"y":2607,"width":495,"height":113},
+		{"id":"901563b571c1d80a","type":"text","text":"1. `feats_lost` : 현재 발견 안 된 feature들\n2. `feats_marg` : state의 제일 오래된 시간에 발견된 feature들 (중에서 `feats_lost` 와 겹치는 애들 삭제, 즉 현재 발견된 feature들)\n3. `feats_maxtracks` : `feats_marg`인 애들 중에서 max_clone_size보다 많이 발견된 feature들 - 이 중에서 `feats_slam`에 들어간 뒤에 애들\n4. `feats_slam` :  state→_features_SLAM에서 겹치는 애들. \n5. `feats_slam_UPDATE` : `feats_slam`과 `_features_SLAM`과 겹치는 feature \n6. `feats_slam_DELAYED` : `feats_slam`과 `_features_SLAM`과 안 겹치는 feature\n7. `featsup_MSCKF` : `feats_lost`, `feats_marg`, `feats_maxtracks` 순으로 저장한 것.","x":1093,"y":2960,"width":715,"height":300},
+		{"id":"b7165fff87131d79","x":1318,"y":3489,"width":250,"height":60,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#compare_feat]]"}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},
@@ -80,6 +82,7 @@
 		{"id":"9922c7d79236aeeb","fromNode":"1da2c75a79510d2c","fromSide":"right","toNode":"d10f6f7231137ea7","toSide":"left"},
 		{"id":"96c472154d6ecc69","fromNode":"d10f6f7231137ea7","fromSide":"bottom","toNode":"249ecc721850fa4c","toSide":"top"},
 		{"id":"36867a4a1334d7e5","fromNode":"d10f6f7231137ea7","fromSide":"right","toNode":"7e0a35c1f253c8f6","toSide":"left"},
-		{"id":"db1ba3937824b5f2","fromNode":"ac07a63a9c4939c4","fromSide":"bottom","toNode":"d862cdb385da2bb8","toSide":"top"}
+		{"id":"7ba18d22b4ed0104","fromNode":"ac07a63a9c4939c4","fromSide":"bottom","toNode":"901563b571c1d80a","toSide":"top"},
+		{"id":"0fa958191f68aab9","fromNode":"901563b571c1d80a","fromSide":"bottom","toNode":"b7165fff87131d79","toSide":"top"}
 	]
 }

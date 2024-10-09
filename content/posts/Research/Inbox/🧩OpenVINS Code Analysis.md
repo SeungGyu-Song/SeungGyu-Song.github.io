@@ -214,8 +214,9 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 		3. `feats_slam`에는 `valid_amount`만큼 `feats_maxtracks`의 뒤에서부터 넣고, `feats_maxtracks`에서는 삭제. 
 	7. `state→_features_SLAM` loop
 			1. `trackFEATS`(Feature로 뽑힌 애들)에서 state의 landmark와 겹치는 애들은 `feats_slam`에 넣어주고
-			2. 겹치지 않고, `current_unique_cam == true` → `landmark.second→should_marg = true
-			3. `landmark.second→ update_fail_count > 1 →landmark.second→should_marg = true`
+			2. `landmark.second→should_marg = true` 할 때
+				1. 겹치지 않고, `_unique_camera_id == true`일 때, 즉 landmark로 있었는데 FeatureDatabase에서 사라졌을 때.
+				2. `update_fail_count>1`일 때
 	8. [[#StateHelper#marginalize_slam|StateHelper::marginalize_slam]](state)
 		- old SLAM feature들을 marginalize하는데, 이 때
 		- old SLAM feature들은 현재 시점에 tracking이 잘 안 된 애들
