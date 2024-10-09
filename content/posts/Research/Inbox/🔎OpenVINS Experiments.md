@@ -1,4 +1,5 @@
-[[🔎직접 취득한 bagfile 정리]]에서 백파일 정보 확인하기.
+- [[🧩OpenVins.canvas|🧩OpenVins]]
+- [[🔎직접 취득한 bagfile 정리]]에서 백파일 정보 확인하기.
 # Initialization Test
 OpenVINS를 돌릴 때, imu noise 값들을 작게 주면 쉽게 발산하는 것을 관찰하였따. 
 (EuRoC dataset에 맞추어진 값으로 넣었을 때)
@@ -26,14 +27,22 @@ bag file : 1115_north go1
 | Dynamic(기존)    | 2.0         | 50               | 10           | 0          | 우주 발산                         |     |
 | Dynamic(기존)    | 5.0         | 150              | 10           | 0          | 수렴, 제일 괜찮음.                   |     |
 |                |             |                  |              |            |                               |     |
-# 은골산 데이터셋 비교
+# Go1 dataset
+## 은골산 데이터셋 비교
 뭔가 1115 north dataset보다 그래도 잘 되는 이유는 landmark feature 수가 좀 잘 나와서 그런 것도 있는 것 같다.
 그리고 IMU가 막 커질때, 즉 움직임이 과격해질 때는 확실히 조금 튀는 경향이 있다.
 
 | RPE_RMSE     | OpenVINS | VINS-Fusion | BASALT       |     |
 | ------------ | -------- | ----------- | ------------ | --- |
 | GT : FASTLIO | 0.056751 | 0.059772    | **0.017033** |     |
+## 2023Ice
+돌아가다가 우주 발산해벌임. 와 리얼 바살황 ㄷㄷ..
 
+| RPE_RMSE     | OpenVINS |     | BASALT       |     |
+| ------------ | -------- | --- | ------------ | --- |
+| GT : FASTLIO | Nan      |     | **0.028614** |     |
+![[Pasted image 20241009205610.png|450]]
+![[Pasted image 20241009205706.png]]
 ### 결과 사진
 
 ![[VINS_trio_topview.png]]
@@ -59,11 +68,3 @@ bag file : 1115_north go1
 ![[Pasted image 20241009154303.png]]z축으로의 drift를 비롯해서 조금의 drift가 쌓인 것 같다. 
 환경은 동적물체가 전혀 없는 환경이었고, feature_SLAM이 계속해서 25개 이상, 주로 30과 40 잡힌 환경이다.
 
-# 2023Ice
-돌아가다가 우주 발산해벌임. 와 리얼 바살황 ㄷㄷ..
-
-| RPE_RMSE     | OpenVINS |     | BASALT       |     |
-| ------------ | -------- | --- | ------------ | --- |
-| GT : FASTLIO | Nan      |     | **0.028614** |     |
-![[Pasted image 20241009205610.png|450]]
-![[Pasted image 20241009205706.png]]
