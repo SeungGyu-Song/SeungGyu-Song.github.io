@@ -114,7 +114,8 @@ order_New와 order_OLD에는 state의 imu 값, intrinsic 값이 들어가고, Ph
 
 [[#StateHelper#clone|StateHelper::clone]](state, state→_imu→pose())  함수로 state의 covariance 마지막에 <span style="color:purple">state</span>, 즉 state→_imu→pose()의 해당 covariance를  clone해주고, 이에 해당하는 새로운 block을 return.
 
-`state->_clones_IMU[state->_timestamp] = pose;`
+`state->_clones_IMU[state->_timestamp] = pose;` 
+즉, 여기에는 propagation된 pose가 들어있음.
 
 camera_timeoffset을 calibration 할거면 어떻게 해야하는지 제시가 되어있음.
 
@@ -192,7 +193,7 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 	  [[#features_not_containing_newer|FeatureDatabase::features_not_containing_newer]]
 	2. *_clones_IMU*가 5개 이상이면 
 		1. `feats_marg = trackFEATS->get_feature_database()->features_containing(state->margtimestep(), false, true)`
-	     [[#features_containing|FeatureDatabase::features_containing]] 
+	     [[#features_containing|FeatureDatabase::features_containing]] 로 margtimestep에 있는 애들을 검출.
 	     2. `feats_slam = trackARUCO->get_feature_database()->features_containing(state->margtimestep(), false, true);`
 	3. `feats_lost`에 있는 feature가 message.camera sensor_id에서 발견이 안 되면 `feats_lost`에서 삭제하고, 발견이 됐으면 그대로 진행.
 			*E.g: if we are cam1 and cam0 has not processed yet, we don't want to try to use those in the update yet
