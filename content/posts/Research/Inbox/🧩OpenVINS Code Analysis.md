@@ -222,7 +222,8 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 	9. `feats_slam_DELAYED, feats_slam_UPDATE`
 		1. `feats_slam`에 있는 feature가 원래 *_features_SLAM*에 있었다면 `feats_slam_UPDATE`에 추가
 		2. 원래 없었다면 `feats_slam_DELAYED`에 추가.
-	10. `featsup_MSCKF`
+	10. `featsup_MSCKF`에 `feats_lost, feats_marg, feats_maxtracks`순으로 넣기.
+	11. 
 
 
 ### try_to_initialize
