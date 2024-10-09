@@ -185,7 +185,8 @@ state에서 `_feature_SLAM`에 담긴 feature를 visualize
 ### do_feature_propagate_update
 <span style="color:green">const ov_core::CameraData <span style="color:purple">&message</span></span>
 
-feats_SLAM은 현재도 발견되고, max_clones 개수보다 많이 발견된 feature들의 모임.
+features_SLAM은 현재도 발견되고, max_clones 개수보다 많이 발견된 feature들의 모임
+feats_slam과 구별해야함.
 
 1. state의 timestamp ≠ imu message의 timestamp → [[#propagate_and_clone|Propagator::propagate_and_clone]] ?state의 timestamp가 언제 갱신되더라? #점검 
 2. `state->_clones_IMU.size() < std::min(state->_options.max_clone_size, 5)` → 그냥 return하고 종료
@@ -213,8 +214,11 @@ feats_SLAM은 현재도 발견되고, max_clones 개수보다 많이 발견된 f
 	7. `state→_features_SLAM` loop
 			1. `trackFEATS`(Feature로 뽑힌 애들)에서 state의 landmark와 겹치는 애들은 `feats_slam`에 넣어주고
 			2. 겹치지 않고, `current_unique_cam == true` → `landmark.second→should_marg = true
-				근데 이거는 그냥 새로 발견된 feature  아닌가? #점검 
 			3. `landmark.second→ update_fail_count > 1 →landmark.second→should_marg = true`
+	8. [[#StateHelper#marginalize_slam|StateHelper::marginalize_slam]](state)
+		- old SLAM feature들을 marginalize하는데, 이 때
+		- old SLAM feature들은 현재 시점에 tracking이 잘 안 된 애들
+	9. `feats_slam_DELAYED, feats_slam_UPDATE`
 
 
 ### try_to_initialize
