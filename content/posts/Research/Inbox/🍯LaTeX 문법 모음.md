@@ -1,3 +1,5 @@
+# 통계 표현
+1. X가 정규분포 를 따른다 : X \sim \mathcal{N}(\mu, \sigma^2) → $X \sim \mathcal{N}(\mu, \sigma^2)$ 
 # 행렬 표현
 \begin{matrix} \end{matrix} 
 1. matrix : 괄호 없음

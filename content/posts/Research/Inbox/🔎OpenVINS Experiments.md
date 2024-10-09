@@ -28,6 +28,11 @@ bag file : 1115_north go1
 | Dynamic(기존)    | 5.0         | 150              | 10           | 0          | 수렴, 제일 괜찮음.                   |     |
 |                |             |                  |              |            |                               |     |
 # Go1 dataset
+- Go1이 아무래도 카메라 / body가 흔들리다보니까 feature tracking이 잘 안 되는 거 같기도 하다.
+- 그래서 terminal에 Num Landmarks가 매우 적게 나타나고, imu 역시 계속 크게 찍혀서 그ㄹ
+
+
+
 ## 은골산 데이터셋 비교
 뭔가 1115 north dataset보다 그래도 잘 되는 이유는 landmark feature 수가 좀 잘 나와서 그런 것도 있는 것 같다.
 그리고 IMU가 막 커질때, 즉 움직임이 과격해질 때는 확실히 조금 튀는 경향이 있다.

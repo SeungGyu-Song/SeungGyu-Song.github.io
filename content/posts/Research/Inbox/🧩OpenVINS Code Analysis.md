@@ -228,6 +228,7 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. (tracking 더 많이 된 feature들 삭제)
 	13. [[#UpdaterMSCKF#update|UpdaterMSCKF::update]](state, featsup_MSCKF)
 	14. [[#Propagator#invalidate_cache|Propagator::invalidate_cache]]로 `cache_imu_valid = false`
+	15. `featsup_TEMP`에 
 #### compare_feat
 feature a, b 중에서 timestamp를 돌면서 
 왼+오 더 많이 검출된 애가 누군지 가리는 거
@@ -322,7 +323,8 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 * After this we compress all the measurements to have an efficient update and update the state.
 
 ### constructor
-[[Chi_squared_distribution]]
+[[Chi_squared_distribution]], 이거 왜 하는 거지? [[MSCKF]] #점검 
+### update
 
 # ov_core
 
