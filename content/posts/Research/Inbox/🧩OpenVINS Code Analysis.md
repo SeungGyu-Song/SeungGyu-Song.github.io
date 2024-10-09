@@ -384,7 +384,7 @@ size_t <span style="color: purple">id0 </span>, size_t <span style="color: purpl
 
 `cv::findFundamentalMat(pts0_n, pts1_n, cv::FM_RANSAC, 2.0 / max_focallength, 0.999, mask_rsc);` 
 즉, RANSAC을 하는데 그 기준을 2 / max_focallenght로 함. 
-
+- 2.0/max_focallenght에서 focal length로 나눠주는 이유가 normalized plane으로 calibration 해줄 때 focal length를 나눠서 해주니까 여기서의 의미는 <span style="color:red">normalized plane에서 오차를 고려하겠다는 의미</span>
 - RANSAC을 할 때 undistorted point를 가지고 하는데 projection이 nonlinear해서 nonlinear 특성을 없앤 점을 가지고 진행.  비선형성은 더 복잡해서 RANSAC 오차가 더 클 수 있음.
 
 - 💡focal length가 낮아지면 scale이 낮고(image가 커지고), focal length가 크면 scale이 높다(image가 작다.) 이러면 실제로 움직임을 크게 해도 scale이 큰 이미지에서 작게 움직인 것처럼 반영이 되기 때문에 초점 거리를 기준으로 threshold를 설정하게 되면 scale 변화에 더 일관된 결과를 얻을 수 있다고 함.
