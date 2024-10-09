@@ -7,7 +7,6 @@
 		{"id":"87dd15a3517bbd78","type":"group","x":-1140,"y":-2209,"width":979,"height":649,"label":"Week 1"},
 		{"id":"93055925b6ca036e","type":"group","x":-580,"y":-1380,"width":940,"height":547,"color":"4","label":"IMU Propagation"},
 		{"id":"4ef1f340a0267aa2","type":"group","x":-1120,"y":-2000,"width":290,"height":400,"label":"ROS1Visualizer"},
-		{"id":"7e0a35c1f253c8f6","type":"text","text":"#### [[🧩OpenVINS Code Analysis#perform_griding|Grider_GRID::perform_griding]]","x":4660,"y":-882,"width":368,"height":103},
 		{"id":"d8265cc527169afd","type":"text","text":"#### [[🧩OpenVINS Code Analysis#visualize_final|visualize_final]]","x":-1100,"y":-1680,"width":250,"height":60},
 		{"id":"f571800d8279ae23","type":"text","text":"[[🧩OpenVINS Code Analysis#callback_stereo|callback_stereo]]\n","x":-1100,"y":-1880,"width":250,"height":60},
 		{"id":"8cb88f8cda3a7aa8","type":"text","text":"[[🧩OpenVINS Code Analysis#callback_inertial|callback_inertial]]\n","x":-1100,"y":-1980,"width":250,"height":60},
@@ -47,7 +46,9 @@
 		{"id":"673ae5323a057f68","type":"text","text":"#### [[🧩OpenVINS Code Analysis#predict_mean_discrete|predict_mean_discrete]]\n","x":3243,"y":1773,"width":317,"height":57},
 		{"id":"1da2c75a79510d2c","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#feed_stereo|TrackDescriptor::feed_stereo]]","x":3420,"y":-604,"width":357,"height":60},
 		{"id":"d10f6f7231137ea7","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#perform_detection_stereo|TrackDescriptor::perform_detection_stereo]]","x":3967,"y":-900,"width":533,"height":139},
-		{"id":"249ecc721850fa4c","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#robust_match|TrackDescriptor::robust_match]]","x":4041,"y":-401,"width":386,"height":151}
+		{"id":"249ecc721850fa4c","type":"text","text":"#### [[🧩OpenVINS Code Analysis#TrackDescriptor ← TrackBase#robust_match|TrackDescriptor::robust_match]]","x":4041,"y":-401,"width":386,"height":151},
+		{"id":"7e0a35c1f253c8f6","type":"text","text":"#### [[🧩OpenVINS Code Analysis#perform_griding|Grider_GRID::perform_griding]]","x":4660,"y":-882,"width":368,"height":103},
+		{"id":"d862cdb385da2bb8","x":1150,"y":2453,"width":600,"height":187,"type":"text","text":"1. `feats_lost` : 현재 발견 안 된 feature들\n2. `feats_marg` : state의 제일 오래된 시간에 발견된 feature들 (중에서 `feats_lost` 와 겹치는 애들 삭제)\n3. `feats_maxtracks` : `feats_marg`인 애들 중에서 max_clone_size보다 많이 발견된 feature들 - 이 중에서 `feats_slam`에 들어간 뒤에 애들\n4. `feats_slam` :  "}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},
@@ -78,6 +79,7 @@
 		{"id":"3b2e89c39de6dab9","fromNode":"f7846e4144da7609","fromSide":"right","toNode":"1da2c75a79510d2c","toSide":"left"},
 		{"id":"9922c7d79236aeeb","fromNode":"1da2c75a79510d2c","fromSide":"right","toNode":"d10f6f7231137ea7","toSide":"left"},
 		{"id":"96c472154d6ecc69","fromNode":"d10f6f7231137ea7","fromSide":"bottom","toNode":"249ecc721850fa4c","toSide":"top"},
-		{"id":"36867a4a1334d7e5","fromNode":"d10f6f7231137ea7","fromSide":"right","toNode":"7e0a35c1f253c8f6","toSide":"left"}
+		{"id":"36867a4a1334d7e5","fromNode":"d10f6f7231137ea7","fromSide":"right","toNode":"7e0a35c1f253c8f6","toSide":"left"},
+		{"id":"db1ba3937824b5f2","fromNode":"ac07a63a9c4939c4","fromSide":"bottom","toNode":"d862cdb385da2bb8","toSide":"top"}
 	]
 }
