@@ -322,7 +322,7 @@ Eigen::Matrix<double, 3, 1> am;
 `highlightened` 변수가 `_features_SLAM`이라고 생각하면 됨.
 아 초록색 box가 `_features_SLAM`
 나머지는 [[#FeatureDatabase]]에서 `_Features_SLAM`와 같은 feature들을 찾은 다음에, 표시를 하는 건데, 
-색이 흰 색일 수록 최근 것임.\
+색이 흰 색일 수록 예전 것임.
 그리고 이건 느낌인데, 양쪽에서 검출된 feature는 파란색, 한 쪽에서만 검출된 것은 빨간색으로 표현하는 것 같다.
 코드를 봐도 잘 모르겠음.
 ![[Pasted image 20241007172336.png]]
