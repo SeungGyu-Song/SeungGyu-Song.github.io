@@ -37,6 +37,8 @@ bag file : 1115_north go1
 ## 은골산 데이터셋 비교
 뭔가 1115 north dataset보다 그래도 잘 되는 이유는 landmark feature 수가 좀 잘 나와서 그런 것도 있는 것 같다.
 그리고 IMU가 막 커질때, 즉 움직임이 과격해질 때는 확실히 조금 튀는 경향이 있다.
+![[VINS_trio_topview 1.png]]
+![[VINS_trio_xyz_view 1.png]]
 
 | RPE_RMSE     | OpenVINS | VINS-Fusion | BASALT       |     |
 | ------------ | -------- | ----------- | ------------ | --- |
