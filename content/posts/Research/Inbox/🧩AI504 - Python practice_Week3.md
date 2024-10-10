@@ -3,6 +3,7 @@
 -  simple logistic regression and multinomial logistic regression (softmax) with PyTorch
 - simple linear model and multi-layer perceptron (MLP)
 - reference : [Jinsol Kim](https://gaussian37.github.io/dl-pytorch-snippets/)
+	- GPU에 있을 때에는 CPU로 변경 후 np로 변경해야한다.
 ---
 # Contents
 ## Numpy vs PyTorch tensor
