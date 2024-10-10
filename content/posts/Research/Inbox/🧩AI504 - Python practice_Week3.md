@@ -67,3 +67,9 @@ b = torch.randn(4,2,3) # normal distribution으로 4개의 layer, 2(row)*3(colum
 ![[Pasted image 20241010110802.png]]
 
 ## Autograd
+`x = torch.ones(2,2, requires_grad=True)` : requires_grad 켜줘야 해당 변수에 대한 연산을 tracking함.
+마지막 loss function이든 행렬에서 .backward()를 해주면 gradient를 자동적으로 계산함.
+`out.backward()` 이후 , `print(z.grad)`
+근데 
+
+
