@@ -37,7 +37,7 @@ $\bar{q}^{-1} = \begin{bmatrix} -\mathbf{q} \\ q_4 \end{bmatrix} = \begin{bmatri
 
 $(\bar{q} \otimes \bar{p})^{-1} = \bar{p}^{-1} \otimes \bar{q}^{-1}$
 
-
+이것도 중요한 성질 같아. quaternion이 역이면 연산자에 transpose 취하는 거.
 $\mathcal{L}(\bar{q}^{-1}) = \mathcal{L}^T(\bar{q})$
 $\mathcal{R}(\bar{p}^{-1}) = \mathcal{R}^T(\bar{p})$
 ![[Pasted image 20240903134337.png]]
@@ -50,14 +50,14 @@ $\lfloor \mathbf{a} \; \mathsf{x} \rfloor + \lfloor \mathbf{b} \; \mathsf{x} \rf
 ##### Lagrange’s Formula
 ![[Pasted image 20240903125153.png]]
 ##### Jacobi Identity & Rotations
-C가 회전이라고 했을 때. 
+C가 회전이라고 했을 때.  ( 행렬이라고 봐도 되겠지?)
 ![[Pasted image 20240903125227.png]]
 
-##### 외적 제곱
+##### skew-symmetric 제곱
 에 관한 것도 있으니 이건 직접 찾아보는 게 나은 듯.
 
 #### 1.3.3 Properties of the matrix $\Omega$ 
-얘는 input이 $\omega$로 3x3임.
+얘는 input이 $\omega$로 3x1임.
 $\Omega(\omega) = \begin{bmatrix} 0 & \omega_z & -\omega_y & \omega_x \\-\omega_z & 0 & \omega_x & \omega_y \\ \omega_y & -\omega_x & 0 & \omega_z \\ -\omega_x & -\omega_y & -\omega_z & 0 \end{bmatrix} = \begin{bmatrix} -\lfloor \omega \; \mathsf{x} \rfloor & \omega \\ -\omega^T & 0 \end{bmatrix}$  
 
 그리고 $\Omega$의 제곱도 나와있으니까 참고하기. 마치 imaginary number와 특성이 비슷함.
