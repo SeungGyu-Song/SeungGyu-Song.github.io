@@ -71,7 +71,7 @@ b = torch.randn(4,2,3) # normal distribution으로 4개의 layer, 2(row)*3(colum
 마지막 loss function이든 행렬에서 .backward()를 해주면 gradient를 자동적으로 계산함.
 `out.backward()` 이후 , `print(z.grad)`
 
-근데 메모리 효율성을 위해 연산 history tracking을 금지하고 싶으면, `torch.no_grad()`를 사용하면 됨.
+근데 메모리 효율성을 위해 연산 history tracking을 금지하고 싶으면, `torch.no_grad()`를 사용하면 됨. → Testset 돌릴 때!
 
 ```PyTorch
 with torch.no_grad(): 
@@ -99,4 +99,49 @@ def forward(self, x):
 	x = self.linear_2(x)
 
 return x
+```
+
+
+```PyTorch
+model = Multinomial_logistic_regression(784, 10) # init(784, 10)
+model = model.to('cuda')
+optimizer = torch.optim.SGD(model.parameters(), lr=0.05, momentum=0.9)
+
+# Loss function define (we use cross-entropy)
+
+loss_fn = nn.CrossEntropyLoss()
+
+  
+#Train the model
+total_step = len(train_loader)
+
+for epoch in range(10):
+	for i, (images, labels) in enumerate(train_loader): # mini batch for loop
+		# upload to gpu
+		
+		images = images.reshape(-1, 28*28).to('cuda') # -1이 batch_size
+		labels = labels.to('cuda')
+		
+		# Forward
+		outputs = model(images) # forwardI(images): get prediction, model(images)하면 자동적으로 forward함수가 호출이 된대.
+		
+		loss = loss_fn(outputs, labels) # calculate the loss (cross entropy loss) with ground truth & prediction value
+		
+		  
+		
+		# Backward and optimize
+		
+		optimizer.zero_grad()
+		
+		loss.backward() # automatic gradient calculation (autograd)
+		
+		optimizer.step() # update model parameter with requires_grad=True
+		
+		  
+		
+		if (i+1) % 100 == 0:
+		
+		print ('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'
+		
+		.format(epoch+1, 10, i+1, total_step, loss.item()))
 ```
