@@ -7,10 +7,10 @@ tags:
   - Review
 draft: true
 ---
-[asd](https://hojjunekim.github.io/assets/img/projects/v4rl/report.pdf)
 
 zotero : 
 source : https://arxiv.org/pdf/2407.07074 , https://www.youtube.com/watch?v=iubwqTzA8Do ; ECCV2024
+reference : [Gaussian Belief Propagation for Continuous Time Simultaneous Localization and Mapping](https://hojjunekim.github.io/assets/img/projects/v4rl/report.pdf)
 
 ---
 ### Critique
