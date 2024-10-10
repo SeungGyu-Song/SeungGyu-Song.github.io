@@ -101,7 +101,7 @@ def forward(self, x):
 return x
 ```
 
-
+##### Train
 ```PyTorch
 model = Multinomial_logistic_regression(784, 10) # init(784, 10)
 model = model.to('cuda')
@@ -118,7 +118,6 @@ total_step = len(train_loader)
 for epoch in range(10):
 	for i, (images, labels) in enumerate(train_loader): # mini batch for loop
 		# upload to gpu
-		
 		images = images.reshape(-1, 28*28).to('cuda') # -1이 batch_size
 		labels = labels.to('cuda')
 		
@@ -127,21 +126,32 @@ for epoch in range(10):
 		
 		loss = loss_fn(outputs, labels) # calculate the loss (cross entropy loss) with ground truth & prediction value
 		
-		  
-		
 		# Backward and optimize
-		
 		optimizer.zero_grad()
-		
 		loss.backward() # automatic gradient calculation (autograd)
-		
 		optimizer.step() # update model parameter with requires_grad=True
 		
-		  
-		
 		if (i+1) % 100 == 0:
-		
 		print ('Epoch [{}/{}], Step [{}/{}], Loss: {:.4f}'
-		
 		.format(epoch+1, 10, i+1, total_step, loss.item()))
+```
+
+##### Test
+```PyTorch
+# Test the model
+# In test phase, we don't need to compute gradients (for memory efficiency)
+
+with torch.no_grad():
+	correct = 0
+	total = 0
+	for images, labels in test_loader:
+	
+		images = images.reshape(-1, 28*28).to('cuda')
+		labels = labels.to('cuda')
+		outputs = model(images)
+		_, predicted = torch.max(outputs.data, 1) # classification -> get the label prediction of top 1
+		total += labels.size(0)
+		correct += (predicted == labels).sum().item()
+	
+	print('Accuracy of the network on the 10000 test images: {} %'.format(100 * correct / total))
 ```
