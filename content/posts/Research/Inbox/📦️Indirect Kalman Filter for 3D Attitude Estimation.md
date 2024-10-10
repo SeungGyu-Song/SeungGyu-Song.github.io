@@ -57,7 +57,7 @@ C가 회전이라고 했을 때.  ( 행렬이라고 봐도 되겠지?)
 에 관한 것도 있으니 이건 직접 찾아보는 게 나은 듯.
 
 #### 1.3.3 Properties of the matrix $\Omega$ 
-얘는 input이 $\omega$로 3x1임.
+얘는 input이 $\omega$로 3x1 임.
 $\Omega(\omega) = \begin{bmatrix} 0 & \omega_z & -\omega_y & \omega_x \\-\omega_z & 0 & \omega_x & \omega_y \\ \omega_y & -\omega_x & 0 & \omega_z \\ -\omega_x & -\omega_y & -\omega_z & 0 \end{bmatrix} = \begin{bmatrix} -\lfloor \omega \; \mathsf{x} \rfloor & \omega \\ -\omega^T & 0 \end{bmatrix}$  
 
 그리고 $\Omega$의 제곱도 나와있으니까 참고하기. 마치 imaginary number와 특성이 비슷함.
@@ -83,7 +83,6 @@ $^{L}\mathbf{p} = ^L_G\mathbf{C}(\bar{q}) ^G\mathbf{p}$
 ![[Pasted image 20240903133756.png]]
 ![[Pasted image 20240903133802.png]]
 
-.
 
 $\bar{q} \otimes \bar{p} \otimes \bar{q}^{-1}$
 = $\mathcal{L}(\bar{q})\mathcal{R}^T(\bar{q})\bar{p}$
