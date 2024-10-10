@@ -65,3 +65,5 @@ b = torch.randn(4,2,3) # normal distribution으로 4개의 layer, 2(row)*3(colum
 ```
 
 ![[Pasted image 20241010110802.png]]
+
+## Autograd
