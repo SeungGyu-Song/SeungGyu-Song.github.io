@@ -11,3 +11,21 @@ numpy는 `np_array_1.shape` 처럼 shape 함수를 써야하는데, PyTorch는 `
 
 ### 2. Same operations with different grammar
 #### np.concatenate vs torch.cat
+[[🧩AI504 - Python practice_Week1#Stack, concatenation]]
+
+- axis(numpy) and dim(torch)는 identical하다.
+```PyTorch
+torch_concate=torch.cat([torch_tensor_1, torch_tensor_2], dim=0)
+```
+
+#### reshape (np) vs view (PyTorch)
+
+```PyTorch
+torch_reshaped = torch_concate.view(4,2)
+```
+
+### 3. Different operations with same grammar
+```Python
+x = np.array([1,2,3])
+x_repeat = x.repeat(2) #[1 1 2 2 3 3]
+```
