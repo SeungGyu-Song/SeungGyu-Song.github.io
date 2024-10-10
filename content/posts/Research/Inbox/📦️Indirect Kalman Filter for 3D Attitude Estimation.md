@@ -90,6 +90,11 @@ $\bar{q} \otimes \bar{p} \otimes \bar{q}^{-1}$
 = $\begin{bmatrix} \mathbf{C}(\bar{q}) \; 0 \\ 0 \quad 1 \end{bmatrix} \; \begin{bmatrix} \mathbf{p} \\ p_4 \end{bmatrix}$\
  = $\begin{bmatrix} \mathbf{C}(\bar{q})\mathbf{p} \\ p_4 \end{bmatrix}$
 
+#### quaternion perturbation
+$\delta \bar{q} = \begin{bmatrix} \delta\mathbf{q} \\ \delta q_4 \end{bmatrix} \\ = \begin{bmatrix} \hat{\mathbf{k}} \sin{\delta\theta / 2} \\ \cos{\delta\theta / 2} \end{bmatrix} \\ \approx \begin{bmatrix} \frac{1}{2}\delta \theta  \\ 1 \end{bmatrix}$
+
+
+
  다음으로는 아래에 대해 다루겠습니다.
 ![[Pasted image 20240903143956.png]]
 
