@@ -68,7 +68,7 @@ $\Omega(\omega) = \begin{bmatrix} 0 & \omega_z & -\omega_y & \omega_x \\-\omega_
 $\Phi$ → $\mathcal{L}$ , $\Xi$ → $\mathcal{R}$ 로 대응시켜서 생각하면 편한 것 같아요.
 
 
-- $\Xi(\bar{q})\Xi^T(\bar{q}) = \mathbf{I}_{4\mathsf{x}4} - \bar{q}\bar{q}^T$
+- $\Xi(\bar{q})\Xi^T(\bar{q}) = \mathbf{I}_{4\mathsf{x}4} - \bar{q}\bar{q}^T = \mathbf{I} - \lfloor \mathbf{q} \, \mathsf{x} \rfloor ^2$
 - $\Xi^T(\bar{q})\bar{q} = \mathbf{0}_{3\mathsf{x}1}$
 - $\Omega(\mathbf{a})\bar{q} = \Xi(\bar{q})\mathbf{a}$
 
@@ -99,7 +99,10 @@ $\delta \bar{q} = \begin{bmatrix} \delta\mathbf{q} \\ \delta q_4 \end{bmatrix} \
 ![[Pasted image 20240903143956.png]]
 
 ![[Pasted image 20240903144207.png]]
-이게 왜 이렇게 되는지 식 95번에 대해 잘 아직 파악을 못했습니다. #점검 
+이게 왜 이렇게 되는지 식 95번에 대해 잘 아직 파악을 못했습니다.
+L1 farme(종착지)에 대해서 $\theta$가 기술된 거라 내가 원래 익숙하게 봤던 방식과는 역으로 된 거임. 그래서 minus를 붙여서 해주는 게 당연하게 느껴짐.
+
+근데 왜 k만 skew-symmetric이 되는지 잘 모르겠다. 
 
 Fig 1.![[Pasted image 20240903144244.png]]
 z축 기준으로 돌렸으니까 z축에 $\sin(\Phi / 2)$ 가 오는 거 같긴한데..

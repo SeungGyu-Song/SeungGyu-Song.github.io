@@ -29,3 +29,7 @@ OpenVINS Study 5주차에는 IMU propagation에 관해 다룰 예정입니다.
 			- **[[🧩OpenVINS Code Analysis#compute_F_and_G_analytic|Propagator::compute_F_and_G_analytic]]**
 # Class
 [[🧩OpenVINS Code Analysis#Propagator|Propagator]]
+
+---
+### 내가 질문할 것.
+1. [[📦️Indirect Kalman Filter for 3D Attitude Estimation]]에서 95번 식에 축에 해당하는 $\hat{\mathbf{k}}$만 skew-symmetric하는 게 이해가 잘 안 됨. 그냥 받아들여야하나?
