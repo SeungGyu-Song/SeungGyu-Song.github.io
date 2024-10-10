@@ -44,4 +44,19 @@ x_repeat = x_repeat.view(-1) # [1,1,1,2,2,2,3,3,3,1,1,1,2,2,2,3,3,3]
 
 #### stack 
 torch.cat() : 주어진 차원을 기준으로 텐서들을 붙이기
-torch.stack() : 새로운 차원으로 
+torch.stack() : 새로운 차원으로 텐서를 붙이기.
+
+```PyTorch
+x = torch.tensor([1,2,3])
+x_repeat = x.repeat(4) # [1,2,3,1,2,3,1,2,3,1,2,3]
+x_stack = torch.stack([x, x, x, x]) #[[1,2,3],[1,2,3],[1,2,3],[1,2,3]]
+
+```
+
+
+## Tensor operations under GPU utilization
+
+```
+a = torch.ones(3)
+b = torch.randn(100,50,3) # 100(row)*50(column)*3(layer)로 만듦
+```
