@@ -58,5 +58,6 @@ x_stack = torch.stack([x, x, x, x]) #[[1,2,3],[1,2,3],[1,2,3],[1,2,3]]
 
 ```
 a = torch.ones(3)
-b = torch.randn(100,50,3) # 100(row)*50(column)*3(layer)로 만듦
+b = torch.randn(100,50,3) # 100(row)*50(column)*3(layer)로 만듦 # rgb 이미지로 생각을 하면 되나봐, 100개의 sample, 50개의 특성(생상, 밝기), 3개의 layer(rgb)
+b = torch.randn(4,2,3) # 4개의 layer, 2(row)*3(column)
 ```
