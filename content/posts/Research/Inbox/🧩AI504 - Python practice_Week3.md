@@ -25,7 +25,23 @@ torch_reshaped = torch_concate.view(4,2)
 ```
 
 ### 3. Different operations with same grammar
+#### repeat
+repeat을 그냥 expansion이라 생각하자. 
+python : 원소별로 expansion
+PyTorch : 하나의 배열을 기본 단위로 expansion
 ```Python
 x = np.array([1,2,3])
 x_repeat = x.repeat(2) #[1 1 2 2 3 3]
+
+x = torch.tensor([1,2,3])
+x_repeat = x.repeat(2) # [1 2 3 1 2 3]
+
+######
+x_repeat = x.view(3,1) # [1],[2],[3]
+x_repeat = x_repeat.repeat(2,3) ## expansion이라 생각하면 됨.
+x_repeat = x_repeat.view(-1) # [1,1,1,2,2,2,3,3,3,1,1,1,2,2,2,3,3,3]
 ```
+
+#### stack 
+torch.cat() : 주어진 차원을 기준으로 텐서들을 붙이기
+torch.stack() : 새로운 차원으로 
