@@ -84,4 +84,19 @@ with torch.no_grad():
 
 ## nn.Module
 
+```PyTorch
+class Model(nn.Module):
 
+def __init__(self, input_dim, output_dim, hidden_dim):
+	super(Model, self).__init__()
+	self.linear_1 = nn.Linear(input_dim, hidden_dim)
+	self.linear_2 = nn.Linear(hidden_dim, output_dim)
+	self.relu = nn.ReLU()
+
+def forward(self, x):
+	x = self.linear_1(x)
+	x = self.relu(x) # Activation function
+	x = self.linear_2(x)
+
+return x
+```
