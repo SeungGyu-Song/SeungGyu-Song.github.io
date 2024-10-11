@@ -8,7 +8,7 @@ tags:
 ---
 
 zotero : 
-source : [Indirect Kalman Filter](https://mediawiki.isr.tecnico.ulisboa.pt/images/d/db/Indirect_Kalman_Filter_for_3D_Attitude_Estimation.pdf])
+source : [Indirect Kalman Filter](https://mediawiki.isr.tecnico.ulisboa.pt/images/d/db/Indirect_Kalman_Filter_for_3D_Attitude_Estimation.pdf)
 
 ---
 ### Critique
@@ -97,6 +97,7 @@ $\delta \bar{q} = \begin{bmatrix} \delta\mathbf{q} \\ \delta q_4 \end{bmatrix} \
 
  다음으로는 아래에 대해 다루겠습니다.
 ![[Pasted image 20240903143956.png]]
+discrete propagation page에서 error-state propagation에서 쓰이는 듯.
 
 ![[Pasted image 20240903144207.png]]
 이게 왜 이렇게 되는지 식 95번에 대해 잘 아직 파악을 못했습니다.
