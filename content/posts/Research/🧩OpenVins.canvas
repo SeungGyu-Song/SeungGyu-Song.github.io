@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2720,"color":"6","label":"Propagation & Update"},
+		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2940,"color":"6","label":"Propagation & Update"},
 		{"id":"4d379e012818bbd7","type":"group","x":494,"y":180,"width":3866,"height":860,"color":"5","label":"Initialization"},
 		{"id":"91b36805fe2d4b09","type":"group","x":1220,"y":1880,"width":2360,"height":860,"color":"4","label":"Propagation"},
 		{"id":"316ea87fd9c96679","type":"group","x":2760,"y":-920,"width":2288,"height":858,"color":"3","label":"Visual Feature Frontend(Descriptor)"},
@@ -54,7 +54,9 @@
 		{"id":"d7acb69a62047962","type":"text","text":"#### [[🧩OpenVINS Code Analysis#UpdaterMASCKF::update|UpdaterMSCKF::update]](state, featsup_MSCKF)","x":1175,"y":3560,"width":551,"height":72},
 		{"id":"1c49b5760ec34659","type":"text","text":"#### [[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]","x":1237,"y":3720,"width":427,"height":50},
 		{"id":"9b1f5b8783cc91d0","x":1131,"y":4120,"width":640,"height":58,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#UpdaterSLAM#delayed_init|UpdaterSLAM::delayed_init]](state, feats_slam_DELAYED)"},
-		{"id":"7f57328d144e60e7","x":1498,"y":3820,"width":620,"height":240,"type":"text","text":"while(!`feats_slam_UPDATE.empty()`)\n\n`featsup_TEMP`에 `feats_slam_UPDATE`에서 `max_slam_in_update` or `feats_slam_UPDATE`개수 중 더 작은 수만큼 넣기.\n[[🧩OpenVINS Code Analysis#UpdaterSLAM#update|UpdaterSLAM::update]](state, featsup_TEMP)\n`feats_slam_UPDATE_TEMP` 뒤에 `featsup_TEMP` 전부 넣어주기.\n[[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]\n\n"}
+		{"id":"7f57328d144e60e7","x":1498,"y":3820,"width":620,"height":240,"type":"text","text":"while(!`feats_slam_UPDATE.empty()`)\n\n`featsup_TEMP`에 `feats_slam_UPDATE`에서 `max_slam_in_update` or `feats_slam_UPDATE`개수 중 더 작은 수만큼 넣기.\n[[🧩OpenVINS Code Analysis#UpdaterSLAM#update|UpdaterSLAM::update]](state, featsup_TEMP)\n`feats_slam_UPDATE_TEMP` 뒤에 `featsup_TEMP` 전부 넣어주기.\n[[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]\n\n"},
+		{"id":"357891a4e805cf84","x":1081,"y":4260,"width":740,"height":100,"type":"text","text":"sensor_id == 0인 image에 대해 : 그럼 stereo가 아닌 경우는 카메라 하나만 되는 거일텐데?\n#### [[🧩OpenVINS Code Analysis#VioManager#retriangulate_active_tracks|VioManager::retriangulate_active_tracks]] "},
+		{"id":"9d68bc2f79d80c39","x":1106,"y":4460,"width":690,"height":80,"type":"text","text":"`good_features_MSCKF`.clear() 후, `featsup_MSCKF`에 있는 feature들을 넣어줌.\n이 때, feature들 `to_delete`를 true로 바꿔준다."}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},
@@ -90,6 +92,8 @@
 		{"id":"0fa958191f68aab9","fromNode":"901563b571c1d80a","fromSide":"bottom","toNode":"b7165fff87131d79","toSide":"top"},
 		{"id":"2586e29df5f61239","fromNode":"b7165fff87131d79","fromSide":"bottom","toNode":"d7acb69a62047962","toSide":"top"},
 		{"id":"f04476cec7a94507","fromNode":"d7acb69a62047962","fromSide":"bottom","toNode":"1c49b5760ec34659","toSide":"top"},
-		{"id":"718c47caae6f46ee","fromNode":"1c49b5760ec34659","fromSide":"bottom","toNode":"9b1f5b8783cc91d0","toSide":"top"}
+		{"id":"718c47caae6f46ee","fromNode":"1c49b5760ec34659","fromSide":"bottom","toNode":"9b1f5b8783cc91d0","toSide":"top"},
+		{"id":"999c916f62f386ea","fromNode":"9b1f5b8783cc91d0","fromSide":"bottom","toNode":"357891a4e805cf84","toSide":"top"},
+		{"id":"8f45bec642ba4d00","fromNode":"357891a4e805cf84","fromSide":"bottom","toNode":"9d68bc2f79d80c39","toSide":"top"}
 	]
 }
