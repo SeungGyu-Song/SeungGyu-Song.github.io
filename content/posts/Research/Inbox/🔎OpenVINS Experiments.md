@@ -1,4 +1,4 @@
-- [[🧩OpenVins.canvas|🧩OpenVins]]
+j- [[🧩OpenVins.canvas|🧩OpenVins]]
 - [[🔎직접 취득한 bagfile 정리]]에서 백파일 정보 확인하기.
 # Initialization Test
 OpenVINS를 돌릴 때, imu noise 값들을 작게 주면 쉽게 발산하는 것을 관찰하였따. 
