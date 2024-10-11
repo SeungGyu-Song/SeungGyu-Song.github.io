@@ -33,7 +33,7 @@ StateOptions _options;
 std::shared_ptr<ov_type::IMU> _imu;
 
 /// Map between imaging times and clone poses (q_GtoIi, p_IiinG)
-
+/// 즉, 여기에는 propagation된 pose가 들어있음.
 std::map<double, std::shared_ptr<ov_type::PoseJPL>> _clones_IMU;
 
 
