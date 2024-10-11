@@ -327,6 +327,11 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 ### constructor
 [[Chi_squared_distribution]], 이거 왜 하는 거지? [[MSCKF]] #점검 
 ### update
+// Pass them to our MSCKF updater
+
+// NOTE: if we have more then the max, we select the "best" ones (i.e. max tracks) for this update
+
+// NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
 
 # ov_core
 
