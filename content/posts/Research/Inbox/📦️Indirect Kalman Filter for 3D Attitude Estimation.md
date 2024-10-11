@@ -73,7 +73,7 @@ $\Phi$ → $\mathcal{L}$ , $\Xi$ → $\mathcal{R}$ 로 대응시켜서 생각하
 - $\Omega(\mathbf{a})\bar{q} = \Xi(\bar{q})\mathbf{a}$
 
 ### 1.4 Relationship b/w Quaternion and Rotational Matrix
-coordinate frame을 바꾸기
+quaternion으로 reference coordinate frame을 바꾸기
 $^{L}\mathbf{p} = ^L_G\mathbf{C}(\bar{q}) ^G\mathbf{p}$
 여기서 행렬 $\mathbf{C}$는 3x3 회전행렬. 
 다음과 같이 연산이 될 수 있다.
@@ -107,7 +107,7 @@ L1 farme(종착지)에 대해서 $\theta$가 기술된 거라 내가 원래 익�
 Fig 1.![[Pasted image 20240903144244.png]]
 z축 기준으로 돌렸으니까 z축에 $\sin(\Phi / 2)$ 가 오는 거 같긴한데..
 ### 1.5 Quaternion Time Derivative
-이게 가지는 의미가 뭘까.
+각속도 $\omega$가 들어왔을 때, quaternion에 어떻게 곱해줘야하는지. 그 변화량을 계산한 거. 
 ![[Pasted image 20240903144549.png]]
 
 
