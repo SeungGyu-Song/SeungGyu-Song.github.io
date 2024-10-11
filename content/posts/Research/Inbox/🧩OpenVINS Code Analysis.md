@@ -228,9 +228,18 @@ MSCKF feature : slam update에 사용하지 않는 feature.
 	12. 만약 `max_msckf_in_update`보다 `feats_MSCKF`개수가 많다면, 그 만큼 앞에서 삭제하기. (tracking 더 적게 된 feature들 삭제)
 	13. [[#UpdaterMSCKF#update|UpdaterMSCKF::update]](state, featsup_MSCKF)
 	14. [[#Propagator#invalidate_cache|Propagator::invalidate_cache]]로 `cache_imu_valid = false`
-	15. `featsup_TEMP`에 `feats_slam_UPDATE`의  `max_slam_in_update`와 `feats_slam_UPDATE.size()` 중 더 작은 수만큼 앞에서부터 추가해주기. 그리고 그 만큼 `feats_slam_UPDATE`에서 삭제. → `feats_TEMP`와 `feats_slam_UPDATE`는 겹치는 게 없음
-	16. [[#UpdaterSLAM#update|UpdaterSLAM::update]](state, featsup_TEMP)
-	17. 
+	15. while(!`feats_slam_UPDATE.empty()`)
+		1. `featsup_TEMP`에 `feats_slam_UPDATE`의  `max_slam_in_update`와 `feats_slam_UPDATE.size()` 중 더 작은 수만큼 앞에서부터 추가해주기. 그리고 그 만큼 `feats_slam_UPDATE`에서 삭제. → `feats_TEMP`와 `feats_slam_UPDATE`는 겹치는 게 없음
+		2. [[#UpdaterSLAM#update|UpdaterSLAM::update]](state, featsup_TEMP)
+		3. `feats_slam_UPDATE_TEMP` 뒤에 `featsup_TEMP` 넣어주기.
+		4. [[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]
+	16. [[🧩OpenVINS Code Analysis#UpdaterSLAM#delayed_init|UpdaterSLAM::delayed_init]](state, feats_slam_DELAYED)
+	17. sensor_id== 0인 image에 대해
+		1. [[🧩OpenVINS Code Analysis#VioManager#retriangulate_active_tracks|VioManager::retriangulate_active_tracks]] 
+	18. `good_features_MSCKF`.clear() 후, `featsup_MSCKF`에 있는 feature들을 넣어줌. 이 때, feature들 `to_delete`를 true로 바꿔주고, [[🧩OpenVINS Code Analysis#FeatureDatabase#cleanup|FeatureDatabase::cleanup]]()
+	19. [[🧩OpenVINS Code Analysis#UpdaterSLAM#change_anchors|UpdaterSLAM::change_anchors]](state)
+	20. 
+
 #### compare_feat
 feature a, b 중에서 timestamp를 돌면서 
 왼+오 더 많이 검출된 애가 누군지 가리는 거
@@ -333,11 +342,11 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
 
 ## UpdaterSLAM
+### change_anchors
 <span style="color:green">std::shared_ptr(State) <span style="color:purple"> state </span></span>
 
-
-### change_anchors
-
+1. `_clones_IMU` 개수가 `max_clone_size`보다 작거나 같으면 return;
+2. 
 # ov_core
 
 ##### CameraData
