@@ -317,7 +317,6 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 2. `prop_data`에 있는 imu 데이터 하나 당 [[#predict_and_compute]]
 
 ## UpdaterMSCKF
-
 * This class is responsible for computing the entire linear system for all features that are going to be used in an update.
 
 * This follows the original MSCKF, where we first triangulate features, we then nullspace project the feature Jacobian.
@@ -332,6 +331,12 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 // NOTE: if we have more then the max, we select the "best" ones (i.e. max tracks) for this update
 
 // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
+
+## UpdaterSLAM
+<span style="color:green">std::shared_ptr(State) <span style="color:purple"> state </span></span>
+
+
+### change_anchors
 
 # ov_core
 
@@ -363,7 +368,8 @@ Eigen::Matrix<double, 3, 1> am;
 `std::unordered_map<size_t, std::vector<double>> timestamps;`
 #### FeatureDatabase
 `std::unordered_map<size_t, std::shared_ptr<Feature>> features_idlookup` :  하나의 feature의 observation에 대해 저장한 변수.
-
+##### cleanup
+feature들 중 `to_delete`가 true인 애들 database에서 삭제하기.
 ##### features_not_containing_newer
 <span style="color:green">double <span style="color:purple">timestamp</span>, bool <span style="color:purple">remove</span>, bool <span style="color:purple">skip_deleted</span></span>
 **return** <span style="color:red">std::vector(std::shared_ptr(Feature))</span>
