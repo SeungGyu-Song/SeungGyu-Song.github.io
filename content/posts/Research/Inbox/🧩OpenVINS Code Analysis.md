@@ -346,7 +346,13 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 <span style="color:green">std::shared_ptr(State) <span style="color:purple"> state </span></span>
 
 1. `_clones_IMU` 개수가 `max_clone_size`보다 작거나 같으면 return;
-2. 
+2. `state->_features_SLAM`의  feature 중에서 Representation이 `GLOBAL_3D`나  `GLOBAL_FULL_INVERSE_DEPTH`가 아닌 것들에 대해
+3. feature의 `_anchor_clone_timestamp == marg_timestamp`면 [[#UpdaterSLAM#perform_anchor_change|UpdaterSLAM::perform_anchor_change]](state, f.second, state→_timestamp, f.second→_anchor_cam_id)
+
+### perform_anchor_change
+<span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span>, std:shared_ptr(Landmark)<span style="color:purple"> landmark</span>,  double<span style="color:purple">new_ahnchor_timestamp</span>, size_t<span style="color:purple"> new_cam_id</span> </span>
+
+
 # ov_core
 
 ##### CameraData
