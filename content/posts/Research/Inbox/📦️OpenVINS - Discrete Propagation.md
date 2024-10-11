@@ -22,7 +22,16 @@ quaternion의 reference frame을 옮기고 싶을 때
 $\hat{\bar{q}}$ : unit quaternion, $\hat{\omega}$ : estiamted? 각속도
 
 근데 이상한 게 reference frame이 body 좌표임
-$^{I_{k+1}}_G \hat{\bar{q}} = exp(\frac{1}{2} \Omega(\hat{\omega}})\Delta t_k) ^{I_k}_G \hat{\bar{q}}$
+$^{I_{k+1}}_G \hat{\bar{q}} = \exp(\frac{1}{2} \Omega(\hat{\omega})\Delta t_k) ^{I_k}_G \hat{\bar{q}}$
+
+$\dot{\mathbf{q}} = \lim_{\delta t →0} \frac{\mathbf{q}(t+\delta t) - \mathbf{q}(t)}{\delta t}$
+ $= \frac{1}{2}\mathbf{q}\otimes w_t = \frac{1}{2}\Omega_R(\omega_t)\mathbf{q}$
+
+
+[[📦️VINS-Mono Derivation, Pre-integration]]에서는 reference frame이 world라서 반대야. 
+$\mathbf{q}^w_{b_{k+1}} =  \mathbf{q}^w_{b_{k}} \otimes \int{_{t\in[k, k+1]} \frac{1}{2} \Omega(w_t) \mathbf{q}^{b_k}_t }dt$
+
+
 
 
 
