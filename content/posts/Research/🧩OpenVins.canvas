@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2640,"color":"6","label":"Propagation & Update"},
+		{"id":"b4835539955f2dde","type":"group","x":494,"y":1760,"width":3547,"height":2720,"color":"6","label":"Propagation & Update"},
 		{"id":"4d379e012818bbd7","type":"group","x":494,"y":180,"width":3866,"height":860,"color":"5","label":"Initialization"},
 		{"id":"91b36805fe2d4b09","type":"group","x":1220,"y":1880,"width":2360,"height":860,"color":"4","label":"Propagation"},
 		{"id":"316ea87fd9c96679","type":"group","x":2760,"y":-920,"width":2288,"height":858,"color":"3","label":"Visual Feature Frontend(Descriptor)"},
@@ -52,7 +52,9 @@
 		{"id":"5e6f0c8502e78441","type":"text","text":"#### [[🧩OpenVINS Code Analysis#perform_detection_stereo|trackKLT::perform_detection_stereo]]\n","x":1563,"y":-900,"width":308,"height":137},
 		{"id":"b7165fff87131d79","type":"text","text":"#### sort(featsup_MSCKF,[[🧩OpenVINS Code Analysis#do_feature_propagate_update#compare_feat|VioManager::{compare_feat}]])","x":1157,"y":3400,"width":588,"height":60},
 		{"id":"d7acb69a62047962","type":"text","text":"#### [[🧩OpenVINS Code Analysis#UpdaterMASCKF::update|UpdaterMSCKF::update]](state, featsup_MSCKF)","x":1175,"y":3560,"width":551,"height":72},
-		{"id":"1c49b5760ec34659","type":"text","text":"#### [[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]","x":1237,"y":3720,"width":427,"height":50}
+		{"id":"1c49b5760ec34659","type":"text","text":"#### [[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]","x":1237,"y":3720,"width":427,"height":50},
+		{"id":"9b1f5b8783cc91d0","x":1131,"y":4120,"width":640,"height":58,"type":"text","text":"#### [[🧩OpenVINS Code Analysis#UpdaterSLAM#delayed_init|UpdaterSLAM::delayed_init]](state, feats_slam_DELAYED)"},
+		{"id":"7f57328d144e60e7","x":1498,"y":3820,"width":620,"height":240,"type":"text","text":"while(!`feats_slam_UPDATE.empty()`)\n\n`featsup_TEMP`에 `feats_slam_UPDATE`에서 `max_slam_in_update` or `feats_slam_UPDATE`개수 중 더 작은 수만큼 넣기.\n[[🧩OpenVINS Code Analysis#UpdaterSLAM#update|UpdaterSLAM::update]](state, featsup_TEMP)\n`feats_slam_UPDATE_TEMP` 뒤에 `featsup_TEMP` 전부 넣어주기.\n[[🧩OpenVINS Code Analysis#Propagator#invalidate_cache|Propagator::invalidate_cache]]\n\n"}
 	],
 	"edges":[
 		{"id":"a343533b66a1f24a","fromNode":"8cb88f8cda3a7aa8","fromSide":"right","toNode":"5f7320fe30e14c75","toSide":"left"},
@@ -87,6 +89,7 @@
 		{"id":"7ba18d22b4ed0104","fromNode":"ac07a63a9c4939c4","fromSide":"bottom","toNode":"901563b571c1d80a","toSide":"top"},
 		{"id":"0fa958191f68aab9","fromNode":"901563b571c1d80a","fromSide":"bottom","toNode":"b7165fff87131d79","toSide":"top"},
 		{"id":"2586e29df5f61239","fromNode":"b7165fff87131d79","fromSide":"bottom","toNode":"d7acb69a62047962","toSide":"top"},
-		{"id":"f04476cec7a94507","fromNode":"d7acb69a62047962","fromSide":"bottom","toNode":"1c49b5760ec34659","toSide":"top"}
+		{"id":"f04476cec7a94507","fromNode":"d7acb69a62047962","fromSide":"bottom","toNode":"1c49b5760ec34659","toSide":"top"},
+		{"id":"718c47caae6f46ee","fromNode":"1c49b5760ec34659","fromSide":"bottom","toNode":"9b1f5b8783cc91d0","toSide":"top"}
 	]
 }
