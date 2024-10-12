@@ -336,6 +336,8 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 [[Chi_squared_distribution]], 이거 왜 하는 거지? [[MSCKF]] #점검 
 
 ### update
+<span style="color:green">std::shared_ptr(State)<span style="color:purple"> state</span>, std::vector(std::shared_ptr(Feature))<span style="color:purple">  &feature_vec</span></span>
+여기서 feature_vec은 `feature_MSCKF`라고 생각하면 됨.
 // Pass them to our MSCKF updater
 
 // NOTE: if we have more then the max, we select the "best" ones (i.e. max tracks) for this update
