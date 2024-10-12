@@ -416,6 +416,11 @@ feature들 중 `to_delete`가 true인 애들 database에서 삭제하기.
 clones_IMU의 timestamp와 일치하지 않는 feature 정보들을 날림.
 즉 clones_IMU 시간에 맞춰서 저장이 되게끔 함.
 
+### FeatureInitializer
+#### single_triangulation_1d
+
+#### single_triangulation
+#### single_gaussnewton
 ## FeatureHelper
 ### compute_disparity
 <span style="color:green">std::shared_ptr (ov_core::FeatureDatabase) <span style="color:purple">db</span>, double <span style="color:purple">&disp_mean</span>, double <span style="color:purple">&disp_var</span>, int <span style="color:purple">&total_feats </span>double <span style="color:purple">newest_time = -1</span>, double <span style="color:purple">oldest_time = -1</span></span>
