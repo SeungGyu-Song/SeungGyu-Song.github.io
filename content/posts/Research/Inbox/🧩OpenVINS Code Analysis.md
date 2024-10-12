@@ -334,12 +334,15 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 
 ### constructor
 [[Chi_squared_distribution]], 이거 왜 하는 거지? [[MSCKF]] #점검 
+
 ### update
 // Pass them to our MSCKF updater
 
 // NOTE: if we have more then the max, we select the "best" ones (i.e. max tracks) for this update
 
 // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
+
+
 
 ## UpdaterSLAM
 ### change_anchors
@@ -403,6 +406,10 @@ feature들 중 `to_delete`가 true인 애들 database에서 삭제하기.
 [[#features_not_containing_newer]]랑 비슷함. 
 1. 그냥 parameter `timestamp`의 값과 feature_idlookup의 feature들 observation 중에서 같은 게 있는지 찾고
 2. `feats_has_timestamp`에 저장, return `feats_has_timestamp`
+
+##### clean_old_measurements
+<span style="color:green">const std::vector(double)<span style="color:purple"> &valid_times</span></span>
+
 
 ## FeatureHelper
 ### compute_disparity
