@@ -12,10 +12,11 @@ draft: true
 ### Future Work
 - 내가 이해 못한 부분을 어떻게 보완할 수 있을까?
 
-### Part 1
+### 3D Cartesian Triangulation
 
 
-### Part 2
+
+### 1D Depth Triangulation
 
 
 ### ❓️Questions
