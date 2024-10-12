@@ -342,7 +342,7 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 
 // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
 
-[[#Feature#clean_old_measurements|Feature::clean_old_measurements]](clo)
+[[#Feature#clean_old_measurements|Feature::clean_old_measurements]](clonetimes)로 state의 imu_clones의 시간과 일치하지 않는 feature들의 정보를 버림. 즉, imu_clones와 시점이 일치하는 정보만 가지게끔 함.
 
 ## UpdaterSLAM
 ### change_anchors
