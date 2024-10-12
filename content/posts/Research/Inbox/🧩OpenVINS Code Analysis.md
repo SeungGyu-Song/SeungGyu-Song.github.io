@@ -1,4 +1,4 @@
-## 처음 시작 
+****## 처음 시작 
 (run_subscribe_msckf.cpp 기준)
 1. VIOManager가 global 변수로 선언이 되어있다. : `std::shared_ptr<VioManager> sys;`
 2. parser를 통해 yaml파일에 들어있는 option들을 가져오는데, 이 때 내부에서 순서로는 launch 파일의 parameter → yaml 파일로 돼있어서 결국에는  yaml파일의 정보로 값을 불러온다.
