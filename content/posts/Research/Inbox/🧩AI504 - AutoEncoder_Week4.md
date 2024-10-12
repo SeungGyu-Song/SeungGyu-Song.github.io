@@ -52,3 +52,21 @@ X_test_2D = (X_test_2D - X_test_2D.min()) / (X_test_2D.max() - X_test_2D.min()) 
 ```
 
 ## Autoencoder for denoising
+
+input에 noise를 주는데 이 때 
+`noise = torch.zeros(inputs.size(0), 1, 28, 28`
+`nn.init.normal_(noise, 0, 0.1)`
+을 기억하면 될 것 같다.
+```PyTorch
+for inputs, labels in dataloaders[phase]:
+
+noise = torch.zeros(inputs.size(0), 1, 28,28) # Add noise to the input
+
+nn.init.normal_(noise, 0, 0.1) # gaussian distribution
+
+noise = noise.to(device)
+
+inputs = inputs.to(device)
+
+noise_inputs = inputs + noise
+```
