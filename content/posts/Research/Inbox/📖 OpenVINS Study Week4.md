@@ -29,3 +29,7 @@ OpenVINS Study 4주차에는 IMU propagation에 관해 다룰 예정입니다.
 			- ~~[[🧩OpenVINS Code Analysis#compute_F_and_G_analytic|Propagator::compute_F_and_G_analytic]](Week 5)~~
 # Class
 [[🧩OpenVINS Code Analysis#Propagator|Propagator]]
+### 내 질문 사항.
+1. [[📦️Indirect Kalman Filter for 3D Attitude Estimation]]에서 95번 식에 축에 해당하는 $\hat{\mathbf{k}}$만 skew-symmetric하는 게 이해가 잘 안 됨. 그냥 받아들여야하나? ![[Pasted image 20240903144207.png]]
+3. [[📦️Indirect Kalman Filter for 3D Attitude Estimation]]에서 noise 식이 bias와 imu noise 간의 모델링이 다른데 그 이유가 궁금합니다. imu의 노이즈는 왜 $\Delta t$로 나눠주는 건지 궁금합니다.![[Pasted image 20241011150830.png]] 확인해보니까, EE528에서 Gaussian distribution은 wide_sense stationary → stationary random process이고 
+  4. ![[Pasted image 20241011135504.png]] 3→4번 째 줄 갈 때  exp 연산이 합쳐지는 과정이 궁금해요
