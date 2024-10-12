@@ -28,15 +28,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 [zsh theme 사이트](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)에서 좋은 테마 찾아서 
 `gedit ~/.zshrc` 후, “ZSH_THEME” 찾아서 이름을 넣어놓자.
 
-
-## Conda 잡아주기
-우선 원래 bashrc로 들어가서 conda의 위치를 확인한다. (`/home/snggu/anaconda3/bin/conda)
-
-그리고 아래 명령어로 conda init
-```sh
-/home/snggu/anaconda3/bin/conda init zsh
-```
-
+## Plugins
 ### 1. zsh-syntax highlighting
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
@@ -47,4 +39,29 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
-이후 `gedit ~/.zshrc`로 들어가서 plugin
+이후 `gedit ~/.zshrc`로 들어가서 plugin을 명시해주자
+```sh
+plugins=(
+git
+zsh-syntax-highlighting
+zsh-autosuggestions
+)
+```
+
+## ROS package
+기존 bash로 모든 걸 설치했어서 source가 아예 되지 않는다. 
+**따라서 ros1, ros2 를 비롯한 모든 ros package를 다시 build해줌으로써 setup.zsh 파일을 만들어야한다.**
+
+이 때 그냥 `sudo apt install ros-noetic-desktop-full`과 같이 그냥 덮어서 설치해버리면 된다.
+
+
+## Conda 잡아주기
+우선 원래 bashrc로 들어가서 conda의 위치를 확인한다. (`/home/snggu/anaconda3/bin/conda)
+
+그리고 아래 명령어로 conda init
+```sh
+/home/snggu/anaconda3/bin/conda init zsh
+```
+
+
+
