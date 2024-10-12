@@ -41,3 +41,14 @@ input은 batch_size x 28 x 28로 들어오는데,
 그런데 `forward` 함수에서는 실제 batch_size까지 고려해서 input output dimension을 고려해야한다.
 
 
+### visualize MNIST
+```PyTorch
+
+encoded = encoded.cpu().detach().numpy() # detach를 통해 gradient를 계산하지 않게끔함.
+tsne = TSNE()
+X_test_2D = tsne.fit_transform(encoded) # tensor를 2차원 값으로 바꾸는 거래
+X_test_2D = (X_test_2D - X_test_2D.min()) / (X_test_2D.max() - X_test_2D.min()) # min, max는 xy좌표의 min, max
+
+```
+
+## Autoencoder for denoising
