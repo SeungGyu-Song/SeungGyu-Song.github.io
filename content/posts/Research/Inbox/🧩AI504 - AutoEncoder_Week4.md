@@ -39,3 +39,5 @@ return out, encoded
 input은 batch_size x 28 x 28로 들어오는데,
 모델 안 function에서는 각 이미지 샘플에 대해서만 생각한다.
 그런데 `forward` 함수에서는 실제 batch_size까지 고려해서 input output dimension을 고려해야한다.
+
+
