@@ -342,7 +342,7 @@ fast propagation을 위해 사용된 cache를 invalidate한다는데 무슨 의�
 
 // NOTE: this should only really be used if you want to track a lot of features, or have limited computational resources
 
-
+[[#Feature#clean_old_measurements|Feature::clean_old_measurements]](clo)
 
 ## UpdaterSLAM
 ### change_anchors
@@ -409,7 +409,10 @@ feature들 중 `to_delete`가 true인 애들 database에서 삭제하기.
 
 ##### clean_old_measurements
 <span style="color:green">const std::vector(double)<span style="color:purple"> &valid_times</span></span>
+[[#UpdaterMSCKF#update|UpdaterMSCKF::update]] 인자로 clones_IMU의 시간을 argument로 불리는데, 
 
+clones_IMU의 timestamp와 일치하지 않는 feature 정보들을 날림.
+즉 clones_IMU 시간에 맞춰서 저장이 되게끔 함.
 
 ## FeatureHelper
 ### compute_disparity
