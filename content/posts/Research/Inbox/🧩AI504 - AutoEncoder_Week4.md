@@ -41,7 +41,21 @@ input은 batch_size x 28 x 28로 들어오는데,
 그런데 `forward` 함수에서는 실제 batch_size까지 고려해서 input output dimension을 고려해야한다.
 
 
+
+
 ### visualize MNIST
+
+```PyTorch
+train_dataset_array = mnist_train.dataset.data.numpy() / 255
+train_dataset_array = np.float32(train_dataset_array)
+labels = mnist_train.dataset.targets.numpy()
+```
+
+255로 나누는 이유가 픽셀 intensity를 255로 나눠줌으로써 정규화를 하는 것. 
+→ 
+
+
+
 ```PyTorch
 
 encoded = encoded.cpu().detach().numpy() # detach를 통해 gradient를 계산하지 않게끔함.
