@@ -39,7 +39,7 @@ learning based method.
 [[📦️IDOL]] 알고리즘역시 line을 활용했는데 houghline을 이용해서 했다. 
 -  line의 속도가 constant 하다는 가정 때문에 aggressive motion에 약하고, 기타 event camera의 특성을 잘 살리지 못한다. 
 ## Methodology
-event feature는 asynchrnonous한 
+event feature는 asynchrnonous한 event stream에서 뽑고, TS image를 만든 후 이를 mask로 활용해서 point가 골고루 분포하게끔 함.
 
 ## Experiments
 - 어떤 데이터
