@@ -44,7 +44,7 @@ draft: true
 이런 non-linear entity들은 vector space가 아니므로, 기존의 기계적인 GN pipeline에 바로 적용될 수 없다.
 
 아래 그림은 [Grisetti 교수님의 ICRA tutorial 자료](https://www.diag.uniroma1.it//~labrococo/tutorial_icra_2016/icra16_slam_tutorial_grisetti.pdf#page=3.00)에서 가져온 건데, 아직 잘 이해가 안 됐다. 
-여기서 회전을 $[-\pi, \pi]$ 로 정의를 했는데, 아래와 같이 바꿔서 해야한다는 게 잘 이해가 안된다. #
+여기서 회전을 $[-\pi, \pi]$ 로 정의를 했는데, 아래와 같이 바꿔서 해야한다는 게 잘 이해가 안된다. #점검 
 ![[Pasted image 20241014164408.png]]
 ### ESKF 알아보기
 
