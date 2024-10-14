@@ -31,6 +31,11 @@ learning based method.
 - 각 픽셀에 최근 event 시점을 알려주는 시간값 t가 들어있음.
 - 어떤 문제를 풀 것인지
 
+### Event-based Motion Estimation
+여기서 Event SLAM 방법들의 역사를 짚어주는데 읽기 괜찮음.
+
+- Static한 환경에서 event가 안 들어올 때도 pose를 어떻게 줄 수 있을까?
+
 ## Methodology
 
 
