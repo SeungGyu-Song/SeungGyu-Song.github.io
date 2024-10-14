@@ -39,7 +39,8 @@ learning based method.
 [[📦️IDOL]] 알고리즘역시 line을 활용했는데 houghline을 이용해서 했다. 
 -  line의 속도가 constant 하다는 가정 때문에 aggressive motion에 약하고, 기타 event camera의 특성을 잘 살리지 못한다. 
 ## Methodology
-event feature는 asynchrnonous한 event stream에서 뽑고, TS image를 만든 후 이를 mask로 활용해서 point가 골고루 분포하게끔 함.
+event feature는 asynchrnonous한 event stream에서 뽑고, 
+TS image를 만든 후 이를 mask로 활용해서 point가 골고루 분포하게끔 함, 그리고 feature tracking을 TS에서 하는 듯.
 
 ## Experiments
 - 어떤 데이터
@@ -49,6 +50,8 @@ event feature는 asynchrnonous한 event stream에서 뽑고, TS image를 만든 
 
 ### Appendix
 #### A. Ablation study on Different Event Representations for Event-Based Feature Tracking
+
+Image from event의 경우, edge image라 intensity가 없는 그냥 0,1 binary image임. 따라서 LK optical flow를 위해 gradient를 계산해야하는데 여기서 정보가 손실이 되어있으니까 성능이 좋지 않음.
 
 ## ❓️Questions
 
