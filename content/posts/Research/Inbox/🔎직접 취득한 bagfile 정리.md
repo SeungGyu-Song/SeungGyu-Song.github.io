@@ -15,3 +15,5 @@ draft: true
 | Mobinn/240904_open2.bag                   | camera/mid360/GPS            | 🔺     | X    | mobinn_cam_color_multi.yaml | rearcam : consistently<br>frontcam : a few, shadow | campus,  Middle               |
 | Mobinn/240905_3F                          | camra/mid360                 | X      | O    | mobinn                      | rearcam : consistently <br>frontcam : clear        | Indoor, Middle                |
 
+
+---
