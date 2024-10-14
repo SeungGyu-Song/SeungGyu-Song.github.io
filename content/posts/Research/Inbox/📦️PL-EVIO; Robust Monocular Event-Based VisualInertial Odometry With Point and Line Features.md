@@ -36,6 +36,8 @@ learning based method.
 
 - Static한 환경에서 event가 안 들어올 때도 pose를 어떻게 줄 수 있을까?
 
+[[📦️IDOL]] 알고리즘역시 line을 활용했는데 houghline을 이용해서 했다. 
+-  line의 속도가 constant 하다는 가정 때문에 aggressive motion에 약하고, 기타 event camera의 특성을 잘 살리지 못한다. 
 ## Methodology
 
 
