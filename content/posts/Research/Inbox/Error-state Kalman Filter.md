@@ -11,6 +11,13 @@ draft: true
 - OpenVINS, FAST-LIO 등 최근 filter 기반 논문에서 eskf를 베이스로 하고있다.
 - Error state Kalman filter를 왜 사용해야하는지, 장점에 대해 알아보자
 - **결론적으로 일반 EKF보다 Manifold 특성을 고려한 연산이 된다는 장점이 있다.**
+
+1. 근데 그냥 EKF하고 어차피 선형화되는 지점만 다른 건데, 왜 Lie group / Lie algebra를 활용하는 데 용이하다는 걸까? 
+	1. 그럼 실제 optimization 방식에서도 error state처럼 해야 이득 아닌가? #점검 
+2. position, veloc도 error state
+
+
+
 ## Introduction
 #### Kalman Filter 
 - prior와 measurement 사이의 weighted sum을 해주는 장치
@@ -37,9 +44,22 @@ draft: true
 이런 non-linear entity들은 vector space가 아니므로, 기존의 기계적인 GN pipeline에 바로 적용될 수 없다.
 
 ![[Pasted image 20241014164408.png]]
-## Future Work
-- 내가 이해 못한 부분을 어떻게 보완할 수 있을까?
+### ESKF 알아보기
 
+ESKF도 GN방법과 같이, 
+1. non linear한 rotation이 state vector에 있으니, 
+2. minimal reparameterization(3차원)하고, 이 공간에서 KF update를 수행.
+3. 즉, error-state란, GN과 비슷하게, tangent space에서 살고있는 변수로 이해하면 된다.
+
+
+#### EKF vs ESKF
+[A micro Lie theory for state estimation in robotics](https://arxiv.org/pdf/1812.01537)에서 언급했듯,
+1. manifold와 tangent space 사이의 연산을 할 수 있는 oplus 사용
+2. Jacobian을 tangent space에서 계산
+
+## Future Work
+- [Kalman Filters on Differentiable Manifolds](https://arxiv.org/pdf/2102.03804) Fu Zhang
+- [A micro Lie theory for state estimation in robotics](https://arxiv.org/pdf/1812.01537) : Joan Sola,  교수님도 추천해줬던 논문
 
 
 ### ❓️Questions
