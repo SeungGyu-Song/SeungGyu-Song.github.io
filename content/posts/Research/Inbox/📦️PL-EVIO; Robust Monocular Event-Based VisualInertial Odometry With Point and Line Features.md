@@ -22,12 +22,13 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10287884
 ### Event Reperenstation
 #### Direct
 #### Combining with an image sensor
+learning based method.
 #### Motion-compensated
 [[📦️Ultimate SLAM]] 이 이 방식으로 했고, 본 연구도 이 방식 채택
 
-이걸 통해서 기존 VIO에서 했던 Feature extraction / tracking을 그대로 사용함
-#### Time Surface 
-
+이걸 통해서 image처럼 만든 후, 기존 VIO에서 했던 Feature extraction / tracking을 그대로 사용함 (FAST, Shi-Tomasi, Lucas Kanade optical flow)
+#### Time Surface or Surface of Active Event (SAE)
+- 각 픽셀에 최근 event 시점을 알려주는 시간값 t가 들어있음.
 - 어떤 문제를 풀 것인지
 
 ## Methodology
