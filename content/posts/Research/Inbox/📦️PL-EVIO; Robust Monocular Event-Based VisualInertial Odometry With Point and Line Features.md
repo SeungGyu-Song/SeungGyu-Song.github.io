@@ -24,7 +24,7 @@ source : https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10287884
 #### Combining with an image sensor
 learning based method.
 #### Motion-compensated
-[[📦️Ultimate SLAM]] 이 이 방식으로 했고, 본 연구도 이 방식 채택
+[[📦️Ultimate SLAM]] 이 이 방식으로 했다.
 
 이걸 통해서 image처럼 만든 후, 기존 VIO에서 했던 Feature extraction / tracking을 그대로 사용함 (FAST, Shi-Tomasi, Lucas Kanade optical flow)
 #### Time Surface or Surface of Active Event (SAE)
@@ -39,12 +39,16 @@ learning based method.
 [[📦️IDOL]] 알고리즘역시 line을 활용했는데 houghline을 이용해서 했다. 
 -  line의 속도가 constant 하다는 가정 때문에 aggressive motion에 약하고, 기타 event camera의 특성을 잘 살리지 못한다. 
 ## Methodology
-
+event feature는 asynchrnonous한 
 
 ## Experiments
 - 어떤 데이터
 - 어떤 정보를 분석했는지 (ate, rpe, NEES)
 
+
+
+### Appendix
+#### A. Ablation study on Different Event Representations for Event-Based Feature Tracking
 
 ## ❓️Questions
 
