@@ -20,7 +20,12 @@ draft: true
 ### EKF와 ESKF
 1. state가 nonlinear하거나, 
 2. measurement model이 non-linear 
-하다면 시스템에 non-linearity가 발생하고, 이를 Taylor 
+하다면 시스템에 non-linearity가 발생하고, 이를 Taylor expansion을 통해 근사를 할 수 있따.
+
+한편, KF도 covariance라는 *squared loss*를 cost로하는 estimator인 것이다. 
+이 점에서 least-square를 최적화하는 방식인 Gauss-Newton과 비슷하다고 할 수 있다.
+
+
 
 ## Future Work
 - 내가 이해 못한 부분을 어떻게 보완할 수 있을까?
