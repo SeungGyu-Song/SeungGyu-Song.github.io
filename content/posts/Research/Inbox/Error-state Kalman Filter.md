@@ -14,7 +14,7 @@ draft: true
 
 1. 근데 그냥 EKF하고 어차피 선형화되는 지점만 다른 건데, 왜 Lie group / Lie algebra를 활용하는 데 용이하다는 걸까? 
 	1. 그럼 실제 optimization 방식에서도 error state처럼 해야 이득 아닌가? #점검 
-2. position, veloc도 error state
+2. position, velocity, bias도 error state에서 하는 거 같은데,  landmark는 어떻게 다뤄줘야할까? #점검
 
 
 
@@ -43,6 +43,8 @@ draft: true
 예로, rotation의 경우, 3차원 공간에서 rotation은 보통 SO(3)로 표현이 되고, 이는 3x3 matrix이다. 이를 최적화 하기 위해 9-dimension  vector로 만들고 이 9개의 값들을 조금씩 조절해가면서 cost를 줄여나간다는 것은 안된다는 것이다.
 이런 non-linear entity들은 vector space가 아니므로, 기존의 기계적인 GN pipeline에 바로 적용될 수 없다.
 
+아래 그림은 [Grisetti 교수님의 ICRA tutorial 자료](https://www.diag.uniroma1.it//~labrococo/tutorial_icra_2016/icra16_slam_tutorial_grisetti.pdf#page=3.00)에서 가져온 건데, 아직 잘 이해가 안 됐다. 
+여기서 회전을 $[-\pi, \pi]$ 로 정의를 했는데, 아래와 같이 바꿔서 해야한다는 게 잘 이해가 안된다. #
 ![[Pasted image 20241014164408.png]]
 ### ESKF 알아보기
 
@@ -56,6 +58,18 @@ ESKF도 GN방법과 같이,
 [A micro Lie theory for state estimation in robotics](https://arxiv.org/pdf/1812.01537)에서 언급했듯,
 1. manifold와 tangent space 사이의 연산을 할 수 있는 oplus 사용
 2. Jacobian을 tangent space에서 계산
+
+이 외로, 
+1. prediction step : error state에 대해 process model을 세워주어야한다. 이를 이용해서 error state의 covariance를 propagate해준다.
+2. correction step : Jacobian을 nominal state에 대해 구하는 것이 아닌, error state에 대해 구하는 것이 EKF와 다르다. 결과적으로, Kalman gain $K$ 가 tangent space에서 weight blending을 잘 할 수 있도록 만들어진다.
+
+
+Tangent space에서의 Jacobian 계산법
+![[Pasted image 20241014165658.png]]
+1. 기존처럼 x에 관한 미분에 추가적으로 $\delta x$에 관한 미분까지 늘어나 2개의 미분식이 된 것을 볼 수 있다.
+2. 흥미롭게도, 279번 식을 보면, Rotation term 외에는 모두 identity 임을 알 수 있다. 그 이유는 translation은 vector space이기 때문에 원래 공간과 tangent space가 동일해서 이와 같은 결과를 보여준다.
+
+
 
 ## Future Work
 - [Kalman Filters on Differentiable Manifolds](https://arxiv.org/pdf/2102.03804) Fu Zhang
