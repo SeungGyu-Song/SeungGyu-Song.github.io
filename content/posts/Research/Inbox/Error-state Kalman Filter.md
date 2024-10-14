@@ -36,13 +36,10 @@ draft: true
 예로, rotation의 경우, 3차원 공간에서 rotation은 보통 SO(3)로 표현이 되고, 이는 3x3 matrix이다. 이를 최적화 하기 위해 9-dimension  vector로 만들고 이 9개의 값들을 조금씩 조절해가면서 cost를 줄여나간다는 것은 안된다는 것이다.
 이런 non-linear entity들은 vector space가 아니므로, 기존의 기계적인 GN pipeline에 바로 적용될 수 없다.
 
-
+![[Pasted image 20241014164408.png]]
 ## Future Work
 - 내가 이해 못한 부분을 어떻게 보완할 수 있을까?
 
-## Part 1
-
-## Part 2
 
 
 ### ❓️Questions
