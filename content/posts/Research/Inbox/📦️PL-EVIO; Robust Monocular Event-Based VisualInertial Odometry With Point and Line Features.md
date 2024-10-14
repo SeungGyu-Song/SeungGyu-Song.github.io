@@ -41,6 +41,8 @@ learning based method.
 ## Methodology
 event feature는 asynchrnonous한 event stream에서 뽑고, 
 TS image를 만든 후 이를 mask로 활용해서 point가 골고루 분포하게끔 함, 그리고 feature tracking을 TS에서 하는 듯.
+[[📦️ Dynamic obstacle avoidance for quadrotors with event cameras]] : Science Robotics에서 발표된 것처럼, 아래와 같은 Ego-motion compensated image를 활용함.
+![[Ego-motion compensated Image.png]]
 
 ## Experiments
 - 어떤 데이터
