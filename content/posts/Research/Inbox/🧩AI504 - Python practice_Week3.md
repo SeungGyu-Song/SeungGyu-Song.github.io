@@ -81,6 +81,7 @@ with torch.no_grad():
 	out = z.mean()
 ```
 
+`output = netD(fake.detach())`를 해도 되는 거 같다. [[🏫AI504 Week 6 - GAN]]
 
 ## nn.Module
 
