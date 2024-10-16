@@ -29,10 +29,3 @@ Filter 방식([[🧩OpenVINS Code Analysis|OpenVINS]])은 자잘자잘하게 계
 ![[Pasted image 20240828140636.png|00]]
 
 
----
-
-### Reference
-- 
-
-### Link
-- 

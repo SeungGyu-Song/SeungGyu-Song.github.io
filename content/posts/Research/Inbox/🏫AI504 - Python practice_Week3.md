@@ -13,7 +13,7 @@ numpy는 `np_array_1.shape` 처럼 shape 함수를 써야하는데, PyTorch는 `
 
 ### 2. Same operations with different grammar
 #### np.concatenate vs torch.cat
-[[🧩AI504 - Python practice_Week1#Stack, concatenation]]
+[[🏫AI504 - Python practice_Week1#Stack, concatenation]]
 
 - axis(numpy) and dim(torch)는 identical하다.
 ```PyTorch
