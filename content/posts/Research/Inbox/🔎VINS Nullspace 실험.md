@@ -18,7 +18,15 @@ svd0.threshold());
 
 ---
 ## 결과
-어떻게 visualization을 할 수 있을까?
 
 뭔가 optimization이 돌아갈 때 window에 있는 10개의 imu factor에 대해서는 다  over-confident한 상태인데
 marginalisation 할 때는 rank가 2로 줄어들어서 괜찮은 상태로 돌아오는 거 같다.
+
+→ 이런 상태가 계속 발생했는데 그럼 발산하는 건 언제지? 
+→ 그리고 그냥 점선으로만 나올 때도 추적해서 각각이 언제인지 정확히 알아야함.
+
+## Todo
+- [ ] 어떻게 visualization을 할 수 있을까?
+- [ ] 그리고 그냥 점선으로만 나올 때도 추적해서 각각이 언제인지 정확히 알아야함.
+- [ ] 발산하는 것과 nullspace와의 관계를 생각해보기. 
+- [ ] 
