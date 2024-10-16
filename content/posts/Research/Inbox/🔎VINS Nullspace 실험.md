@@ -17,3 +17,8 @@ svd0.threshold());
 ```
 
 ---
+## 결과
+어떻게 visualization을 할 수 있을까?
+
+뭔가 optimization이 돌아갈 때 window에 있는 10개의 imu factor에 대해서는 다  over-confident한 상태인데
+marginalisation 할 때는 rank가 2로 줄어들어서 괜찮은 상태로 돌아오는 거 같다.
