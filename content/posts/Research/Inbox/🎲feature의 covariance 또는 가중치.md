@@ -4,7 +4,7 @@ draft: true
 tags:
 ---
  
-[[🚀Mip-NeRF를 활용할 수 있을까?]]
+[[🎲Mip-NeRF를 활용할 수 있을까?]]
 
 [[🧩VINS-Fusion Map.canvas|🧩VINS-Fusion Map]]의 개선될 수 있는 점 중 몇 가지는
 1. visual covariance를 상수로 둔다는 점.

@@ -6,7 +6,7 @@ tags:
  
 [[🧩VINS-Fusion Map.canvas|🧩VINS-Fusion Map]]에서 Initialization은 곰곰히 생각해보면, global SfM과 같다.
 
-최근에 [[📦GLOMAP Review]], [[🚀GLOMAP 결과]] 이 나왔듯이, 이를 적용해보는 건 어떨까한다.
+최근에 [[📦GLOMAP Review]], [[🎲GLOMAP 결과]] 이 나왔듯이, 이를 적용해보는 건 어떨까한다.
 
 즉, position만 먼저 optimization이든 뭐든 구하고 그 다음 rotation을 구하는 방식인 거다.
 
