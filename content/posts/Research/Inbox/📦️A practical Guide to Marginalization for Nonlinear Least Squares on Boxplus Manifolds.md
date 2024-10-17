@@ -60,10 +60,25 @@ $$
 $$
 
 이래서 
+![[Pasted image 20241017195857.png]]
+이제 $\Lambda_t$를 어떻게 분해하느냐에 따라 아래와같이 나뉘게 된다.
 
 - ##### Eigen Decomposition
+	- $\Lambda_t = UDU^T$, 이 때 $\Lambda_t$가 대칭행렬이라 분해하면 eigen vectore들이 orthogonal인 거 같음. 근데 연산량이 많고 iterative하게 해야함.
+	- ![[Pasted image 20241017200738.png]]
 - #### Cholesky 
+	- floating point operation : $n^3/3$
+	- $LDL^T$
 - ##### Modified Cholesky
+	- $S = P^TLD^{1/2}$ 로 놓고
+$$
+\tilde{c_{bm}}(x_b, \delta_m^*) = \frac{1}{2}||S^T(x_b\boxminus\hat{x_b}) + S^{-1}g_t||^2
+$$
+로 표현. 이게 [[📦️VINS-Mono Derivation, Optimization|vins_derivation_optimization]]이랑 비슷한 것 같다.
+
+만약 ill-conditioned면, factorization이 존재하지 않고, 있더라도 nonpositive entry를 가지는 대각행렬 D를 가질 거임. 
+→ 단순히 D 값들을 고정하는 것은 $\Lambda_t$에 큰 변화를 준다고 하는데,  D값들을 고정하는 게 뭔지 정확히 모르겠다. #점검 
+
 #### Specialised QR Decomposition
 
 결론적으로 두 방식 모두  marginalization에서 rank-deficient Jacobian을 사용했고, well-conditioned 문제에서는 거의 동일하게 작동했다.
