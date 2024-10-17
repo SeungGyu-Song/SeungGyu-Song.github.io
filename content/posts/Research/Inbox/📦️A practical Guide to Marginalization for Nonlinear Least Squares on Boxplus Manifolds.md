@@ -37,6 +37,8 @@ draft: true
 
 결론적으로 두 방식 모두  marginalization에서 rank-deficient Jacobian을 사용했고, well-conditioned 문제에서는 거의 동일하게 작동했다.
 
+### Numerical stability
+- $LDL^{\top}$과 modified $LDL^{\top}$ factorization이 제일 연산량이 적었따.
 
 ### ❓️Questions
 
