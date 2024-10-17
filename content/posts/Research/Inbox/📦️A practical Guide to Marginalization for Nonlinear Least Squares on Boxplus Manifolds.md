@@ -26,6 +26,18 @@ draft: true
 [[📦️Square Root Marginalization for Sliding-Window Bundle Adjustment]]
 
 
+## 결론
+
+이 technical report에서는 아래의 방법을 통해서 실험했다. (GPS-IMU의 optimization)
+#### Schur-complement
+- ##### Eigen Decomposition
+- #### Cholesky 
+- ##### Modified Cholesky
+#### Specialised QR Decomposition
+
+결론적으로 두 방식 모두  marginalization에서 rank-deficient Jacobian을 사용했고, well-conditioned 문제에서는 거의 동일하게 작동했다.
+
+
 ### ❓️Questions
 
 
