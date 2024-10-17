@@ -39,6 +39,12 @@ draft: true
 
 ### Numerical stability
 - $LDL^{\top}$과 modified $LDL^{\top}$ factorization이 제일 연산량이 적었따.
+- #### Graph\
+- ##### Rotation RMSE, Condition number, $\Lambda_t$의 perturbation 
+- ![[Pasted image 20241017193057.png|800]]
+- 10초 후부터 Rotation error가 줄어들고, Jacobian $J_b, J_m$으로부터의 condition number도 줄어들었다. (eigen decomposition을 했을 때)
+##### Ill-conditioned problem
+$LDL^{\top}$ 는 $\Lambda_t$에 perturbation을 줄 거다. 여러 identity를 추가하면서. → 
 
 ### ❓️Questions
 
