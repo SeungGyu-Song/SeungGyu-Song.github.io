@@ -1,9 +1,10 @@
 ---
 aliases: 
 date: 2024-10-15
-title: 
+title: A practical Guide to Marginalization for Nonlinear Least Squares on Boxplus Manifolds
 URL: https://evanlev.github.io/marginalization.pdf
-tags: 
+tags:
+  - Marginalization
 draft: true
 ---
 ### Critics
@@ -29,7 +30,20 @@ draft: true
 ## 결론
 
 이 technical report에서는 아래의 방법을 통해서 실험했다. (GPS-IMU의 optimization)
+
+- 일반 Cost function ($x_m$ : to be marginalized, $x_b$ : markov blanket, $x_r$ : remaining)
+ ![[Pasted image 20241017194141.png]] 
+![[Pasted image 20241017194214.png]]
+위 식을 다음과 같이 marginaglization 부분을 변경![[Pasted image 20241017194428.png]]
+
+![[Pasted image 20241017194506.png]]
+($x_m = \hat x_m \boxplus \delta_m$ ) : \hat_x 가 linearization point.
+![[Pasted image 20241017194657.png]]
+![[Pasted image 20241017194736.png]]
+
+
 #### Schur-complement
+
 - ##### Eigen Decomposition
 - #### Cholesky 
 - ##### Modified Cholesky
@@ -44,7 +58,10 @@ draft: true
 - ![[Pasted image 20241017193057.png|800]]
 - 10초 후부터 Rotation error가 줄어들고, Jacobian $J_b, J_m$으로부터의 condition number도 줄어들었다. (eigen decomposition을 했을 때)
 ##### Ill-conditioned problem
-$LDL^{\top}$ 는 $\Lambda_t$에 perturbation을 줄 거다. 여러 identity를 추가하면서. → 
+- $LDL^{\top}$ 는 $\Lambda_t$에 perturbation을 줄 거다. 여러 identity를 추가하면서. → spurious measurement of zero error
+- $LDL^{\top}$이 제일 큰 perturbation을 준다.
+- modified cholesky가 lowest overall computational cost, worst case에서 smaller perturbation을 요구함. 
+
 
 ### ❓️Questions
 
