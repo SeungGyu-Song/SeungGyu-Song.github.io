@@ -21,17 +21,7 @@ draft: true
 #manifold manifold란 내가 관심이 있는 변수들을 표현하기 위한 공간이라고 생각하면 되고, smooth geometry를 가진 mathematical sets라고 받아들이자.
 
 ## 3 Generic Marginalization
-### 1. Schur-complement
-### 2. Cholesky Factorization based
-### 3. QR Factorization based
-[[📦️Square Root Marginalization for Sliding-Window Bundle Adjustment]]
-
-
-## 결론
-
-이 technical report에서는 아래의 방법을 통해서 실험했다. (GPS-IMU의 optimization)
-
-- 일반 Cost function ($x_m$ : to be marginalized, $x_b$ : markov blanket, $x_r$ : remaining)
+일반 Cost function ($x_m$ : to be marginalized, $x_b$ : markov blanket, $x_r$ : remaining)
  ![[Pasted image 20241017194141.png]] 
 ![[Pasted image 20241017194214.png]]
 위 식을 다음과 같이 marginaglization 부분을 변경![[Pasted image 20241017194428.png]]
@@ -41,8 +31,7 @@ draft: true
 ![[Pasted image 20241017194657.png]]
 ![[Pasted image 20241017194736.png]]
 
-
-#### Schur-complement
+### 1. Schur-complement
 ![[Pasted image 20241017194840.png]]
 $$
 g_m = J_m^Tf \qquad  g_b = J_b^Tf
@@ -66,9 +55,11 @@ $$
 - ##### Eigen Decomposition
 	- $\Lambda_t = UDU^T$, 이 때 $\Lambda_t$가 대칭행렬이라 분해하면 eigen vectore들이 orthogonal인 거 같음. 근데 연산량이 많고 iterative하게 해야함.
 	- ![[Pasted image 20241017200738.png]]
-- #### Cholesky 
-	- floating point operation : $n^3/3$
-	- $LDL^T$
+
+### 2. Cholesky Factorization based
+ #### Cholesky 
+- floating point operation : $n^3/3$
+- $LDL^T$
 - ##### Modified Cholesky
 	- $S = P^TLD^{1/2}$ 로 놓고
 $$
@@ -79,8 +70,33 @@ $$
 만약 ill-conditioned면, factorization이 존재하지 않고, 있더라도 nonpositive entry를 가지는 대각행렬 D를 가질 거임. 
 → 단순히 D 값들을 고정하는 것은 $\Lambda_t$에 큰 변화를 준다고 하는데,  D값들을 고정하는 게 뭔지 정확히 모르겠다. #점검 
 
-#### Specialised QR Decomposition
+정리하면, 
+![[Pasted image 20241017200854.png]]
 
+으로 표현이 되고, 새로운 objective function은 $\hat x_b, \hat x_r$에 대해서 새로운 linearization point에서 다시 linearization이 된다.
+
+![[Pasted image 20241017201104.png]]
+
+따라서 이를 풀기 위해서는 아래와 같은 term이 필요하고, 
+$$
+\frac{\partial}{\partial \delta_b}(\hat{x_b}\boxplus \delta_b) \boxminus \hat x_b
+$$
+아래 처럼 linearization point가 일치하지 않게 되는 경우가 발생한다.
+![[Pasted image 20241017201332.png]]
+
+### 3. QR Factorization based
+[[📦️Square Root Marginalization for Sliding-Window Bundle Adjustment]]
+
+QR factorization을 활용한 방법은 marginalization term인 아래에서부터 시작한다.
+![[Pasted image 20241017194657.png]]
+
+![[Pasted image 20241017201805.png]]
+여기서 $J_b, J_m$ 모두 full-rank일 필요는 없다. 
+## 결론
+
+이 technical report에서는 아래의 방법을 통해서 실험했다. (GPS-IMU의 optimization)
+
+- 
 결론적으로 두 방식 모두  marginalization에서 rank-deficient Jacobian을 사용했고, well-conditioned 문제에서는 거의 동일하게 작동했다.
 
 ### Numerical stability
