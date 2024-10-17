@@ -43,6 +43,23 @@ draft: true
 
 
 #### Schur-complement
+![[Pasted image 20241017194840.png]]
+$$
+g_m = J_m^Tf \qquad  g_b = J_b^Tf
+$$
+$$
+\Lambda_{mb} = J_m^TJ_b \qquad \Lambda_{bb} = J_b^TJ_b \qquad \Lambda_{mm} = J_m^TJ_m
+$$
+
+가 [[📦️VINS-Mono Derivation, Optimization]]하고 똑같은 구조로 되어있음.
+![[Pasted image 20241017194957.png]]
+로 $\delta_m^*$를 Pseudo-inverse로 한 번에 구함.
+이제 구했으니, $x_b$에 대해 구해야하기 때문에 schur-complement를 도입.
+$$
+\begin{bmatrix} I & 0 \\ -\Lambda_{bm}\Lambda_{mm}^{-1} & I]\end{bmatrix} \begin{bmatrix} \Lambda_{mm} & \Lambda_{mb} \\ \Lambda_{bm} & \Lambda_{bb} \end{bmatrix}  = \begin{bmatrix} \Lambda_{mm} & \Lambda_{mb} \\ 0 & -\Lambda_{bm}\Lambda_{mm}^{-1}\Lambda_{mb} + \Lambda_{bb} \end{bmatrix}
+$$
+
+이래서 
 
 - ##### Eigen Decomposition
 - #### Cholesky 
