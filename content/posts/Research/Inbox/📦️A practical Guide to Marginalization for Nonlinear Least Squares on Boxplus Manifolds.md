@@ -85,14 +85,30 @@ $$
 ![[Pasted image 20241017201332.png]]
 
 ### 3. QR Factorization based
-[[📦️Square Root Marginalization for Sliding-Window Bundle Adjustment]]
+
 
 QR factorization을 활용한 방법은 marginalization term인 아래에서부터 시작한다.
 ![[Pasted image 20241017194657.png]]
 
 ![[Pasted image 20241017201805.png]]
-여기서 $J_b, J_m$ 모두 full-rank일 필요는 없다. 
+여기서 $J_b, J_m$ 모두 full-rank일 필요는 없다. 만약 r이 $J_ m$의 rank이고, r≤m이라 하고, N을 residual $f$의 dimension이라 하자.
+
+$$
+\begin{bmatrix} J_m & J_b\end{bmatrix} = QR , 
+\qquad R = \begin{bmatrix}R_{11} & R_{12} \\ 0 & R_{22} \end{bmatrix}
+$$
+로 분해가 될 수 있다. [[📦️Square Root Marginalization for Sliding-Window Bundle Adjustment]]
+$$
+R_{11} \in \mathbb{R}^{r \mathrm{x} m}, R_{22} \in \mathbb{R}^{N - r \mathrm{x} b}, R_{12} \in \mathbb{R}^{r \mathrm{x} b}
+$$
+
+![[Pasted image 20241017202438.png]]
+
+결론적으로 식이 아래와 같이 된다. 여기서는 schur-complement와 다르게 SVD를 하고 그러는 게 아니라 그냥 nullspace marginalization으로만 활용하는 거 같다.
+![[Pasted image 20241017202501.png]]
+
 ## 결론
+##### marginalization을 진행하면 graph가 dense해진다.
 
 이 technical report에서는 아래의 방법을 통해서 실험했다. (GPS-IMU의 optimization)
 
