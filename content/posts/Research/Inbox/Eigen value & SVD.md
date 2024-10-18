@@ -5,6 +5,8 @@ tags:
   - Linear_Algebra
 ---
  reference : [tistory 블로그](https://deep-learning-study.tistory.com/324)
+ - A의 determinant = 대각성분의 곱 (diagonal matrix의 determinant)
+ 
 ![[Pasted image 20241018130153.png]]
 
 reference : [다른 tistory 블로그](https://twlab.tistory.com/46)
@@ -26,4 +28,7 @@ $$
 
 따라서 eigen vector들이 반드시 transformation의 most dramatic effect를 설명하는 것이 아니다.
 
+### 근데 만약 A가 대칭행렬이라면 eigvenvector들을 main direction이라고 해석할 수 있다.
+[[Positive semidefinite]]에서 보면 eigen vector의 제일 큰 놈 방향으로 곡면이 휘어있음을 알 수 있다.
 
+# SVD
