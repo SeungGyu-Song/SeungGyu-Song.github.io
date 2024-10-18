@@ -18,7 +18,9 @@ URL:
 
 ## Methodology
 ### Loc.- Module
-ICP optimization의 Hessian 행렬 
+ICP optimization의 Hessian 행렬 **A’** 의 null space를 근사하는 것이 목적.
+→ Hessian의 nullspace에 해당하는 eigen value를 찾아야함.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+
 
 ## Experiments
 - 어떤 데이터
