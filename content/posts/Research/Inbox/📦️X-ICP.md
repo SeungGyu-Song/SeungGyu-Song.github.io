@@ -17,7 +17,8 @@ URL:
 - 어떤 문제를 풀 것인지
 
 ## Methodology
-
+### Loc.- Module
+ICP optimization의 Hessian 행렬 
 
 ## Experiments
 - 어떤 데이터
