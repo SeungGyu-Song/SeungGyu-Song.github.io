@@ -23,3 +23,7 @@ $$
 A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
 $$
 이 때 eigen vector는 (1,0)이 되는데 이 행렬은 사실 shear 변환을 해주는 matrix라 (1,0)이 이 행렬의 주요 특성을 대변하지는 않는다.
+
+따라서 eigen vector들이 반드시 transformation의 most dramatic effect를 설명하는 것이 아니다.
+
+
