@@ -31,8 +31,10 @@ LiDAR Data들이 대칭적으로 나오면 robot이 움직였을 때, local map�
 2. 그럼 LiDAR measurement에 대한 Jacobian이 full-rank면 되는 건지? 정확히 어떤 게 full-rank여야하는 건지 알아야함.
 3. 내 생각에는 Gaussian-noise가 mean이 0이니까 뭔가 다 합치면 update할 때 noise가 상쇄될 것으로 예상했는데, 이에 대해 확실하지 않음. 
 	1. 근데 filter  방식이면 imu가 크게 관여하는 게 아니니까 lidar의 information matrix처럼 계수로 들어가는 matrix가 6 DoF에 대해서 차이가 크지 않다면 괜찮을 거 같은데. 
+4.  ICP가 일어나는 원리를 알면 좋을텐데. 
 
-~~아니면 Localizability와 같은 행위를 해서 어디로 degeneracy가 일어날 것 같다는 것을 사전에 체크 하고, 이 방향으로의 point gaussian noise를 줘도 될 거 ㅅ같다.~~ 
+~~아니면 Localizability와 같은 행위를 해서 어디로 degeneracy가 일어날 것 같다는 것을 사전에 체크 하고, 이 방향으로의 point cloud에 gaussian noise를 줘도 될 거 ㅅ같다.~~ 
+
 
 ## Reference
 - [[📦️BASALT]]
